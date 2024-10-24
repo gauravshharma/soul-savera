@@ -31,7 +31,7 @@
   transition: transform 0.25s;
   -webkit-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  background: #fff;
+  background: var(--blue-dark)
 }
 .navbar-toggler span {
   position: absolute;
@@ -43,7 +43,7 @@
   text-indent: 200%;
   -webkit-transition: opacity 0.25s;
   transition: opacity 0.25s;
-  background: #fff;
+  background: var(--blue-dark);
 }
 .navbar-toggler::before {
   -webkit-transform: translate3d(0, -9px, 0) scale3d(1, 1, 1);
@@ -77,7 +77,7 @@
 /*Menu Two*/
 .theme-menu-two .navbar .navbar-toggler {background: var(--red-light);}
 /*Menu Four*/
-.theme-menu-four .navbar .navbar-toggler {background: var(--vin-red);}
+.theme-menu-four .navbar .navbar-toggler {background: transparent}
 .navbar .navbar-nav {font-family: 'Rubik', sans-serif;}
 .navbar {
   padding: 0;

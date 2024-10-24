@@ -151,9 +151,10 @@
   .block-style-forty .icon {width: 55px; height: 55px; padding: 15px;}
   .block-style-forty h4 {font-size: 22px; margin: 20px 0 15px;}
   .block-style-fortyOne p {font-size: 18px; margin:25px 0 30px}
-  .block-style-fortyTwo {border-radius: 30px; padding: 35px 15px 45px;}
-  .block-style-fortyTwo .icon {height: 65px; width: 65px;}
+  .block-style-fortyTwo {border-radius: 30px; padding: 35px 10px; height: 200px;}
+  .block-style-fortyTwo .icon {height: 100px; width: 100px;}
   .block-style-fortyTwo h5 {font-size: 17px; margin-top: 25px;}
+  .block-style-fortyTwo h4 {font-size: 17px; margin-top: 25px;}
 }
 /*(max-width: 1199px)*/
 
@@ -286,14 +287,14 @@
   .title-style-seven p {font-size: 18px;}
   .title-style-six .text-xs {font-size: 18px; padding-top: 25px;}
   body .theme-btn-five {line-height: 50px; padding: 0 25px; min-width: 155px;}
-  .theme-main-menu {padding: 30px 15px;}
+  .theme-main-menu {padding: 0 15px;}
   .theme-menu-two #mega-menu-holder,.theme-menu-three #mega-menu-holder {margin-left: auto;}
-  .theme-main-menu>div {position: static;}
+  .theme-main-menu>div {position: static; margin: 0;}
   .theme-menu-two .logo,.theme-menu-three .logo,.theme-menu-five .logo {left: 15px;}
   .theme-menu-five .right-widget {right: 75px;}
   .theme-menu-five #mega-menu-holder {margin-left: auto;}
   .main-page-wrapper {padding-top: 99px;}
-  .theme-main-menu.sticky-menu.fixed {padding: 20px 15px;}
+  .theme-main-menu.sticky-menu.fixed {padding: 0px 15px;}
   .hero-banner-two .container {padding: 0 15px;}
   .hero-banner-four .illustration {max-width: 100%; margin: 0 auto;}
   .hero-banner-four {padding: 150px 0 50px;}
@@ -311,7 +312,7 @@
   .block-style-eighteen .text-wrapper .title br,.clientSliderSix .feedback-wrapper:before {display: none;}
   .hero-banner-four .text-wrapper {padding-top: 50px;}
   .hero-banner-four h1 {font-size: 55px;}
-  .hero-banner-four .sub-text {font-size: 22px; line-height: 1.6em; padding: 25px 0 40px;}
+  .hero-banner-four .sub-text {font-size: 18px; line-height: 1.6em; padding: 25px 0 40px;}
   .fancy-text-block-nineteen .text-wrapper .client-info {font-size: 20px;}
   .fancy-text-block-nineteen .text-wrapper p {font-size: 20px; padding-top: 30px;}
   .fancy-text-block-nineteen .text-wrapper .name {font-size: 22px; margin-top: 40px;}
@@ -453,6 +454,16 @@
   .fancy-hero-three .sub-heading {font-size: 20px;}
   .fancy-hero-three {padding: 150px 0 80px;}
   .fancy-feature-seven {padding: 80px 0 80px;}
+  .block-style-nine .text-wrapper {
+    margin-top: 30px;
+  }
+  .block-style-nine:nth-child(1) {
+    padding-bottom: 50px;
+  }
+  .block-style-nine:nth-child(2) .text-wrapper {
+    margin-top: 100px
+  }
+  .block-style-nine:nth-child(2) { padding-bottom: 80px;}
   .block-style-nine .text-wrapper h6 {font-size: 15px;}
   .block-style-nine .text-wrapper .title {font-size: 35px; padding-bottom: 15px;}
   .block-style-nine .text-wrapper p {font-size: 18px;}
@@ -888,6 +899,7 @@
   .hero-banner-sixteen .hero-heading {font-size: 40px;}
   .hero-banner-sixteen .hero-heading span:before {height: 10px;}
   .fancy-feature-fortyFive .shapes,.fancy-feature-fortySix .shapes {display: none;}
+  .illustration-holder {width: 400px;}
 }
 /*(max-width: 991px)*/
 
@@ -921,7 +933,9 @@
     margin: 15px 0;
   }
   .block-style-thirteen .title {padding: 15px 0;}
-  .block-style-thirteen .icon {height: 55px;}
+  .block-style-thirteen .icon {height: 120px;}
+  .block-style-thirteen { padding: 32px 40px 20px;}
+  .block-style-thirteen .title h4 { padding: 0;}
   .pricing-section-three .pricing-table-area-three:before,
   .fancy-text-block-four:after,.fancy-text-block-four:before,
   .fancy-text-block-one:before, .fancy-text-block-one:after,.faqs-inner-page .shape-one,
