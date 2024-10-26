@@ -836,6 +836,13 @@
     $(window).on ('load', function (){ // makes sure the whole site is loaded
 
 // -------------------- Site Preloader
+
+// $(window).on("load", function() {
+//   $(".sun-container").fadeOut();
+//   $(".loading-screen").delay(350).fadeOut("slow");
+//   $(".loading-screen").hide();
+//   $('body').delay(350).css({'overflow':'visible'});
+// });
         $('#ctn-preloader').fadeOut(); // will first fade out the loading animation
         $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
         $('body').delay(350).css({'overflow':'visible'});
