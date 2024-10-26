@@ -6714,7 +6714,18 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   white-space: nowrap;
   color: #ffffff;
 }
-
+.values-list-item {
+  color: #808080;
+  margin: 5px auto;
+}
+.values-list-item strong {
+  color: #000;
+}
+.values-list-item span {
+  color: #808080;
+  font-size:16px;
+  font-weight: 300;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .content-wrapper {
