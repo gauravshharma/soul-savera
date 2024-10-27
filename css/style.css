@@ -297,7 +297,7 @@
   --blue-dark:#454fad;
   --red-light:#f94e26;
   --yellow-deep:#e59a24;
-  --yellow-light:#FFDD99;
+  --yellow-light:#070707;
   --blue-light:#ECF6FF;
   --purple-blue:#BF9AC7;
   --vin-red:#973C56;
@@ -549,7 +549,7 @@ body {
 .title-style-six .text-xs {font-size: 22px; line-height: 1.65em; padding-top: 30px;}
 .dark-style .title-style-six .text-xs {color: rgba(255, 255, 255, 0.4);}
 .title-style-seven h2 {
-  font-size: 64px;
+  font-size: 60px;
   font-weight: 500;
   line-height: 1.32em;
   font-family: "Playfair Display", sans-serif;
@@ -631,8 +631,8 @@ body {
   padding-bottom: 10px;
 }
 .title-style-eleven h2 {
-  font-family: 'Rubik';
-  font-size: 58px;
+  font-family: 'Playfair Display', sans-serif;
+  font-size: 60px;
   font-weight: 500;
   line-height: 1.29em;
   letter-spacing: -2px;
@@ -710,7 +710,7 @@ body {
   padding-bottom: 10px;
 }
 .title-style-fifteen h2 {
-  font-size: 64px;
+  font-size: 60px;
   font-weight: 500;
   line-height: 1.40em;
   text-transform: uppercase;
@@ -10240,6 +10240,7 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   background: #fff;
   padding: 50px 35px;
   margin-top: 45px;
+  height: 320px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
@@ -10251,9 +10252,13 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   margin: 0 auto;
 }
 .block-style-twentyTwo h4 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
-  padding: 26px 0;
+  padding: 20px 0;
+  flex-basis: 100%
+}
+.block-style-twentyTwo p {
+  font-size: 16px;
 }
 .block-style-twentyTwo .arrow-icon {
   margin-top: 30px;
@@ -14502,9 +14507,10 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
 .block-style-fortyTwo h4 {
   font-weight: 500;
   margin-top: 55px;
+  font-size: 20px;
 }
 
-* Preloader */
+/* * Preloader */ 
 .preloader {
   position: fixed;
   top: 0;
