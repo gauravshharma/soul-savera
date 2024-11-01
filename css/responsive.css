@@ -14,7 +14,7 @@
   .container {max-width: 1170px;}
   .container-custom.container {max-width: 1270px;}
 }
-@media (min-width: 992px) {
+@media (min-width: 992px) and (max-width:1400)  {
   .container {padding-right: 0;padding-left: 0;}
 }
 @media (min-width: 1200px) and (max-width: 1450px) {
@@ -310,7 +310,7 @@
   .contact-us-light:before,.pricing-section-two .pricing-table-area .shape-one,.hero-banner-three .shape-six,
   .theme-footer-three:before,.fancy-hero-five .shapes,.fancy-text-block-twentyOne .img-meta .shape-one,
   .client-feedback-slider-four .shapes,.fancy-feature-twelve .shape-one,.fancy-feature-thirteen .carousel-indicators li:before,
-  .block-style-eighteen .text-wrapper .title br,.clientSliderSix .feedback-wrapper:before {display: none;}
+  .block-style-eighteen .text-wrapper .title br, .feedback-wrapper:before {display: none;}
   .hero-banner-four .text-wrapper {padding-top: 50px;}
   .hero-banner-four h1 {font-size: 55px;}
   .hero-banner-four .sub-text {font-size: 18px; line-height: 1.6em; padding: 25px 0 40px;}
@@ -659,7 +659,7 @@
   .pricing-table-area-six .pr-table-wrapper .price {font-size: 40px;}
   .pricing-table-area-six .pr-table-wrapper .pack-details {font-size: 14px;padding-bottom: 20px;}
   .pricing-table-area-six .pr-table-wrapper {padding: 30px 15px;}
-  .clientSliderSix {margin-top: 0;}
+  .clientSliderSix {margin-top: 0; height: 50vh;}
   .clientSliderSix .feedback-wrapper {padding: 25px 15px 25px 20px;}
   .clientSliderSix .feedback-wrapper p {font-size: 18px; padding-bottom: 30px;}
   .theme-footer-seven .title {color: #000;padding-bottom: 12px; font-size: 18px;}
