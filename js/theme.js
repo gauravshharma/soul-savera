@@ -913,5 +913,14 @@
         }
 
     });  //End On Load Function
+
+    document.getElementById("appointmentForm").addEventListener("submit", function(event) {
+      const phoneField = document.getElementById("phone");
+      const phonePattern = /^[6-9]\d{9}$/; // Indian numbers starting with 6-9 and 10 digits
+      if (!phonePattern.test(phoneField.value)) {
+        alert("Please enter a valid 10-digit Indian phone number.");
+        event.preventDefault();
+      }
+    });
     
 })(jQuery);
