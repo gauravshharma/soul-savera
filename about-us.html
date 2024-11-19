@@ -29,6 +29,8 @@
 		<link rel="stylesheet" type="text/css" href="css/responsive.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+		<link rel="stylesheet" href="https://codepen.io/z-/pen/a8e37caf2a04602ea5815e5acedab458.scss?theme">
 		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 		<!-- Fix Internet Explorer ______________________________________-->
 		<!--[if lt IE 9]>
@@ -55,8 +57,8 @@
 				Theme Main Menu
 			============================================== 
 			-->
-			<div class="theme-main-menu sticky-menu theme-menu-four bg-none position-relative">
-				<div class="d-flex align-items-center justify-content-between alt">
+			<div class="theme-main-menu sticky-menu theme-menu-four bg-none">
+				<div class="d-flex align-items-center justify-content-between">
 					<div class="logo"><a href="index.html"><img src="./images/assets/logo-no-bg.png" alt="Soul Savera"/></a></div>
 					<nav id="mega-menu-holder" class="navbar navbar-expand-lg">
 						<div  class="nav-container">
@@ -73,13 +75,32 @@
 										<li class="nav-item position-static">
 								            <a class="nav-link" href="services.html" >Services</a>
 								        </li>
+										<li class="nav-item dropdown">
+								            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Resources</a>
+								            <ul class="dropdown-menu">
+									            <li>
+									            	<a href="https://soulsavera.home.blog/" target="_blank" class="dropdown-item">Blogs</a>
+									            </li>
+									            <li>
+									            	<a href="#" class="dropdown-item">Podcast and Videos</a>
+									            </li>
+									        	</li>
+								            </ul> <!-- /.dropdown-menu -->
+								        </li>
+										
 										<li class="nav-item position-static">
-								            <a class="nav-link" href="blogs.html" >Blogs</a>
+								            <a class="nav-link" href="careers.html" >Work with Us</a>
+								        </li>
+										<li class="nav-item position-static">
+								            <a class="nav-link" style="text-decoration: underline;" href="contact.html" >Contact Us</a>
 								        </li>
 									</ul>
 									<ul class="right-button-group d-flex align-items-center justify-content-center">
+										<!-- <li>
+											<a href="contact.html" class="signIn-action">Contact Us</a>
+										</li> -->
 								   		<li>
-											<a href="contact.html" class="theme-btn-twelve">Get Help?</a>
+											<a href="appointment.html" class="theme-btn-nine"><span>Get Started</span> <img src="images/icon/53.svg" alt="arrow-right" class="ml-2"></a>
 										</li>
 									</ul>
 						   		</div>
@@ -87,7 +108,7 @@
 						</div> 
 					</nav>
 				</div>
-			</div> <!-- /.theme-main-menu -->
+			</div> 
 
 
 			
@@ -95,8 +116,8 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-9 col-lg-11 col-md-8 m-auto">
-							<h1 class="hero-heading">Welcome to <strong>Soul Savera</strong></h1>
-							<p class="hero-sub-heading">— where vulnerability meets strength</p>
+							<h1 class="hero-heading mt-0">Welcome to <strong>Soul Savera</strong></h1>
+							<p class="hero-sub-heading pt-0">— where vulnerability meets strength</p>
 						</div>
 					</div>
 				</div>
@@ -112,10 +133,16 @@
 				<div class="container">
 					<div class="app-preview-slider-one">
 						<div class="item">
+							<div class="img-holder"><img src="images/assets/about-7.jpg" alt=""></div>
+						</div>
+						<div class="item">
 							<div class="img-holder"><img src="images/assets/about-4.jpg" alt=""></div>
 						</div>
 						<div class="item">
-							<div class="img-holder"><img src="images/assets/about-7.jpg" alt=""></div>
+							<div class="img-holder"><img src="images/assets/pexels-shvetsa-4587855.jpg" alt=""></div>
+						</div>
+						<div class="item">
+							<div class="img-holder"><img src="images/assets/about-8.jpg" alt=""></div>
 						</div>
 						<div class="item">
 							<div class="img-holder"><img src="images/assets/about-6.jpg" alt=""></div>
@@ -123,6 +150,7 @@
 						<div class="item">
 							<div class="img-holder"><img src="images/assets/about-10.jpg" alt=""></div>
 						</div>
+
 					</div>
 				</div>
 				<img src="images/shape/bg5.svg" alt="" class="shapes round-bg">
@@ -139,16 +167,14 @@
                             <div class="text-wrapper">
                                 <h6 data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">What is Soul Savera?</h6>
                                 <h3 class="title" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">About Us</h3>
-                                <p class="font-rubik fs-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">Just like the warmth of sun during the winters, At Soul Savera, we envision a space where every individual, regardless of their diverse identities and life experiences, finds peace, healing, and growth through compassionate and personalized mental health support. Our goal is to create a nurturing environment where individuals can explore their emotions, face challenges, and ultimately embrace their true selves with confidence and strength.
+                                <p class="font-rubik fs-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">Soul Savera is a heartfelt project dedicated to supporting children, adolescents, adults and families through a multidisciplinary intervention center, deeply rooted in the understanding and nurturing of socio-emotional development. Founded with the vision of making mental health support accessible to all, our journey was driven by a passion to create individualized therapeutic interventions for young minds.
                                 </p><br/>
-                                <p class="font-rubik fs-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">Whether you’re a child, young adult, parent, or professional, we are here to guide you on your journey of self-discovery and transformation. We understand that vulnerability is a strength, and we proudly stand by the belief that “Sensitive is the new strong.” This is a space where it’s okay to be yourself, where every individual can embrace their emotional and spiritual growth without judgment.
+                                <p class="font-rubik fs-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">The project closest to my heart is working with people of all age groups, both neurodiverse and neurotypical, using trauma-informed practices to foster resilience and growth. With a commitment to inclusivity and a compassionate approach, Soul Savera has grown into a safe space where every individual, regardless of background or ability, is seen, understood, and supported.
                                 </p><br/>
-                                <p class="font-rubik fs-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">We offer a wide range of professional services, including therapy, workshops, counseling, training, and assessments, designed to empower you to navigate life's challenges and unlock your full potential. Our unique approach blends reflection, mindfulness, and compassion with evidence-based techniques like Cognitive Behavioral Therapy (CBT), art therapy, and holistic interventions.
-                                </p><br/>
-                                <p class="font-rubik fs-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">At Soul Savera, we don’t just work with our clients — we walk alongside them, providing support and encouragement at every step. With a deep-rooted understanding of mental health conditions such as depression, anxiety, low self-esteem, and emotional resilience, we’re here to help you embrace your vulnerability and turn it into your greatest strength.
-                                </p><br/>
-                                <h6 class="text-dark" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100"><strong>Let us be your guiding light on the path to emotional well-being and peace of mind.
-                                </strong></h6>
+                                <p class="font-rubik fs-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">Our name is a reminder of our mission: to bring light, warmth, and support to those seeking mental and emotional well-being, creating opportunities for transformation and resilience at every step. This philosophy is woven into everything we do, from individualized therapies for children and adolescents to socio emotional development & trauma-informed support for adults. At Soul Savera, we are dedicated to empowering lives and supporting the journeys of individuals and families as they rise to meet their full potential.
+                                </p>
+                                <!-- <h6 class="text-dark mt-30" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100"><strong>Let us be your guiding light on the path to emotional well-being and peace of mind.
+                                </strong></h6> -->
                             </div>
                         </div>
                     </div>
@@ -157,80 +183,104 @@
 			
 
 			<!-- Vision, Mission, Values-->
-
-			<div class="fancy-text-block-sixteen pt-100 mt-100 md-pt-80">
-				<div class="container">
-					<div class="img-slick-slider" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
-						<div class="item row">
-								<div class="col-lg-6 col-md-8 ml-auto order-lg-last vmv-illustration aos-init aos-animate" data-aos="fade-right" data-aos-duration="1200">
-									<div class="illustration-holder">
-										<img src="images/assets/ils_12.svg" alt="">
-									</div>
+			
+			<div class="fancy-feature-forty lg-container mt-100 mb-100 md-mt-120" id="product">
+				<div class="container vmvSlider">
+					<div class="block-style-thirtyEight bg-yellow">
+						<div class="row align-items-center">
+							<div class="col-xl-5 col-lg-6 aos-init aos-animate" data-aos="fade-right">
+								<div class="title-style-sixteen">
+									<h2>Our Vision</h2>
 								</div>
-								<div class="col-lg-6 col-md-4 order-lg-first">
-									<div class="text-wrapper bg-white p-5 br-40  aos-init aos-animate" data-aos="fade-right" data-aos-duration="1200">
-										<h2 class="font-rubik title">Vision</h2>
-										<p>To create a world where every individual feels safe to express their emotions, embrace vulnerability, and discover their true potential.</p>
-									</div> <!-- /.text-wrapper -->
+								<p class="mt-30 pr-xl-5">At Soul Savera, we envision a world where mental health support is accessible, inclusive, and empowering. With an approach centered on child & adolescents along with adults, we provide individualized therapeutic interventions, while creating an enriching environment that encourages functional independence.
+									<br/>
+									We are also committed to fostering socio-emotional development and resilience in adults, ensuring that everyone has the tools and support to lead fulfilling, balanced lives.
+								</p>
+								<!-- <div class="content-container">
+									<p><span class="highlight">S</span>afe space for young minds</p>
+									<p><span class="highlight">O</span>pen to all abilities and backgrounds</p>
+									<p><span class="highlight">U</span>nderstanding every child’s unique journey</p>
+									<p><span class="highlight">L</span>eading with compassion and care</p>
+									<p><span class="highlight">S</span>upporting development through tailored therapies</p>
+									<p><span class="highlight">A</span>ccepting each child’s strengths and needs</p>
+									<p><span class="highlight">V</span>oicing emotions in a non-judgmental way</p>
+									<p><span class="highlight">E</span>mpowering Individuals, parents and families with guidance and resources</p>
+									<p><span class="highlight">R</span>einforcing resilience</p>
+									<p><span class="highlight">A</span>dvancing growth, inclusion, and joy</p>
+								</div> -->
+								
+							</div>
+							<div class="col-xl-7 col-lg-5 col-md-8 ml-auto text-right aos-init aos-animate" data-aos="fade-left">
+								<div class="img-meta image-vmv d-inline-block position-relative md-mt-70">
+									<img src="images/assets/vision.jpg" alt="">
+									<img src="images/shape/244.svg" alt="" class="shapes shape-one aos-init aos-animate" data-aos="fade-down" data-aos-delay="300">
+									<!-- <img src="images/media/img_121.png" alt="" class="shapes shape-two aos-init aos-animate" data-aos="fade-up" data-aos-delay="300"> -->
 								</div>
 							</div>
-						<div class="item row">
+							<div class="col-xl-12 col-lg-12 col-md-12 mr-auto aos-init aos-animate" data-aos="fade-left">
+								<h1 class="text-outline text-heading">Vision</h1>
+							</div>
+						</div>
+					</div> 
+					<div class="block-style-thirtyEight bg-blue">
+						<div class="row align-items-center">
+							<div class="col-xl-5 col-lg-6 aos-init aos-animate" data-aos="fade-right">
+								<div class="title-style-sixteen">
+									<h2 class="text-white">Our Mission</h2>
+								</div>
+								<p class="mt-30 pr-xl-5 color-light">At Soul Savera, we’re dedicated to providing holistic, inclusive mental health care for children, adolescents, and adults, addressing socio-emotional, developmental, and therapeutic needs at every step. We believe that mental health is best nurtured through innovation, accessibility, and empowerment, so we continuously evolve our services to reach and support each unique individual and family. 
+								</p>
 								
-								<div class="col-lg-6 col-md-4 order-lg-last">
-									<div class="text-wrapper bg-white p-5 br-40 aos-init aos-animate" data-aos="fade-right" data-aos-duration="1200">
-										<h2 class="font-rubik title">Mission</h2>
-										<p>To provide compassionate mental health services that empower individuals to heal, grow, and thrive emotionally, spiritually, and mentally.
-										</p>
-									</div> <!-- /.text-wrapper -->
+							</div>
+							<div class="col-xl-7 col-lg-5 col-md-8 ml-auto text-right aos-init aos-animate" data-aos="fade-left">
+								<div class="img-meta image-vmv d-inline-block position-relative md-mt-70">
+									<img src="images/assets/mission-1.jpg" alt="">
+									<img src="images/shape/244.svg" alt="" class="shapes shape-one aos-init aos-animate" data-aos="fade-down" data-aos-delay="300">
+									<!-- <img src="images/media/img_121.png" alt="" class="shapes shape-two aos-init aos-animate" data-aos="fade-up" data-aos-delay="300"> -->
 								</div>
-								<div class="col-lg-6 col-md-8 ml-auto order-lg-first aos-init aos-animate" data-aos="fade-left" data-aos-duration="1200">
-									<div class="illustration-holder vmv-illustration">
-										<img src="images/assets/ils_13.svg" alt="">
-									</div>
+							</div>
+							<div class="col-xl-12 col-lg-12 col-md-12 mr-auto aos-init aos-animate" data-aos="fade-left">
+								<h1 class="text-outline text-white">Mission</h1>
+							</div>
+						</div>
+					</div> 
+					<div class="block-style-thirtyEight bg-light-blue">
+						<div class="row align-items-center">
+							<div class="col-xl-5 col-lg-6 aos-init aos-animate" data-aos="fade-right">
+								<div class="title-style-sixteen">
+									<h2>Our Values</h2>
 								</div>
-						</div>
-						<div class="item row">
-								<div class="col-lg-6 col-md-8 ml-auto order-lg-last aos-init aos-animate" data-aos="fade-left" data-aos-duration="1200">
-									<div class="illustration-holder vmv-illustration">
-										<img src="images/assets/ils_14.svg" alt="">
-									</div>
+								<div class="values-list">
+									<ul class="mt-30 pr-xl-5">
+										<li>Safe Space for Young Minds: Creating a welcoming and secure environment for children, adolescents and adults.</li>
+										<li>Inclusivity: Being open to all abilities and backgrounds, ensuring that everyone feels accepted.
+										</li>
+										<li>Understanding Individual Journeys: Recognizing and respecting everyone’s unique path and experiences.
+										</li>
+										<li>Compassion and Care: Leading with empathy in every interaction and therapeutic approach.
+										</li>
+										<li>Supportive Development: Offering tailored therapies to support the growth and progress of each individual.
+										</li>
+									</ul>
 								</div>
-								<div class="col-lg-6 col-md-4 order-lg-first">
-									<div class="text-wrapper bg-white p-5 br-40 aos-init aos-animate" data-aos="fade-right" data-aos-duration="1200">
-										<h2 class="font-rubik title">Values</h2>
-										<p>
-											<ul class="values-list">
-												<li class="values-list-item"><strong>Inclusion:</strong><span> Welcoming all individuals, regardless of background.</span></li>
-												<li class="values-list-item"><strong>Compassion:</strong><span> Being there every step of the way.</span></li>
-												<li class="values-list-item"><strong>Resilience:</strong><span> Turning vulnerability into strength.</span</li>
-												<li class="values-list-item"><strong>Empowerment:</strong><span> Helping clients find their true selves.</span></li>
-											</ul>
-										</p>
-									</div> <!-- /.text-wrapper -->
+							</div>
+							<div class="col-xl-7 col-lg-5 col-md-8 ml-auto text-right aos-init aos-animate" data-aos="fade-left">
+								<div class="img-meta image-vmv d-inline-block position-relative md-mt-70">
+									<img src="images/assets/values.jpg" alt="">
+									<img src="images/shape/244.svg" alt="" class="shapes shape-one aos-init aos-animate" data-aos="fade-down" data-aos-delay="300">
+									<!-- <img src="images/media/img_121.png" alt="" class="shapes shape-two aos-init aos-animate" data-aos="fade-up" data-aos-delay="300"> -->
 								</div>
+							</div>
+							<div class="col-xl-12 col-lg-12 col-md-12 mr-auto aos-init aos-animate" data-aos="fade-left">
+								<h1 class="text-outline text-heading mt-10">Values</h1>
+							</div>
 						</div>
-					</div>
-
-					<div class="row justify-content-between d-none d-lg-flex d-md-flex">
-						<div class="col-lg-3 col-md-4">  
-							<div class="block-style-eleven mt-40">
-								<div class="vmv-title">Vision</div>
-							</div> <!-- /.block-style-eleven -->
-						</div>
-						<div class="col-lg-3 col-md-4">
-							<div class="block-style-eleven mt-40">
-								<div class="vmv-title">Mission</div>
-							</div> <!-- /.block-style-eleven -->
-						</div>
-						<div class="col-lg-3 col-md-4">
-							<div class="block-style-eleven mt-40">
-								<div class="vmv-title">Values</div>
-							</div> <!-- /.block-style-eleven -->
-						</div>
-					</div>
+					</div> 
 				</div>
 			</div>
-            
+			  
+
+			
 				<!-- Hero Section -->
 				<div class="fancy-feature-thirtyNine lg-container position-relative md-mb-80">
 					<div class="container">
@@ -242,7 +292,7 @@
 										<!-- Left Section -->
 										<div class="cta-left d-flex align-items-center">
 										  <div class="cta-heading" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-											<h1 data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">How can we
+											<h1 class="text-white" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">How can we
 											<span>
 												help
 												<svg style="transform: rotate(90deg); top:-10px" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" width="36" height="42" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M27.5249 6.55257C27.1158 6.8252 26.8187 7.25027 26.699 7.73427C26.5792 8.21826 26.6466 8.72153 26.8863 9.13337L30.0191 14.516C30.2587 14.9278 30.6511 15.2145 31.1098 15.3129C31.5686 15.4113 32.0561 15.3135 32.4652 15.0409C32.8742 14.7682 33.1713 14.3431 33.2911 13.8591C33.4108 13.3751 33.3435 12.8719 33.1038 12.4601L29.971 7.07744C29.731 6.66602 29.3386 6.37971 28.88 6.28131C28.4214 6.18291 27.9341 6.28046 27.5249 6.55257Z" fill="#FFC765"></path><path d="M21.3172 24.3705C21.6223 23.9713 21.7755 23.4665 21.7431 22.967C21.7107 22.4674 21.4953 22.0142 21.1443 21.7069L9.37136 10.3676C9.02036 10.0604 8.56253 9.92423 8.09857 9.98921C7.63461 10.0542 7.20254 10.3149 6.89741 10.7141C6.59227 11.1132 6.43908 11.6181 6.47151 12.1176C6.50394 12.6171 6.71934 13.0704 7.07034 13.3776L18.8432 24.717C19.1944 25.0237 19.6522 25.1595 20.116 25.0945C20.5798 25.0296 21.0118 24.7692 21.3172 24.3705Z" fill="#FFC765"></path><path d="M13.9635 36.3389C14.1083 35.847 14.0753 35.3173 13.8718 34.8664C13.6683 34.4156 13.311 34.0804 12.8784 33.9346L3.09994 30.1461C2.6674 30.0003 2.19507 30.0559 1.78686 30.3007C1.37864 30.5454 1.06798 30.9592 0.92322 31.4511C0.778456 31.943 0.811449 32.4726 1.01494 32.9235C1.21842 33.3744 1.57574 33.7096 2.00828 33.8554L11.7868 37.6439C12.2193 37.7891 12.6914 37.7332 13.0995 37.4885C13.5076 37.2439 13.8183 36.8304 13.9635 36.3389Z" fill="#FFC765"></path></svg>	
@@ -265,17 +315,17 @@
 										  <div class="stats" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
 											<div class="stat-item">
 											<p><strong>Therapy Sessions</strong></p>
-												<h2><span class="timer" data-from="0" data-to="100" data-speed="1500" data-refresh-interval="5">100</span>+</h2>
+												<h2 class="text-white"><span class="timer" data-from="0" data-to="150" data-speed="1500" data-refresh-interval="5">150</span>+</h2>
 											  <p>Lives Touched</p>
 											</div>
 											<div class="stat-item">
 											<p><strong>Workshops</strong></p>
-												<h2><span class="timer" data-from="0" data-to="50" data-speed="1500" data-refresh-interval="5">50</span>+</h2>
+												<h2 class="text-white"><span class="timer" data-from="0" data-to="100" data-speed="1500" data-refresh-interval="5">100</span>+</h2>
 												<p>Empowerment Events</p>
 											</div>
 											<div class="stat-item">
 												<p><strong>Organizations</strong></p>	
-												<h2><span class="timer" data-from="0" data-to="10" data-speed="1500" data-refresh-interval="5">10</span>+</h2>
+												<h2 class="text-white"><span class="timer" data-from="0" data-to="20" data-speed="1500" data-refresh-interval="5">20</span>+</h2>
 												  <p>Collaborations</p>
 											</div>
 										  </div>
@@ -289,8 +339,95 @@
 					<div class="img-meta"></div>
 				</div>
 				
-	
+				<div class="fancy-feature-twentyFive lg-container pt-200 md-pt-100 pb-100 bg-gradient" id="feature">
+					<div class="container">
+						<div class="block-style-twentyFive">
+							<div class="row align-items-center">
+								<div class="col-xl-5 col-lg-6 col-md-10 m-auto text-center text-lg-right order-lg-last aos-init aos-animate" data-aos="fade-left" data-aos-duration="1200">
+									<div class="screen-container">
+										<img src="images/shape/bg6.svg" alt="" class="ml-auto bg-round-shape">
+										<div class="block-content">
+											<div class="row align-items-center">
+												<div class="col-sm-6">
+													
+												</div>
+											</div>
+										</div> <!-- /.block-content -->
+									</div> <!-- /.screen-container -->
+								</div>
+								<div class="col-xl-7 col-lg-6 aos-init aos-animate" data-aos="fade-right" data-aos-duration="1200">
+									<div class="text-wrapper order-lg-first">
+										<h6>Meet the Founder</h6>
+										<h3 class="title">Ms. Sanjana Purdhani</h3>
+										<h5>Psychologist, Cognitive Behavioural Therapist</h5>
+										<p>Sanjana Purdhani founded Soul Savera with the vision of creating a safe, inclusive space where individuals of all ages can embrace their mental and emotional well-being without fear or judgment. As a licensed therapist and counselor, she is committed to making mental health care accessible, holistic, and highly personalized, empowering children, adolescents, and adults to thrive emotionally, socially, and developmentally. Sanjana’s mission goes beyond individual therapy—she has brought together a diverse team of specialized professionals, each bringing their unique strengths to create a richer, more comprehensive experience for clients.
+										</p><br/>
+										<p>Diversity within the team is a driving force behind Soul Savera’s success, allowing them to serve clients with a broad spectrum of needs and perspectives. Through one-on-one sessions, group interventions, and innovative therapies like Cognitive Behavioral Therapy (CBT) and expressive art therapy, Soul Savera provides compassionate, evidence-based care. Sanjana’s dedication to values like Inclusion, Resilience, Empowerment, and Compassion makes Soul Savera a sanctuary of healing and growth for all.</p>
+										
+									</div> <!-- /.text-wrapper -->
+								</div>
+							</div>
+						</div> <!-- /.block-style-twentyFive -->
+					</div>
+				</div>
+
+
+				<div class="team-section-five">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12 col-md-12">
+								<div class="title-style-seven text-center mb-50 md-mb-10">
+									<h2>Our <span>Team</span></h2>
+								</div>
+							</div>
+							<div class="col-lg-4 col-sm-6 aos-init" data-aos="fade-up" data-aos-duration="1200">
+								<div class="team-member team-block-one mb-50" onclick="location.href='team-single.html';">
+									
+									<div class="img-meta"><img src="images/assets/doctor-dummy.png" alt=""></div>
+									<div class="info">
+										<div class="name">George Cortez</div>
+										<div class="desig">Neuropsychology</div>
+										<div class="social-icons d-flex align-items-center">
+												<a href="#" target="_blank" class="round-icon"><i class="fa fa-facebook text-dark" aria-hidden="true"></i></a>
+												<a href="#" target="_blank" class="round-icon"><i class="fa fa-x-twitter text-dark" aria-hidden="true"></i></a>
+												<a href="#" target="_blank" class="round-icon"><i class="fa fa-linkedin text-dark" aria-hidden="true"></i></a>
+										</div>
+									</div>
+								</div> <!-- /.team-member -->
+							</div>
+							<div class="col-lg-4 col-sm-6 aos-init" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
+								<div class="team-member team-block-one mb-50" onclick="location.href='team-single.html';">
+									<div class="img-meta"><img src="images/media/img_99.png" alt=""></div>
+									<div class="info">
+										<div class="name">Florence Roberts</div>
+										<div class="desig">Neuropsychology</div>
+										<div class="social-icons d-flex align-items-center">
+											<a href="#" target="_blank" class="round-icon"><i class="fa fa-facebook text-dark" aria-hidden="true"></i></a>
+											<a href="#" target="_blank" class="round-icon"><i class="fa fa-x-twitter text-dark" aria-hidden="true"></i></a>
+											<a href="#" target="_blank" class="round-icon"><i class="fa fa-linkedin text-dark" aria-hidden="true"></i></a>
+									</div>
+									</div>
+								</div> <!-- /.team-member -->
+							</div>
+							<div class="col-lg-4 col-sm-6 aos-init" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+								<div class="team-member team-block-one mb-50" onclick="location.href='team-single.html';">
+									<div class="img-meta"><img src="images/media/img_100.png" alt=""></div>
+									<div class="info">
+										<div class="name">Florence Roberts</div>
+										<div class="desig">Neuropsychology</div>
+										<div class="social-icons d-flex align-items-center">
+												<a href="#" target="_blank" class="round-icon"><i class="fa fa-facebook text-dark" aria-hidden="true"></i></a>
+												<a href="#" target="_blank" class="round-icon"><i class="fa fa-x-twitter text-dark" aria-hidden="true"></i></a>
+												<a href="#" target="_blank" class="round-icon"><i class="fa fa-linkedin text-dark" aria-hidden="true"></i></a>
+										</div>
+									</div>
+								</div> <!-- /.team-member -->
+							</div>
+						</div>
+					</div>
+				</div>	
 			<!--
+
 			=====================================================
 				Footer Style Four
 			=====================================================
@@ -299,33 +436,47 @@
 				<div class="lg-container">
 					<div class="container">
 						<div class="row">
-							<div class="col-xl-4 col-lg-4 aos-init aos-animate order-lg-3 order-lg-3" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-								<div class="newsletter">
-									<h5 class="title">Disclaimer</h5>
-									<p class="pt-0">Soul Savera provides mental health services intended for support and guidance. We are not a substitute for medical treatment.
-									Please note that we are not a crisis intervention helpline. Should you have severe symptoms or have thought about harming yourself, please seek immediate medical help or call suicide prevention helplines such as ..
-									</p>
-								</div>
-							</div>
-							<div class="col-xl-5 col-lg-5 aos-init aos-animate  order-lg-1 order-lg-1" data-aos="fade-up" data-aos-duration="1200">
-								<div class="logo"><a href="index.html"><img src="images/assets/logo-icon.png" width="150" alt=""></a></div>
-								<ul class="font-rubik mt-10 footer-contact mb-30 mb-lg-10">
-									<h5 class="title">Get In Touch</h5>
-									<li class="mb-20"><a href="mailto:care@soulsavera.com"><span class="round-icon mr-2"><i class="fa fa-light fa-envelope"></i></span> care@soulsavera.com</a></li>
-									<li><a href="tel:+761 412 3224"><span class="round-icon mr-2"><i class="fa fa-phone"></i></span> +761 412 3224</a></li>
+							<div class="col-xl-3 col-lg-3 col-md-6 aos-init aos-animate order-lg-3" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
+								<h4 class="title">LEGAL</h4>
+								<ul class="footer-list d-flex justify-content-space-between d-lg-block d-md-block">
+									<li><a href="about-us.html">Disclaimer</a></li>
+									<li><a href="services.html">Cancellation and <br/>Refund Policy</a></li>
+									<li><a href="faqs.html">Privacy Policy</a></li>
+									<li><a href="https://soulsavera.home.blog/" target="_blank">Terms and Condition</a></li>
+								</ul>
+								<ul class="footer-list d-flex justify-content-space-between d-lg-none d-md-none">
+									<li><a href="privacy.html">Privacy &amp; Terms</a></li>
+									<li><a href="https://soulsavera.home.blog/" target="_blank">Blogs</a></li>
+									<li><a href="contact.html">Contact Us</a></li>
 								</ul>
 							</div>
-							<div class="col-xl-3 col-lg-3 col-md-6 aos-init aos-animate order-lg-2 order-lg-2" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
-								<h5 class="title">Quick Links</h5>
+							<div class="col-xl-6 col-lg-6 aos-init aos-animate order-lg-1" data-aos="fade-up" data-aos-duration="1200">
+								<!-- <h4 class="title">Working Hours</h4> -->
+								<div class="logo"><a href="index.html"><img src="images/assets/logo-no-bg.png" width="150" alt=""></a></div>
+								<ul class="footer-list font-rubik footer-contact mt-20 mb-30 mb-lg-10">
+									<li><p>Monday to Saturday 11 AM to 8 PM</p></li>
+									<li><a href="tel:+7011506427"><i class="fa fa-phone mr-2 text-yellow"></i> +701 150 6427</a></li>
+									<li><a href="mailto:connect@soulsavera.com "><i class="fa fa-light fa-envelope mr-2 text-yellow"></i> connect@soulsavera.com</a></li>
+									
+									<li class="social mt-20">
+										<a href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+										<a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+										<a href="#" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-xl-3 col-lg-3 col-md-6 aos-init aos-animate order-lg-2" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
+								<h4 class="title">Quick Links</h4>
 								<ul class="footer-list d-flex justify-content-space-between d-lg-block d-md-block">
 									<li><a href="about-us.html">About Us</a></li>
 									<li><a href="services.html">Services</a></li>
 									<li><a href="faqs.html">FAQs</a></li>
-									<li class="d-none d-lg-block d-md-block"><a href="blogs.html">Blogs</a></li>
+									<li><a href="https://soulsavera.home.blog/" target="_blank">Blogs</a></li>
+									<li><a href="contact.html">Contact Us</a></li>
 								</ul>
 								<ul class="footer-list d-flex justify-content-space-between d-lg-none d-md-none">
 									<li><a href="privacy.html">Privacy &amp; Terms</a></li>
-									<li><a href="blogs.html">Blogs</a></li>
+									<li><a href="https://soulsavera.home.blog/" target="_blank">Blogs</a></li>
 									<li><a href="contact.html">Contact Us</a></li>
 								</ul>
 							</div>
@@ -335,19 +486,7 @@
 					<div class="container">
 						<div class="bottom-footer">
 							<div class="row">
-								<div class="col-lg-4 order-lg-1 mb-20">
-									<ul class="d-md-flex justify-content-center justify-content-lg-center footer-nav d-none d-md-flex d-lg-flex">
-										<li><a href="privacy.html">Privacy &amp; Terms</a></li>
-										<li><a href="contact.html">Contact Us</a></li>
-									</ul>
-								</div>
-								<div class="col-lg-4 col-sm-12 order-lg-3 mb-10 mb-lg-20">
-									<ul class="d-flex justify-content-center justify-content-lg-center social-icon">
-										<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-									</ul>
-								</div>
-								<div class="col-lg-4 col-sm-12 order-lg-2 mb-20">
+								<div class="col-lg-12 col-sm-12 order-lg-2 mb-20">
 									<p class="copyright text-center">Copyright @<script>document.write(new Date().getFullYear())</script> Soul Savera</p>
 								</div>
 							</div>
@@ -405,7 +544,8 @@
 		<!-- Slick Slider -->
 		<script src="vendor/slick/slick.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
-		
+
+		<script src="https://codepen.io/z-/pen/a8e37caf2a04602ea5815e5acedab458.js"></script>
 		<!-- Theme js -->
 		<script src="js/theme.js"></script>
 

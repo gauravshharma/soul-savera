@@ -55,7 +55,7 @@
 				Theme Main Menu
 			============================================== 
 			-->
-			<div class="theme-main-menu sticky-menu theme-menu-four bg-light-blue">
+			<div class="theme-main-menu sticky-menu theme-menu-four bg-none">
 				<div class="d-flex align-items-center justify-content-between">
 					<div class="logo"><a href="index.html"><img src="./images/assets/logo-no-bg.png" alt="Soul Savera"/></a></div>
 					<nav id="mega-menu-holder" class="navbar navbar-expand-lg">
@@ -73,13 +73,32 @@
 										<li class="nav-item position-static">
 								            <a class="nav-link" href="services.html" >Services</a>
 								        </li>
+										<li class="nav-item dropdown">
+								            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Resources</a>
+								            <ul class="dropdown-menu">
+									            <li>
+									            	<a href="https://soulsavera.home.blog/" target="_blank" class="dropdown-item">Blogs</a>
+									            </li>
+									            <li>
+									            	<a href="#" class="dropdown-item">Podcast and Videos</a>
+									            </li>
+									        	</li>
+								            </ul> <!-- /.dropdown-menu -->
+								        </li>
+										
 										<li class="nav-item position-static">
-								            <a class="nav-link" href="blogs.html" >Blogs</a>
+								            <a class="nav-link" href="careers.html" >Work with Us</a>
+								        </li>
+										<li class="nav-item position-static">
+								            <a class="nav-link" style="text-decoration: underline;" href="contact.html" >Contact Us</a>
 								        </li>
 									</ul>
 									<ul class="right-button-group d-flex align-items-center justify-content-center">
+										<!-- <li>
+											<a href="contact.html" class="signIn-action">Contact Us</a>
+										</li> -->
 								   		<li>
-											<a href="contact.html" class="theme-btn-twelve">Get Help?</a>
+											<a href="appointment.html" class="theme-btn-nine"><span>Get Started</span> <img src="images/icon/53.svg" alt="arrow-right" class="ml-2"></a>
 										</li>
 									</ul>
 						   		</div>
@@ -124,7 +143,7 @@
 							      </div>
 							      <div id="collapseOne" class="collapse">
 							        <div class="card-body">
-							        	<p>mea case duis tollit et. Etiam nusquam set minium eu sea, ei tale paulo elab. Noluisse mnesarch Et is vero incorrupte eos deserunt quaeren.</p>
+							        	<p>We offer a range of therapies, including Cognitive Behavioral Therapy (CBT), trauma-informed therapy, play therapy, expressive art therapy, and holistic interventions. These therapies are tailored to each client’s unique needs and goals, whether for children, adolescents, or adults.</p>
 							        </div>
 							      </div>
 							    </div>
@@ -132,13 +151,14 @@
 							      <div class="card-header" id="headingThree">
 							        <h5 class="mb-0">
 							          <button class="btn btn-link">
-							            Do you offer online sessions?
+							            Is my information kept confidential?
 							          </button>
 							        </h5>
 							      </div>
 							      <div id="collapseThree" class="collapse">
 							        <div class="card-body">
-							        	<p>mea case duis tollit et. Etiam nusquam set minium eu sea, ei tale paulo elab. Noluisse mnesarch Et is vero incorrupte eos deserunt quaeren.</p>
+							        	<p>Yes, confidentiality is our priority. All information shared during sessions is protected and will not be disclosed without your consent unless required by law or if there’s a risk of harm to yourself or others. For minors, parents may seek information as needed.
+										</p>
 							        </div>
 							      </div>
 							    </div>
@@ -146,13 +166,14 @@
 							      <div class="card-header" id="headingFour">
 							        <h5 class="mb-0">
 							          <button class="btn btn-link">
-										How do I book a session?
+										Can I get a free initial consultation?
 							          </button>
 							        </h5>
 							      </div>
 							      <div id="collapseFour" class="collapse">
 							        <div class="card-body">
-							        	<p>mea case duis tollit et. Etiam nusquam set minium eu sea, ei tale paulo elab. Noluisse mnesarch Et is vero incorrupte eos deserunt quaeren.</p>
+							        	<p>We offer a brief initial consultation to understand your needs and to discuss the best approach. While it’s not a full therapy session, it allows us to determine the right direction for your treatment.
+										</p>
 							        </div>
 							      </div>
 							    </div>
@@ -160,16 +181,42 @@
 							      <div class="card-header" id="headingFive">
 							        <h5 class="mb-0">
 							          <button class="btn btn-link">
-							            What should I expect in the first session?
+							            How long does each session last, and how many sessions will I need?
 							          </button>
 							        </h5>
 							      </div>
 							      <div id="collapseFive" class="collapse">
 							        <div class="card-body">
-							        	<p>mea case duis tollit et. Etiam nusquam set minium eu sea, ei tale paulo elab. Noluisse mnesarch Et is vero incorrupte eos deserunt quaeren.</p>
+							        	<p>Each session typically lasts 45-60 minutes. The number of sessions needed depends on individual goals and the complexity of issues. We can discuss an approximate timeline in your initial sessions.
+										</p>
 							        </div>
 							      </div>
 							    </div>
+								<div class="card">
+									<div class="card-header" id="headingSix">
+									  <h5 class="mb-0">
+										<button class="btn btn-link">
+											What therapies do you provide?
+										</button>
+									  </h5>
+									</div>
+									<div id="collapseSix" class="collapse show">
+									  <div class="card-body list">
+										  	<ul>
+												<li>Cognitive Behavioral Therapy
+												</li>
+												<li>Person-Centered Therapy
+												</li>
+												<li>Behavioral Therapy
+												</li>
+												<li>Play Therapy 
+												</li>
+												<li>Art Therapy 
+												</li>
+											</ul>
+									  </div>
+									</div>
+								  </div>
 							</div>
 						</div>
 
@@ -180,13 +227,15 @@
 							      <div class="card-header" id="headingOne2">
 							        <h5 class="mb-0">
 							          <button class="btn btn-link">
-							            How the affiliate programe works?
+							            Do you offer online sessions?
+
 							          </button>
 							        </h5>
 							      </div>
 							      <div id="collapseOne2" class="collapse">
 							        <div class="card-body">
-							        	<p>mea case duis tollit et. Etiam nusquam set minium eu sea, ei tale paulo elab. Noluisse mnesarch Et is vero incorrupte eos deserunt quaeren.</p>
+							        	<p>Yes, we provide both in-person and online sessions to make therapy accessible for everyone. Online sessions offer the flexibility to receive support from the comfort of your own space.
+										</p>
 							        </div>
 							      </div>
 							    </div>
@@ -194,13 +243,14 @@
 							      <div class="card-header" id="headingTwo2">
 							        <h5 class="mb-0">
 							          <button class="btn btn-link">
-							             How to create customer panel?
+										What if I need to cancel or reschedule an appointment?
 							          </button>
 							        </h5>
 							      </div>
-							      <div id="collapseTwo2" class="collapse show">
+							      <div id="collapseTwo2" class="collapse">
 							        <div class="card-body">
-							        	<p>mea case duis tollit et. Etiam nusquam set minium eu sea, ei tale paulo elab. Noluisse mnesarch Et is vero incorrupte eos deserunt quaeren.</p>
+							        	<p>Please inform us at least 24 hours in advance if you need to cancel or reschedule. Cancellations made with less than 24 hours’ notice may incur a full charge for the session.
+										</p>
 							        </div>
 							      </div>
 							    </div>
@@ -208,13 +258,15 @@
 							      <div class="card-header" id="headingThree2">
 							        <h5 class="mb-0">
 							          <button class="btn btn-link">
-							            How delete my account?
+							            Are your services suitable for children with neurodevelopmental disorders?
+
 							          </button>
 							        </h5>
 							      </div>
 							      <div id="collapseThree2" class="collapse">
 							        <div class="card-body">
-							        	<p>mea case duis tollit et. Etiam nusquam set minium eu sea, ei tale paulo elab. Noluisse mnesarch Et is vero incorrupte eos deserunt quaeren.</p>
+							        	<p>Absolutely. Our team specializes in working with children with neurodevelopmental needs, and we offer therapies tailored to support their unique developmental, emotional, and social challenges.
+										</p>
 							        </div>
 							      </div>
 							    </div>
@@ -222,16 +274,34 @@
 							      <div class="card-header" id="headingFour2">
 							        <h5 class="mb-0">
 							          <button class="btn btn-link">
-							           	Ho to invite people with refferel link?
+										How do I know if therapy is working for me or my child?
 							          </button>
 							        </h5>
 							      </div>
 							      <div id="collapseFour2" class="collapse">
 							        <div class="card-body">
-							        	<p>mea case duis tollit et. Etiam nusquam set minium eu sea, ei tale paulo elab. Noluisse mnesarch Et is vero incorrupte eos deserunt quaeren.</p>
+							        	<p>Progress in therapy varies, but we’ll regularly check in on your goals and experiences. Positive changes may be seen through improved mood, communication, or coping strategies. We’ll work together to assess your journey and adjust as needed.
+										</p>
 							        </div>
 							      </div>
 							    </div>
+								<div class="card">
+									<div class="card-header" id="headingFive2">
+									  <h5 class="mb-0">
+										<button class="btn btn-link">
+											What are psychological tests and what kind of assessment is needed?
+										</button>
+									  </h5>
+									</div>
+									<div id="collapseFive2" class="collapse">
+									  <div class="card-body">
+										  <p>Psychological tests are scientific tools that aid a clinician in not only diagnosing mental illnesses, if any but also help in attaining an objective understanding and insight into the nature of the presenting problem. This further aids in planning therapy sessions which in turn helps an individual reach faster towards their psychological well-being.
+											  <br/>
+											  The assessments required are based on the nature of the problem and may or may not be recommended depending on the same.
+										  </p>
+									  </div>
+									</div>
+								  </div>
 							</div>
 						</div>
 					</div>
@@ -246,7 +316,7 @@
 							<div class="col-lg-8">
 								<div class="title">
 									<!-- <h6>Subscribe Now</h6> -->
-									<h2>Couldn't find your answer?</h2>
+									<h2 class="text-white">Couldn't find your answer?</h2>
 								</div> <!-- /.title-style-one -->
 							</div>
 							<div class="col-lg-4">
@@ -267,33 +337,47 @@
 				<div class="lg-container">
 					<div class="container">
 						<div class="row">
-							<div class="col-xl-4 col-lg-4 aos-init aos-animate order-lg-3 order-lg-3" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-								<div class="newsletter">
-									<h5 class="title">Disclaimer</h5>
-									<p>Soul Savera provides mental health services intended for support and guidance. We are not a substitute for medical treatment.
-									Please note that we are not a crisis intervention helpline. Should you have severe symptoms or have thought about harming yourself, please seek immediate medical help or call suicide prevention helplines such as ..
-									</p>
-								</div>
-							</div>
-							<div class="col-xl-5 col-lg-5 aos-init aos-animate  order-lg-1 order-lg-1" data-aos="fade-up" data-aos-duration="1200">
-								<div class="logo"><a href="index.html"><img src="images/assets/logo-icon.png" width="150" alt=""></a></div>
-								<ul class="font-rubik mt-10 footer-contact mb-30 mb-lg-10">
-									<h5 class="title">Get In Touch</h5>
-									<li class="mb-20"><a href="mailto:care@soulsavera.com"><span class="round-icon mr-2"><i class="fa fa-light fa-envelope"></i></span> care@soulsavera.com</a></li>
-									<li><a href="tel:+761 412 3224"><span class="round-icon mr-2"><i class="fa fa-phone"></i></span> +761 412 3224</a></li>
+							<div class="col-xl-3 col-lg-3 col-md-6 aos-init aos-animate order-lg-3" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
+								<h4 class="title">LEGAL</h4>
+								<ul class="footer-list d-flex justify-content-space-between d-lg-block d-md-block">
+									<li><a href="about-us.html">Disclaimer</a></li>
+									<li><a href="services.html">Cancellation and <br/>Refund Policy</a></li>
+									<li><a href="faqs.html">Privacy Policy</a></li>
+									<li><a href="https://soulsavera.home.blog/" target="_blank">Terms and Condition</a></li>
+								</ul>
+								<ul class="footer-list d-flex justify-content-space-between d-lg-none d-md-none">
+									<li><a href="privacy.html">Privacy &amp; Terms</a></li>
+									<li><a href="https://soulsavera.home.blog/" target="_blank">Blogs</a></li>
+									<li><a href="contact.html">Contact Us</a></li>
 								</ul>
 							</div>
-							<div class="col-xl-3 col-lg-3 col-md-6 aos-init aos-animate order-lg-2 order-lg-2" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
-								<h5 class="title">Quick Links</h5>
+							<div class="col-xl-6 col-lg-6 aos-init aos-animate order-lg-1" data-aos="fade-up" data-aos-duration="1200">
+								<!-- <h4 class="title">Working Hours</h4> -->
+								<div class="logo"><a href="index.html"><img src="images/assets/logo-no-bg.png" width="150" alt=""></a></div>
+								<ul class="footer-list font-rubik footer-contact mt-20 mb-30 mb-lg-10">
+									<li><p>Monday to Saturday 11 AM to 8 PM</p></li>
+									<li><a href="tel:+7011506427"><i class="fa fa-phone mr-2 text-yellow"></i> +701 150 6427</a></li>
+									<li><a href="mailto:connect@soulsavera.com "><i class="fa fa-light fa-envelope mr-2 text-yellow"></i> connect@soulsavera.com</a></li>
+									
+									<li class="social mt-20">
+										<a href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+										<a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+										<a href="#" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-xl-3 col-lg-3 col-md-6 aos-init aos-animate order-lg-2" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
+								<h4 class="title">Quick Links</h4>
 								<ul class="footer-list d-flex justify-content-space-between d-lg-block d-md-block">
 									<li><a href="about-us.html">About Us</a></li>
 									<li><a href="services.html">Services</a></li>
 									<li><a href="faqs.html">FAQs</a></li>
-									<li class="d-none d-lg-block d-md-block"><a href="blogs.html">Blogs</a></li>
+									<li><a href="https://soulsavera.home.blog/" target="_blank">Blogs</a></li>
+									<li><a href="contact.html">Contact Us</a></li>
 								</ul>
 								<ul class="footer-list d-flex justify-content-space-between d-lg-none d-md-none">
-									<li><a href="#">Privacy &amp; Terms</a></li>
-									<li><a href="blogs.html">Blogs</a></li>
+									<li><a href="privacy.html">Privacy &amp; Terms</a></li>
+									<li><a href="https://soulsavera.home.blog/" target="_blank">Blogs</a></li>
 									<li><a href="contact.html">Contact Us</a></li>
 								</ul>
 							</div>
@@ -303,19 +387,7 @@
 					<div class="container">
 						<div class="bottom-footer">
 							<div class="row">
-								<div class="col-lg-4 order-lg-1 mb-20 d-none">
-									<ul class="d-md-flex justify-content-center justify-content-lg-center footer-nav d-none">
-										<li><a href="#">Privacy &amp; Terms</a></li>
-										<li><a href="#">Contact Us</a></li>
-									</ul>
-								</div>
-								<div class="col-lg-4 col-sm-12 order-lg-3 mb-10 mb-lg-20">
-									<ul class="d-flex justify-content-center justify-content-lg-center social-icon">
-										<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-									</ul>
-								</div>
-								<div class="col-lg-4 col-sm-12 order-lg-2 mb-20">
+								<div class="col-lg-12 col-sm-12 order-lg-2 mb-20">
 									<p class="copyright text-center">Copyright @<script>document.write(new Date().getFullYear())</script> Soul Savera</p>
 								</div>
 							</div>
