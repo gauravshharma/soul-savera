@@ -226,6 +226,34 @@
         }
 
 
+// ------------------------ Image Slick Slider 
+  $('.servicesSlider').slick({
+    dots: true,
+    arrows: false,
+    centerMode: true,
+    centerPadding: '0px',
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    prevArrow: $('.prev'),
+    nextArrow: $('.next'),
+  });
+
+// ------------------------ About us VMV Slider 
+  $('.vmvSlider').slick({
+    dots: true,
+    arrows: true,
+    centerMode: true,
+    centerPadding: '0px',
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    prevArrow: $('.prev'),
+    nextArrow: $('.next'),
+  });
+
 
 // ------------------------ Client Feedback Slider Two
         if($(".clientSliderTwo").length) {
@@ -835,38 +863,6 @@
     
     $(window).on ('load', function (){ // makes sure the whole site is loaded
 
-// -------------------- Site Preloader
-
-// $(window).on("load", function() {
-//   $(".sun-container").fadeOut();
-//   $(".loading-screen").delay(350).fadeOut("slow");
-//   $(".loading-screen").hide();
-//   $('body').delay(350).css({'overflow':'visible'});
-// });
-        $('#ctn-preloader').fadeOut(); // will first fade out the loading animation
-        $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
-        $('body').delay(350).css({'overflow':'visible'});
-
-// custom preloader
-        $(window).on("load", function() {
-          var preload = $('.preloader');
-          
-          if(!$('body').hasClass('preloader-hide')) {
-            preload.find('.preloader__spinner').fadeOut(500);
-            setTimeout(function(){
-              preload.addClass('closed');
-              $('body').addClass('animated--swiper--active');
-            }, 500);
-            setTimeout(function(){
-              preload.addClass('loaded');
-              $('body').addClass('animated--active');
-            }, 1500);
-          } else {
-            $('body').addClass('animated--active');
-            $('body').addClass('animated--swiper--active');
-          }
-        });
-
 // ------------------------------- AOS Animation
         if ($("[data-aos]").length) { 
             AOS.init({
@@ -924,3 +920,10 @@
     });
     
 })(jQuery);
+
+// Mission Vision and Values
+$(".option").click(function(){
+  $(".option").removeClass("active");
+  $(this).addClass("active");
+  
+});
