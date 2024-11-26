@@ -29,6 +29,8 @@
 		<link rel="stylesheet" type="text/css" href="css/responsive.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+		<link rel="stylesheet" href="https://codepen.io/z-/pen/a8e37caf2a04602ea5815e5acedab458.scss?theme">
 		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 		<!-- Fix Internet Explorer ______________________________________-->
 		<!--[if lt IE 9]>
@@ -40,7 +42,7 @@
 
 	<body>
 		
-		<div class="main-page-wrapper p0 onovo-page">
+		<div class="main-page-wrapper p0 onovo-page bg-light-blue">
 			<!-- ===================================================
 				Loading Transition
 			==================================================== -->
@@ -106,121 +108,83 @@
 						</div> 
 					</nav>
 				</div>
-			</div> <!-- /.theme-main-menu -->
+			</div> 
 
-		
-			<div class="fancy-feature-thirty mt-120 md-mt-100">
-				<div class="wrapper">
-					<div class="container container-custom">
-							<section class="modal-contact-popup-one">
-								<main class="row main-body modal-content clearfix">
-									<div class="col-lg-9 left-side">
-										<div class="text-center mx-auto">
-											<h2 class="form-title">Sign up for appointment</h2>
-											<p class="font-rubik">It just takes a few minutes to book a visit online.</p>
-										</div>
-										<form action="#" id="contact-form" data-toggle="validator" novalidate="true">
-											<div class="messages"></div>
-											<div class="row controls mt-50">
-												<div class="col-6">
-													<div class="input-group-meta form-group mb-20">
-														<label>Name</label>
-														<input type="text" placeholder="Your Name" name="Fname" required="required" data-error="Name is required." style="text-transform: capitalize;">
-														<div class="help-block with-errors"></div>
-													</div>
-												</div>
-												<div class="col-6">
-													<div class="input-group-meta form-group mb-20">
-														<label>Phone</label>
-														<input type="phone" placeholder="Your Phone" name="phone" required="required" data-error="Valid phone number is required.">
-														<div class="help-block with-errors"></div>
-													</div>
-												</div>
-												<div class="col-12">
-													<div class="input-group-meta form-group mb-20">
-													<label for="service">Service</label>
-                                            <select class="form-control" id="service" required>
-                                              <option value="">Choose a Service</option>
-                                              <option value="Consultation">Consultation</option>
-                                              <option value="Therapy">Therapy</option>
-											  <option value="Workshop">Workshop</option>
-											  <option value="Art Therapy">Art Therapy</option>
-											  <option value="Parent and Child Counselling">Parent and Child Counselling</option>
-                                            </select>
-										</div>
-												</div>
-												<div class="col-6">
-													<div class="input-group-meta form-group mb-20">
-													<label for="date">Date</label>
-													<input type="date" class="form-control" id="date" required>
-													</div>
-												  </div>
-												  <div class="col-6">
-													<div class="input-group-meta form-group mb-20">
-													<label for="time">Time</label>
-													<input type="time" class="form-control" id="time" required>
-													</div>
-												  </div>
-												
-												<div class="col-12 mt-20">
-													<div align="center">
-														<button type="submit" class="theme-btn-nine"><span>Book an Appointment</span> <img src="images/icon/53.svg" alt="arrow-right" class="ml-2"></button>
-													</div>
-												</div>
-												<!-- <div class="col-12">
-													<div class="input-group-meta form-group mb-25">
-														<textarea placeholder="Your message" name="message" required="required" data-error="Please,leave us a message."></textarea>
-														<div class="help-block with-errors"></div>
-													</div>
-												</div> -->
-											</div>
-										</form>
-									</div> <!-- /.left-side -->
-									<div class="col-lg-3 right-side">
-										<div class="d-flex flex-column justify-content-between h-100">
-											<div class="row">
-												<div class="col-xl-10 col-lg-8 m-auto">
-													<blockquote>“I never dreamed about success. I worked for it.”</blockquote>
-													<span class="bio">—Estée Lauder</span>
-												</div>
-											</div>
-											<img src="images/assets/ils_18.svg" alt="" class="illustration mt-auto">
-										</div>
-									</div> <!-- /.right-side -->
-								</main>
-							</section>
-						</div>
-					<!-- <img src="images/shape/237.svg" alt="" class="shapes shape-one">
-					<img src="images/shape/238.svg" alt="" class="shapes shape-two"> -->
-				</div> <!-- /.wrapper -->
+
+            <div class="container mt-250 mb-100">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="about-us-text">
+                            <div class="text-wrapper">
+                                <h6 data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100"></h6>
+                                <h3 class="title" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">Terms and Conditions</h3>
+                                <p class="font-rubik fs-4">Thank you for choosing the services offered by Soul Savera. Our mission is to provide inclusive, comprehensive mental health support for children, adolescents, and adults. Before engaging with our services, please review the following terms and conditions. By using our services, you agree to these terms.
+                                </p><br/>
+                                <h4>Communications:</h4>
+                                <p class="font-rubik fs-4"> All communications are strictly confidential. Personal information shared during sessions is protected and will not be disclosed without consent, except as mandated by law or in cases where harm to oneself or others is at risk. For minors, parents retain rights to seek information from the treating professionals.
+                                </p><br/>
+                                <h4>Services Provided:</h4>
+                                <p class="font-rubik fs-4">We offer therapeutic services including counseling, psychotherapy, occupational therapy, and behavioral and developmental interventions. Our services do not substitute for medical diagnosis or emergency care. For urgent needs, contact the nearest hospital.
+                                </p><br/>
+                                <h4>Eligibility:</h4>
+                                <p class="font-rubik fs-4">Our services are available to individuals 18 and older. Minors may access services with parental or guardian consent.
+                                </p><br/>
+                                <h4>Payment:</h4>
+                                <p class="font-rubik fs-4"> Service fees are listed on our website and may change. Payment is required upfront, and we accept various payment methods. Late payments after multiple reminders may incur a 10% daily interest on the outstanding amount.
+                                </p><br/>
+                                <h4>Cancellation:</h4>
+                                <p class="font-rubik fs-4">Notify us at least 24 hours before your appointment to reschedule or cancel. Late cancellations will incur a 100% charge for the scheduled session.
+                                </p><br/>
+                                <h4>Code of Conduct:</h4>
+                                <p class="font-rubik fs-4">We expect respectful behavior from all clients. Disruptive or abusive behavior may result in service termination.
+                                </p><br/>
+                                <h4>Termination of Services:</h4>
+                                <p class="font-rubik fs-4"> We reserve the right to discontinue services if deemed ineffective or unnecessary, or if the client violates any terms.
+                                </p><br/>
+                                <h4>Intellectual Property:</h4>
+                                <p class="font-rubik fs-4"> All website content is owned by Soul Savera and is protected by copyright laws.
+                                </p><br/>
+                                <h4>Disclaimer of Warranties:</h4>
+                                <p class="font-rubik fs-4">We make no guarantees regarding treatment outcomes. Mental health interventions are individualized and may vary in effectiveness.
+                                </p><br/>
+                                <h4>Limitation of Liability:</h4>
+                                <p class="font-rubik fs-4">Our liability is limited to the amount paid for services. We are not liable for indirect damages.
+                                </p><br/>
+                                <h4>Governing Law:</h4>
+                                <p class="font-rubik fs-4"> These terms are governed by the laws of India.
+                                </p>
+                                <p class="font-rubik fs-4 mt-40">By using our services, you agree to these terms and provide consent for data collection, storage, and processing per applicable privacy laws.
+                                </p> 
+
+
+
+
+
+
+
+
+
+                                <!-- <h6 class="text-dark mt-30" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100"><strong>Let us be your guiding light on the path to emotional well-being and peace of mind.
+                                </strong></h6> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
 			</div>
+			
 
-			<!--
+            <!---
+
 			=====================================================
 				Footer Style Four
 			=====================================================
 			-->
-			<footer class="theme-footer-seven mt-100 md-mt-100">
+			<footer class="theme-footer-seven pt-100 md-pt-100 bg-white">
 				<div class="lg-container">
 					<div class="container">
 						<div class="row">
 							<div class="col-xl-3 col-lg-3 col-md-6 aos-init aos-animate order-lg-3" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
 								<h4 class="title">LEGAL</h4>
-								<ul class="footer-list d-flex justify-content-space-between d-lg-block d-md-block">
-									<li><a href="about-us.html">Disclaimer</a></li>
-									<li><a href="services.html">Cancellation and <br/>Refund Policy</a></li>
-									<li><a href="faqs.html">Privacy Policy</a></li>
-									<li><a href="https://soulsavera.home.blog/" target="_blank">Terms and Condition</a></li>
-								</ul>
-								<ul class="footer-list d-flex justify-content-space-between d-lg-none d-md-none">
-									<li><a href="privacy.html">Privacy &amp; Terms</a></li>
-									<li><a href="https://soulsavera.home.blog/" target="_blank">Blogs</a></li>
-									<li><a href="contact.html">Contact Us</a></li>
-								</ul>
-							</div>
-							<div class="col-xl-6 col-lg-6 aos-init aos-animate order-lg-1" data-aos="fade-up" data-aos-duration="1200">
-								<!-- <h4 class="title">Working Hours</h4> -->
-								<div class="logo"><a href="index.html"><img src="images/assets/logo-no-bg.png" width="150" alt=""></a></div>
 								<ul class="footer-list d-flex justify-content-space-between d-lg-block d-md-block">
 									<li><a href="disclaimer.html">Disclaimer</a></li>
 									<li><a href="privacy.html#cancellation-policy">Cancellation and <br/>Refund Policy</a></li>
@@ -231,6 +195,21 @@
 									<li><a href="privacy.html">Privacy &amp; Terms</a></li>
 									<li><a href="https://soulsavera.home.blog/" target="_blank">Blogs</a></li>
 									<li><a href="contact.html">Contact Us</a></li>
+								</ul>
+							</div>
+							<div class="col-xl-6 col-lg-6 aos-init aos-animate order-lg-1" data-aos="fade-up" data-aos-duration="1200">
+								<!-- <h4 class="title">Working Hours</h4> -->
+								<div class="logo"><a href="index.html"><img src="images/assets/logo-no-bg.png" width="150" alt=""></a></div>
+								<ul class="footer-list font-rubik footer-contact mt-20 mb-30 mb-lg-10">
+									<li><p>Monday to Saturday 11 AM to 8 PM</p></li>
+									<li><a href="tel:+7011506427"><i class="fa fa-phone mr-2 text-yellow"></i> +701 150 6427</a></li>
+									<li><a href="mailto:connect@soulsavera.com "><i class="fa fa-light fa-envelope mr-2 text-yellow"></i> connect@soulsavera.com</a></li>
+									
+									<li class="social mt-20">
+										<a href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+										<a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+										<a href="#" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+									</li>
 								</ul>
 							</div>
 							<div class="col-xl-3 col-lg-3 col-md-6 aos-init aos-animate order-lg-2" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
@@ -312,7 +291,8 @@
 		<!-- Slick Slider -->
 		<script src="vendor/slick/slick.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
-		
+
+		<script src="https://codepen.io/z-/pen/a8e37caf2a04602ea5815e5acedab458.js"></script>
 		<!-- Theme js -->
 		<script src="js/theme.js"></script>
 

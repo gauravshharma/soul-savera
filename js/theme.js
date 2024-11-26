@@ -236,8 +236,8 @@
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    prevArrow: $('.prev'),
-    nextArrow: $('.next'),
+    prevArrow: $('.prev_cs1'),
+    nextArrow: $('.next_cs1'),
   });
 
 // ------------------------ About us VMV Slider 
