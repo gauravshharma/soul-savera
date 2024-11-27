@@ -48,7 +48,7 @@
   .fancy-feature-thirtyFive .slider-wrapper {width: 85vw; right: -16vw;}
 }
 @media (max-width: 1199px) {
-  .theme-menu-four .navbar-nav .nav-item .nav-link {font-size: 18px;}
+  .theme-menu-four .navbar-nav .nav-item .nav-link {font-size: 13px;}
   #mega-menu-holder .mega-menu li .img-box .hover {font-size: 20px;}
   .hero-banner-four .review-text {font-size: 18px;}
   .block-style-fourteen {padding: 0;}
@@ -155,11 +155,62 @@
   .block-style-fortyTwo .icon {height: 100px; width: 100px;}
   .block-style-fortyTwo h5 {font-size: 17px; margin-top: 25px;}
   .block-style-fortyTwo h4 {font-size: 17px; margin-top: 25px;}
+  .hero-1 .hero-content {
+    top: 0px;
+  }
+  .mt-xs-none {
+    margin-top: 0 !important;
+  }
+  .hero-subtext {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .hero-banner-eight {
+    margin-top: 0;
+  }
+  .items-container {
+    margin: 40px auto;
+  }
+  .items-container.banner-items .item.banner-item {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    width: auto;
+  }
+  .item-details.banner-item-detail {
+    margin-left: 20px;
+    text-align: left;
+    margin-top: 0;
+    font-size: 18px;
+  }
+  .block-style-twentyTwo {
+    height: auto;
+  }
+  .theme-footer-seven .footer-list li.social {
+    text-align: center;
+    width: 60%;
+    margin: 20px auto;
+  } 
+  .footer-contact {
+    text-align: center;
+  }
+  .logo {
+    text-align: center;
+  }
 }
 /*(max-width: 1199px)*/
 
 
+
+
 @media (min-width: 992px) and (max-width: 1199px) {
+  .hero-1 .hero-content {
+    top: 150px;
+  }
+  .hero-banner-eight {
+    margin-top: 40px;
+  }
   .theme-main-menu {padding: 30px 25px;}
   .hero-banner-two .container {padding: 0 25px;}
   .hero-banner-four h1 {font-size: 70px;}
@@ -215,7 +266,7 @@
   .theme-menu-four .right-button-group {margin-left: 30px;}
   body .theme-btn-five {padding: 0 15px;}
   .theme-menu-four .navbar-nav .nav-item .nav-link,
-  .navbar-nav .nav-item .nav-link {margin: 0 18px;}
+  .navbar-nav .nav-item .nav-link {margin: 0 10px;}
   .theme-menu-one .right-button-group {margin-left: 30px;}
   .theme-menu-five .navbar-nav .nav-item .nav-link {font-size: 19px; margin: 0 20px;}
   .block-style-fifteen {padding: 45px 25px 30px 30px;}
@@ -288,7 +339,7 @@
   .title-style-seven p {font-size: 18px;}
   .title-style-six .text-xs {font-size: 18px; padding-top: 25px;}
   body .theme-btn-five {line-height: 50px; padding: 0 25px; min-width: 155px;}
-  .theme-main-menu {padding: 0 15px;}
+  .theme-main-menu {padding: 20px 15px;}
   .theme-menu-two #mega-menu-holder,.theme-menu-three #mega-menu-holder {margin-left: auto;}
   .theme-main-menu>div {position: static; margin: 0;}
   .theme-menu-two .logo,.theme-menu-three .logo,.theme-menu-five .logo {left: 15px;}
@@ -667,10 +718,10 @@
   .theme-footer-seven .bottom-footer {margin-top: 30px; padding: 20px 0 5px;}
   .theme-footer-seven .bottom-footer .footer-nav a {margin: 0 12px;}
   .theme-footer-seven .bottom-footer .social-icon a {margin: 0 8px;}
-  .hero-banner-eight .hero-heading {font-size: 45px;}
+  .hero-banner-eight .hero-heading {font-size: 48px;}
   .hero-banner-eight .hero-sub-heading {font-size: 18px; padding-bottom: 40px;}
   .hero-banner-eight .video-wrapper {height: 100%;}
-  .hero-banner-eight .shape-right,.hero-banner-eight .shape-left {top: auto; bottom: 41%;}
+  .hero-banner-eight .shape-right,.hero-banner-eight .shape-left {top: 25%; bottom: 41%;}
   .title-style-eight h2 {font-size: 42px;}
   .title-style-eight h2 br {display: none;}
   .title-style-eight p {font-size: 18px; padding-top: 25px;}
@@ -683,8 +734,8 @@
   .fancy-feature-eighteen .tab-content .text-wrapper {padding: 40px 20px;}
   .block-style-twenty .text-wrapper {padding: 0 0 50px !important;}
   .block-style-twenty .text-wrapper h6 {font-size: 15px; padding-bottom: 25px;}
-  .block-style-twenty .text-wrapper .title {font-size: 35px;}
-  .block-style-twenty .text-wrapper p {font-size: 18px; padding: 30px 0;}
+  .block-style-twenty .text-wrapper .title {font-size: 35px; padding: 5px 20px 20px;}
+  .block-style-twenty .text-wrapper p {font-size: 16px; padding: 30px 20px;}
   .fancy-feature-twentyOne {padding: 100px 0;}
   .coming-soon-content h6 {font-size: 14px;}
   .coming-soon-content h1 {font-size: 45px; padding: 30px 0 40px;}

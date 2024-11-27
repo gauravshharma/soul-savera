@@ -6790,7 +6790,7 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
 .cta-heading span svg {
   position: absolute;
   transform: rotate(90deg);
-  top: -0px;
+  top: -15px;
 }
 
 .decorative-lines {
@@ -10533,6 +10533,20 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   height: 350px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+}
+.legal-list {
+  display: inline-block;
+  padding: 0 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.legal-list li {
+  display: inline-block;
+  margin-right: 20px;
+}
+.legal-list li a{
+  font-size: 13px;
+  color: var(--heading);
 }
 .block-style-twentyTwo:hover {box-shadow: 0px 30px 80px rgba(0, 57, 110, 0.05); transform: translateY(-5px);}
 .block-style-twentyTwo .icon {
@@ -15138,6 +15152,10 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   z-index: 9;
   top: 200px;
 }
+.hero-subtext {
+  text-align: right; 
+  margin-right: 20px;
+}
 .hero-1 .hero-content span {
   font-size: 20px;
   font-weight: 600;
@@ -15448,7 +15466,7 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   background-color: #eff2ff;
 }
 .item-details {
-  font-size: 15px;
+  font-size: 18px;
   text-align: center;
   color: var(--heading);
   margin-top:20px;
