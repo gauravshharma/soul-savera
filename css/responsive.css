@@ -198,6 +198,23 @@
   .logo {
     text-align: center;
   }
+  .block-style-thirtyEight h1 {
+    font-size: 80px;
+    margin-top: 100px; 
+  }
+  .values-list ul li:before {
+    left: 10px;
+}
+.values-list ul li {
+  font-size: 14px;
+  line-height: 25px;
+}
+.fancy-feature-eleven {
+  padding: 3rem 20px 0;
+}
+.tab_container label {
+  font-size: 18px;
+}
 }
 /*(max-width: 1199px)*/
 
@@ -646,10 +663,10 @@
   .fancy-text-block-twentyOne .text-wrapper .client-info {font-size: 20px; padding: 15px 0 22px;}
   .fancy-text-block-twentyOne .text-wrapper p {font-size: 30px; padding-bottom: 0px;}
   .counter-style-two .border-bottom {padding-bottom: 40px;}
-  .block-style-sixteen {margin-top: 60px; padding: 40px 0 0;}
+  .block-style-sixteen {margin-top: 60px; padding: 40px;}
   .block-style-sixteen .shapes {position: static; transform: none; margin: 10px auto 0;}
   .block-style-sixteen .icon {width: 55px; height: 55px;}
-  .block-style-sixteen .title {font-size: 28px; padding: 20px 0 25px;}
+  .block-style-sixteen .title {font-size: 70px; padding: 20px 0 25px;}
   .block-style-sixteen p {font-size: 18px; line-height: 1.65em; padding-bottom: 45px;}
   .pricing-nav-three {margin: 40px 0 50px;}
   .pricing-nav-four {margin: 40px auto 50px;}
@@ -783,7 +800,7 @@
   .error-page .text-wrapper {width: 100%; padding: 50px 15px; text-align: center;}
   .error-page .text-wrapper h1 {font-size: 40px;}
   .error-page .text-wrapper .back-home {margin: 0 auto;}
-  .hero-banner-ten {margin-top: 40px;}
+  .hero-banner-ten {margin-top: 150px;}
   .hero-banner-ten .hero-heading {font-size: 45px; line-height: 1.4em;}
   .hero-banner-ten [class*="icon-box"] {display: inline-block; margin: 5px 10px; position: static;}
   .hero-banner-ten .hero-sub-heading {font-size: 20px; padding: 35px 0 40px;}
@@ -791,7 +808,7 @@
   .title-style-ten h2 {font-size: 40px;}
   .title-style-ten p {font-size: 20px; line-height: 1.6em;}
   .title-style-eleven h2 {font-size: 38px;}
-  .block-style-twentyFive .text-wrapper {padding-top: 60px;}
+  .block-style-twentyFive .text-wrapper {padding-top: 60px; margin: 0 20px;}
   .block-style-twentyFive .text-wrapper h6 {font-size: 18px; padding-bottom: 15px;}
   .block-style-twentyFive .title {font-size: 36px; padding-bottom: 25px;}
   .block-style-twentyFive p {font-size: 18px; line-height: 1.65em;}
@@ -926,7 +943,7 @@
   .fancy-feature-thirtyNine .img-meta:after {width: 350px; height: 350px;}
   .title-style-sixteen .upper-title {font-size: 18px; padding-bottom: 15px;}
   .title-style-sixteen h2 {font-size: 35px; letter-spacing: 0px;}
-  .block-style-thirtyEight p {font-size: 18px;}
+  .block-style-thirtyEight p {font-size: 14px;}
   .client-feedback-slider-nine {padding: 80px 0 50px;}
   .clientSliderEight .bg-wrapper {padding: 35px 25px 30px;}
   .fancy-feature-fortyOne p {font-size: 18px;}
@@ -1233,7 +1250,7 @@
   .app-preview-slider-one .img-holder img {transform: scale(1);}
   .app-preview-slider-one .item {margin: 0 15px;}
   .app-preview-slider-one {margin: 0 -15px;}
-  .app-screen-preview-one {margin-top: 100px;}
+  .app-screen-preview-one {margin-top: 20px;}
   .fancy-short-banner-twelve .shapes {opacity: 0.4;}
   .block-style-twentyFive .screen-container .block-content {position: static; transform: none;}
   .block-style-twentyFive .screen-container .feature-meta {margin: 0 0 30px; }
