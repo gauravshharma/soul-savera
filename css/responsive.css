@@ -852,8 +852,18 @@
   .title-style-ten p {font-size: 20px; line-height: 1.6em;}
   .title-style-eleven h2 {font-size: 38px;}
   .block-style-twentyFive .text-wrapper {padding-top: 60px; margin: 0 20px;}
-  .block-style-twentyFive .text-wrapper h6 {font-size: 18px; padding-bottom: 15px;}
-  .block-style-twentyFive .title {font-size: 36px; padding-bottom: 25px;}
+  .block-style-twentyFive .text-wrapper h6 {font-size: 22px;
+    padding-bottom: 20px;
+    text-align: center;}
+  .block-style-twentyFive .title {font-size: 30px;
+    padding-bottom: 25px;
+    font-family: "Playfair Display";
+    text-align: center;
+    margin-top: 30px;}
+    .block-style-twentyFive h5 {
+      text-align: center;
+      font-size: 18px;
+    }
   .block-style-twentyFive p {font-size: 18px; line-height: 1.65em;}
   .block-style-twentyFive ul {padding-top: 30px;}
   .client-feedback-slider-seven {padding: 100px 0;}

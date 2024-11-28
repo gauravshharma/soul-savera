@@ -3668,6 +3668,21 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   right:20%;
   animation: jumpTwo 8s infinite linear;
 }
+.circle-shape-example .curve {
+  width: 33%;
+  height: auto;
+  min-width: 150px;
+  float: right;
+  margin-right: 2rem;
+  border-radius: 40px;
+  -webkit-shape-outside: circle(closest-side at center);
+  shape-outside: circle(closest-side at center);
+}
+
+.founder-img {
+  border-radius: 40px;
+  margin: 0 auto;
+}
 /*-------------------- Useable Tools Two --------------------*/
 .useable-tools-section-two.bg-shape {padding: 0 15px;}
 .useable-tools-section-two.bg-shape .bg-wrapper {
@@ -11429,10 +11444,14 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   left: 9%;
 }
 /*----------------- Fancy Feature Twenty Five -------------------*/
+.text-wrapper-founder {
+  column-gap: 50px;
+}
 .block-style-twentyFive .text-wrapper span {text-decoration: underline;}
 .block-style-twentyFive .title {
-  font-size: 58px;
+  font-size: 54px;
   line-height: 1.29em;
+  font-family: "Playfair Display";
   font-weight: 500;
   padding-bottom: 38px;
 }
@@ -11462,25 +11481,34 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
 .block-style-twentyFive ul {padding-top: 50px;}
 .block-style-twentyFive .screen-container {
   position: relative;
-  display: inline-block;
+  box-shadow: 0px 30px 60px rgba(6, 24, 67, 0.05);
+  border-radius: 50%;
+  height: 500px; 
+  width:500px;
+  float: right;
+  margin-left: 100px;
+  margin-bottom: 30px;
+  shape-outside: inset(1% round 50%);
 }
 .block-style-twentyFive .screen-container .block-content {
   position: absolute;
   top: 50%;
-  left: -70px;
   width: 100%;
   transform: translateY(-50%);
   z-index: 1;
 }
 .block-style-twentyFive .screen-container .feature-meta {
-  padding: 75px 50px 65px;
-  background: #FFFFFF;
-  box-shadow: 0px 30px 60px rgba(6, 24, 67, 0.05);
-  border-radius: 10px;
+  border-radius: 40px;
   text-align: left;
   margin: 40px 0;
 }
-.block-style-twentyFive .screen-container .feature-meta .icon {height: 42px;}
+.block-style-twentyFive .screen-container .feature-meta .icon {
+  width: 300px;
+  margin: 0 auto;
+}
+.block-style-twentyFive .screen-container .feature-meta .icon img {
+  border-radius: 40px;
+}
 .block-style-twentyFive .screen-container .feature-meta h4 {
   font-size: 26px;
   line-height: 1.35em;
