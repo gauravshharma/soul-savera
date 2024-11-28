@@ -17,6 +17,7 @@
 @media (min-width: 992px) and (max-width:1400)  {
   .container {padding-right: 0;padding-left: 0;}
 }
+/* for iphone */
 @media (min-width: 1200px) and (max-width: 1450px) {
   .theme-main-menu {padding: 0px 30px 40px;}
   .theme-menu-two .navbar {padding-right: 18%;}
@@ -215,6 +216,45 @@
 .tab_container label {
   font-size: 18px;
 }
+.slick-dots {
+  position: relative;
+    top: -70px;
+  }
+  .text-block {
+    padding: 2rem;
+    position: relative;
+  }
+  .banner-img-border {
+    border-radius:40px 40px 0 0;
+  }
+  .text-button-section {
+    display: block;
+    margin: 0 10px;
+  } 
+  body .theme-btn-thirteen {
+    margin: 0;
+    padding: 0 70px;
+  }
+  .text-block .text-call {
+    border: none;
+    padding: 0;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .vertically-center {
+    position: relative;
+  }
+  .text-open {
+    border: none;
+  }
+  .text-email {
+    padding: 0;
+    margin-top: 20px;
+  }
+  .lg-left-sm-center {
+    text-align: center;
+    margin: 0 auto;
+  }
 }
 /*(max-width: 1199px)*/
 
@@ -228,7 +268,10 @@
   .hero-banner-eight {
     margin-top: 40px;
   }
-  .theme-main-menu {padding: 30px 25px;}
+  .banner-img-border {
+    border-radius: 0px 40px 40px 0;
+}
+  .theme-main-menu {padding: 0px 25px;}
   .hero-banner-two .container {padding: 0 25px;}
   .hero-banner-four h1 {font-size: 70px;}
   .hero-banner-four .sub-text {font-size: 24px; padding: 45px 0 50px;}
@@ -356,7 +399,7 @@
   .title-style-seven p {font-size: 18px;}
   .title-style-six .text-xs {font-size: 18px; padding-top: 25px;}
   body .theme-btn-five {line-height: 50px; padding: 0 25px; min-width: 155px;}
-  .theme-main-menu {padding: 20px 15px;}
+  .theme-main-menu {padding: 0px 15px;}
   .theme-menu-two #mega-menu-holder,.theme-menu-three #mega-menu-holder {margin-left: auto;}
   .theme-main-menu>div {position: static; margin: 0;}
   .theme-menu-two .logo,.theme-menu-three .logo,.theme-menu-five .logo {left: 15px;}
@@ -731,7 +774,7 @@
   .clientSliderSix .feedback-wrapper {padding: 25px 15px 25px 20px;}
   .clientSliderSix .feedback-wrapper p {font-size: 18px; padding-bottom: 30px;}
   .theme-footer-seven .title {color: #000;padding-bottom: 12px; font-size: 18px;}
-  .theme-footer-seven .footer-list a {font-size: 16px;}
+  .theme-footer-seven .footer-list a {font-size: 13px;}
   .theme-footer-seven .bottom-footer {margin-top: 30px; padding: 20px 0 5px;}
   .theme-footer-seven .bottom-footer .footer-nav a {margin: 0 12px;}
   .theme-footer-seven .bottom-footer .social-icon a {margin: 0 8px;}
@@ -875,7 +918,7 @@
   .block-style-thirty .feature {font-size: 13px; padding-bottom: 0; margin-bottom: 15px;}
   .block-style-thirty .feature-list-one strong {font-size: 20px; padding-bottom: 10px;}
   .block-style-thirty .feature-list-one li {padding-left: 50px;}
-  .block-style-thirty .text-block p {font-size: 20px; margin-bottom: 25px;}
+  .block-style-thirty .text-block p {font-size: 15px; margin-bottom: 25px;}
   .fancy-feature-thirty .wrapper {padding: 40px 0 90px;}
   .block-style-thirtyTwo {padding: 35px 15px 25px 10px;}
   .block-style-thirtyTwo .icon {width: 45px;height: 45px;}
@@ -971,8 +1014,25 @@
   .illustration-holder {width: 400px;}
 }
 /*(max-width: 991px)*/
-
+/* for ipad AIR */
 @media (min-width: 768px) and (max-width: 991px) {
+  .banner-img-border {
+    border-radius: 0px 0px 40px 40px;
+    position: relative;
+    top: 40px;
+  }
+  .footer-links li {
+    margin-left: 35%;
+  }
+  .text-button-section {
+    display: flex;
+    justify-content: space-around; 
+    align-items:center;
+  }
+  .text-block .text-call {
+    border-left: 1px solid #ddd;
+    padding-left: 40px;
+}
   .cta-heading h1 {font-size: 2.5rem;}
   .block-style-thirteen.style-border {border-right: none;}
   .team-section-one .mix, .team-section-one .gap {width: calc(100%/3 - (((3 - 1) * 1rem) / 3));}
@@ -1207,7 +1267,6 @@
   .hero-banner-five .button-group a {margin: 10px auto;}
   .hero-banner-five .img-gallery {margin-top: 60px;}
   .pricing-nav-three {margin-bottom: 20px;}
-  .modal-contact-popup-one .main-body .left-side {display: none !important;}
   .hero-banner-six .illustration-content {width: 90%; margin-right: 0;}
   .hero-banner-six .button-group .ios-button {margin: 25px 0 0 0;}
   .fancy-feature-thirteen .carousel-inner .shape-two {left: -45px;}

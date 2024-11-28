@@ -3757,7 +3757,32 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   cursor: pointer;
 }
 .useable-tools-section-two .theme-btn-two {border-radius: 5px;}
+.banner-img-border {
+  height: 100%;
+  border-radius:0 40px 40px 0
+}
+.text-button-section {
+  display: flex;
+  justify-content: space-around; 
+  align-items:center;
+}
+.lg-left-sm-center {
+  text-align: left;
+  margin-right: auto;
+}
+.justify-content-center {
+  -ms-flex-pack: justify !important;
+  justify-content: center !important;
+}
+.justify-content-around {
+  -ms-flex-pack: justify !important;
+  justify-content: space-around !important;
+}
 /*--------------- Client Feedback Slider One -----------------*/
+.client-feedback-slider-six {
+  position: relative;
+  z-index: 99;
+}
 .client-feedback-slider-one {
   max-width: 1920px;
   margin: 0 auto;
@@ -6641,7 +6666,7 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   position: relative;
   /* background: #FBF3EC; */
   background: linear-gradient(to left, rgb(228, 242, 254), rgb(255, 238, 254));
-  padding: 250px 0 110px;
+  padding: 200px 0 0px;
   z-index: 1;
 }
 /* .hero-banner-four:before {
@@ -8286,6 +8311,7 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   position: relative;
   width: 100%;
   border: none;
+  margin: 0 auto;
   -ms-flex-direction: row;
   flex-direction: row;
 }
@@ -9907,7 +9933,6 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   text-decoration: none;
   font-size: 18px;
   -webkit-backface-visibility: hidden;
-  margin: -18px 0 65px;
   top: 50%;
   position: relative;
 }
