@@ -200,14 +200,15 @@
     text-align: center;
   }
   .block-style-thirtyEight h1 {
-    font-size: 80px;
+    font-size: 70px;
     margin-top: 100px; 
   }
   .values-list ul li:before {
     left: 10px;
-}
+  }
 .values-list ul li {
   font-size: 14px;
+  margin-left: 20px;
   line-height: 25px;
 }
 .fancy-feature-eleven {
@@ -233,7 +234,6 @@
   } 
   body .theme-btn-thirteen {
     margin: 0;
-    padding: 0 70px;
   }
   .text-block .text-call {
     border: none;
@@ -813,7 +813,7 @@
   .hero-banner-nine .hero-heading {font-size: 45px;}
   .hero-banner-nine .hero-sub-heading {font-size: 18px;}
   .block-style-twentyTwo {padding: 40px 15px;}
-  .title-style-nine h2 {font-size: 35px; line-height: 1.45em;}
+  .title-style-nine h2 {font-size: 45px; line-height: 1.45em;}
   .block-style-twentyThree .screen-container {margin: 0 auto !important;}
   .block-style-twentyThree .text-wrapper h6 {font-size: 14px;}
   .block-style-twentyThree .text-wrapper .title {font-size: 30px; padding: 25px 0 18px;}

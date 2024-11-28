@@ -3758,7 +3758,7 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
 }
 .useable-tools-section-two .theme-btn-two {border-radius: 5px;}
 .banner-img-border {
-  height: 100%;
+  height: auto;
   border-radius:0 40px 40px 0
 }
 .text-button-section {
