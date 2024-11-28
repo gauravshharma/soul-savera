@@ -622,47 +622,47 @@ body {
   display: grid;
   text-transform: uppercase;
 }
-.text-block .text-open {
+.text-open {
   border-right: 1px solid #ddd;
   padding-right: 30px;
 }
-.text-block .text-open small {
+.text-open small {
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 1.5px;
   display: grid;
   text-transform: uppercase;
 }
-.text-block .text-email {
+.text-email {
   padding-left: 30px;
 }
-.text-block .text-email small {
+.text-email small {
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 1.5px;
   display: grid;
   text-transform: uppercase;
 }
-.text-block .text-email a {
+ .text-email a {
   font-size: 22px;
   font-weight: 400;
   margin-top:10px;
   color: var(--blue-dark);
 }
-.text-block .text-vertical small {
+.text-vertical small {
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 1.5px;
   display: grid;
   text-transform: uppercase;
 }
-.text-block .text-vertical a {
+.text-vertical a {
   font-size: 22px;
   font-weight: 400;
   margin-top:10px;
   color: var(--blue-dark);
 }
-.text-block .text-call small a {
+.text-call small a {
   font-size: 22px;
   color: #000;
 }
@@ -4976,7 +4976,7 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   transform: translateY(-50%);
 }
 .text-block {
-  padding: 5rem;
+  padding: 5rem 8rem;
 }
 .contact-style-two .contact-info-wrapper {
   position: relative;
@@ -6644,7 +6644,7 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   padding: 250px 0 110px;
   z-index: 1;
 }
-.hero-banner-four:before {
+/* .hero-banner-four:before {
   content: '';
   position: absolute;
   width: 100%;
@@ -6653,7 +6653,7 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   bottom: -100px;
   background: url(../images/shape/99.svg) no-repeat center bottom;
   background-size: cover;
-}
+} */
 .hero-banner-four .shape-four {
   top: 1%;
   left: 15%;
@@ -7933,10 +7933,10 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
 .block-style-sixteen p {
   font-size: 16px;
   font-weight: 300;
-  line-height: 1.8em;
+  line-height: 2.25em;
   color: #808080;
   margin-bottom: 35px;
-  padding-bottom: 30px;
+  padding: 0 30px 30px 0px;
 }
 .block-style-sixteen .screen-one {
   right: 70px;
@@ -9744,7 +9744,7 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   right: 57px;
 } */
 .clientSliderSix .feedback-wrapper p {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 30px;
   color: #000;
   padding-bottom: 20px;
@@ -9900,8 +9900,80 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   font-size: 22px;
   font-weight: 500;
 }
+.scroll-more {
+  display: inline-block;
+  height: 36px;
+  color: var(--blue-dark);
+  text-decoration: none;
+  font-size: 18px;
+  -webkit-backface-visibility: hidden;
+  margin: -18px 0 65px;
+  top: 50%;
+  position: relative;
+}
+.scroll-more:hover,
+.scroll-more:focus {
+  color: #fff;
+  text-decoration: none;
+}
+.scroll-more span {
+  vertical-align: middle;
+  transition: opacity 0.3s;
+  color: var(--heading);
+}
+.scroll-more:hover span {
+  opacity: 1;
+}
+.scroll-more .icon {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  vertical-align: middle;
+  border: 1px solid var(--blue-dark);
+  border-radius: 50%;
+  margin-right: 8px;
+  padding: 8px 0 0 12px;
+}
+.scroll-more .icon:before {
+  display: block;
+  width: 10px;
+  height: 18px;
+  content: "";
+  border: 1px solid var(--blue-dark);
+  border-radius: 12px;
+}
+.scroll-more .icon:after {
+  position: absolute;
+  display: block;
+  top: 11px;
+  left: 16px;
+  width: 2px;
+  height: 4px;
+  content: "";
+  background-color: var(--yellow-deep);
+  animation: scroll 1.2s infinite;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 0.8;
+    transform: translateY(0);
+    height: 1px;
+  }
+  60% {
+    opacity: 0.6;
+    height: 4px;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+    height: 1px;
+  }
+}
+
 /*-------------- Footer Style Seven -------------*/
-.theme-footer-seven {font-family: 'Rubik';}
+.theme-footer-seven {font-family: 'Rubik'; background-color: var(--blue-light);}
 .theme-footer-seven .title {
   font-size: 20px;
   text-transform: uppercase;
@@ -12529,11 +12601,11 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   left: 0;
 }
 .block-style-thirty .text-block p {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 300;
   line-height: 1.8em;
   color: #808080;
-  margin-bottom: 35px;
+  margin-bottom: 40px;
 }
 .block-style-thirtyOne {
   border: 1px solid #E4E4E4;
@@ -15506,6 +15578,7 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   flex-direction: column;
   align-items: center;
   width: 280px;
+  margin: 10px;
 }
 .items-container .item-6-grid {
   width: 150px !important;
@@ -15529,7 +15602,7 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   background-color: #eff2ff;
 }
 .item-details {
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
   color: var(--heading);
   margin-top:20px;
