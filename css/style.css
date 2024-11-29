@@ -11483,8 +11483,7 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   height: 300px; 
   width: 300px;
   float: right;
-  margin-left: 100px;
-  margin-bottom: 30px;
+  margin: 30px 60px;
   shape-outside: inset(1% round 50%);
 }
 .block-style-twentyFive .screen-container .block-content {
