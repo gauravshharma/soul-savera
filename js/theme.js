@@ -1,11 +1,5 @@
 // js Document
 
-    // Created on   : 19/06/2021.
-    // Theme Name   : Deski-Saas & Software HTML Template
-    // Version      : 1.0.
-    // Developed by : (me@heloshape.com) / (www.me.heloshape.com)
-
-
 (function($) {
     "use strict";
     
