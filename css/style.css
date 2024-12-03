@@ -7791,7 +7791,6 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   top: 26%;
   right: -10%;
   z-index: 1;
-  box-shadow: 0 35px 70px rgba(12, 21, 44, 0.08);
   animation: jumpTwo 5s infinite linear;
 }
 .hero-banner-five .img-gallery .screen-two {
@@ -11476,13 +11475,10 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
 .block-style-twentyFive ul {padding-top: 50px;}
 .block-style-twentyFive .screen-container {
   position: relative;
-  box-shadow: 0px 30px 60px rgba(6, 24, 67, 0.05);
-  border-radius: 50%;
-  height: 500px; 
-  width:500px;
+  height: 300px; 
+  width: 300px;
   float: right;
-  margin-left: 100px;
-  margin-bottom: 30px;
+  margin: 30px 60px;
   shape-outside: inset(1% round 50%);
 }
 .block-style-twentyFive .screen-container .block-content {
