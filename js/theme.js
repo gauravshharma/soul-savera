@@ -904,20 +904,32 @@
 
     });  //End On Load Function
 
-    document.getElementById("appointmentForm").addEventListener("submit", function(event) {
-      const phoneField = document.getElementById("phone");
-      const phonePattern = /^[6-9]\d{9}$/; // Indian numbers starting with 6-9 and 10 digits
-      if (!phonePattern.test(phoneField.value)) {
-        alert("Please enter a valid 10-digit Indian phone number.");
-        event.preventDefault();
+    document.addEventListener('DOMContentLoaded', function () {
+      const dropdownItems = document.querySelectorAll('.dropdown-item');
+      for (let i = 0; i < dropdownItems.length; i++) {
+        dropdownItems[i].addEventListener('click', function () {
+          const navbarCollapse = document.querySelector('.navbar-collapse');
+          if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+            navbarCollapse.classList.remove('show');
+          }
+          const navbarToggler = document.querySelector('.navbar-toggler');
+          if (navbarToggler && navbarToggler.classList.contains('open')) {
+            navbarToggler.classList.remove('open');
+          }
+        });
       }
     });
-    
-})(jQuery);
 
-// Mission Vision and Values
+    // Mission Vision and Values
 $(".option").click(function(){
   $(".option").removeClass("active");
   $(this).addClass("active");
   
 });
+
+
+    
+})(jQuery);
+
+
+
