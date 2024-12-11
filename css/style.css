@@ -624,7 +624,6 @@ body {
 }
 .text-open {
   border-right: 1px solid #ddd;
-  padding-right: 30px;
 }
 .text-open small {
   font-size: 13px;
@@ -10676,9 +10675,9 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
 .block-style-twentyTwo {
   text-align: center;
   background: #fff;
-  padding: 50px 35px;
-  margin-top: 45px;
-  height: 350px;
+  padding: 40px 35px;
+  margin-top: 30px;
+  height: 330px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
@@ -10711,7 +10710,8 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   color: var(--heading);
 }
 .block-style-twentyTwo p {
-  font-size: 14px;
+  font-size: 15px;
+  line-height: 26px;
 }
 .block-style-twentyTwo .arrow-icon {
   margin-top: 30px;
@@ -15690,10 +15690,10 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   margin: 20px 0 10px;
   text-align: left;
 }
-.specialities .speciality-block.block-image-1 {
+.specialities .color-block.block-image-1::before {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url(../images/assets/neurodevelopmental-expertise.jpg); 
 }
-.specialities .speciality-block.block-image-7 {
+.specialities .color-block.block-image-7::before {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/assets/evidence-based.jpg);
 }
 .specialities .speciality-block.speciality-bg-img, h4, .speciality-box .read-more:before  {
@@ -15817,7 +15817,7 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   transition: opacity 0.5s ease-in-out;
 }
 
-.specialities .speciality-block.block-image-2 { 
+.specialities .color-block.block-image-2::before { 
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/assets/about.png);
 }
 .specialities .color-block.block-image-3::before { 
@@ -15832,7 +15832,7 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
 .specialities .color-block.block-image-6::before { 
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url(../images/assets/compassionate-env.jpg); 
 }
-.specialities .speciality-block.block-image-8 { 
+.specialities .color-block.block-image-8::before { 
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url(../images/assets/Strength-Based.png); 
 }
 
@@ -15883,11 +15883,12 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
 .text-heading {
   color: var(--heading);
 }
+
 .tab_container {
-	width: 90%;
+	width: 100%;
 	margin: 0 auto;
-	padding-top: 70px;
-  margin: 150px auto;
+	padding-top: 20px;
+  margin: 0 auto 100px;
 	position: relative;
 }
 
@@ -15902,7 +15903,7 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   font-size: 22px;
   display: block;
   float: left;
-  width: 33.33%;
+  width: 25%;
   padding: 1em;
   color: var(--heading);
   font-family: "Playfair Display", sans-serif;
@@ -15910,7 +15911,20 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   text-decoration: none;
   text-align: center;
   background: #f0f0f0;
+  transition: color 0.15s ease-in;
 }
+.tab1 {
+  border-radius: 40px 0 0 0;
+}
+
+.tab2 {
+  border-radius: 0;
+}
+
+.tab4 {
+  border-radius: 0 40px 0 0px;
+}
+
 
 #tab1:checked ~ #content1,
 #tab2:checked ~ #content2,
@@ -15923,6 +15937,7 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
   color: var(--heading);
   font-family: "Roboto", sans-serif;
   font-size: 18px;
+  border-radius: 0 0 40px 40px;
 }
 
 .tab_container .tab-content p,
@@ -15937,8 +15952,9 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
 }
 
 .tab_container [id^="tab"]:checked + label {
-  background: #fff;
-  box-shadow: inset 0 3px var(--blue-dark);
+  background: var(--blue-dark);
+  color: #fff;
+  box-shadow: inset 0 3px var(--yellow-deep);
 }
 
 .tab_container [id^="tab"]:checked + label .fa {

@@ -262,9 +262,19 @@
     max-width: 90px;
   }
 }
-/*(max-width: 1199px)*/
 
-
+/* iphone only */
+@media (min-width: 360px) and (max-width:450px) {
+  .tab_container label {
+    width: 100%;
+  }
+  .tab1 {
+    border-radius: 40px 40px 0 0;
+  }
+  .tab4 {
+    border-radius: 0;
+  }
+}
 
 
 @media (min-width: 992px) and (max-width: 1199px) {
