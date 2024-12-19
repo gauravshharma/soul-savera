@@ -15926,11 +15926,10 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
 }
 
 
-#tab1:checked ~ #content1,
-#tab2:checked ~ #content2,
-#tab3:checked ~ #content3,
-#tab4:checked ~ #content4,
-#tab5:checked ~ #content5 {
+#careers:checked ~ #content1,
+#volunteers:checked ~ #content2,
+#internship:checked ~ #content3,
+#collaboration:checked ~ #content4 {
   display: block;
   padding: 40px;
   background: #fff;
@@ -15941,7 +15940,8 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
 }
 
 .tab_container .tab-content p,
-.tab_container .tab-content h3 {
+.tab_container .tab-content h3,
+.tab_container .tab-content h4 {
   -webkit-animation: fadeInScale 0.7s ease-in-out;
   -moz-animation: fadeInScale 0.7s ease-in-out;
   animation: fadeInScale 0.7s ease-in-out;
@@ -15950,14 +15950,17 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
 .tab_container .tab-content h3  {
   text-align: center;
 }
-
-.tab_container [id^="tab"]:checked + label {
+.tab_container .tab-content h4  {
+  color: var(--heading);
+  font-family: "Playfair Display";
+}
+.tab_container input[type="radio"]:checked + label {
   background: var(--blue-dark);
   color: #fff;
   box-shadow: inset 0 3px var(--yellow-deep);
 }
 
-.tab_container [id^="tab"]:checked + label .fa {
+.tab_container input[type="radio"]:checked + label .fa {
   color: #0CE;
 }
 

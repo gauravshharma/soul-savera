@@ -920,6 +920,22 @@
       }
     });
 
+    document.addEventListener("DOMContentLoaded", function () {
+      // Get the hash value from the URL, without the '#'
+      const hashValue = window.location.hash.replace("#", "");
+    
+      // Check if the hashValue exists
+      if (hashValue) {
+        // Find the radio button with the matching ID
+        const radioInput = document.getElementById(hashValue);
+    
+        // If the radio input exists and is of type 'radio', check it
+        if (radioInput && radioInput.type === "radio") {
+          radioInput.checked = true;
+        }
+      }
+    });
+
     // Mission Vision and Values
 $(".option").click(function(){
   $(".option").removeClass("active");
