@@ -277,6 +277,33 @@
   .theme-footer-seven .bottom-footer .copyright {
     font-size: 15px;
   }
+  .teamSlider .item {
+    padding: 20px;
+  } 
+  .name-wrapper .img img, .team-details .text-wrapper .appointment {
+    margin: 20px auto;
+  }
+  .team-details .text-wrapper .name {
+    font-size: 24px;
+    text-align: center;
+  }
+  .team-details .text-wrapper .position, .team-details .text-wrapper .experience, .team-details .text-wrapper .experience span {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .border-sm-none {
+    border: none;
+  }
+  .name-wrapper {
+    padding: 0 20px;
+  }
+  .name-wrapper .name-block {
+    margin: 0 auto;
+  }
+  .teamSlider .item::after {
+    top: -10rem;
+    right: -9rem;
+  }
 }
 
 

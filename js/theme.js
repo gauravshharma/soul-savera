@@ -119,93 +119,6 @@
         }
 
 
-// ------------------------ Company Logo Slider
-        if($(".companies-logo-slider").length) {
-          $('.companies-logo-slider').slick({
-              centerMode: true,
-              centerPadding: '0px',
-              slidesToShow: 7,
-              prevArrow: $('.prev'),
-              nextArrow: $('.next'),
-              autoplay: true,
-              autoplaySpeed: 3000,
-              responsive: [
-              {
-                  breakpoint: 991,
-                  settings: {
-                    arrows: true,
-                    centerMode: true,
-                    slidesToShow: 5
-                  }
-                },
-                {
-                  breakpoint: 768,
-                  settings: {
-                    arrows: true,
-                    centerMode: true,
-                    slidesToShow: 3
-                  }
-                },
-                {
-                  breakpoint: 480,
-                  settings: {
-                    arrows: true,
-                    centerMode: true,
-                    slidesToShow: 2
-                  }
-                }
-              ]
-            });
-        }
-
-// ------------------------ Company Logo Slider
-        if($(".partnerSliderTwo").length) {
-          $('.partnerSliderTwo').slick({
-              centerMode: true,
-              centerPadding: '0px',
-              arrows: false,
-              slidesToShow: 5,
-              autoplay: true,
-              autoplaySpeed: 3000,
-              responsive: [
-              {
-                  breakpoint: 992,
-                  settings: {
-                    centerMode: true,
-                    slidesToShow: 4
-                  }
-                },
-                {
-                  breakpoint: 768,
-                  settings: {
-                    centerMode: true,
-                    slidesToShow: 3
-                  }
-                },
-                {
-                  breakpoint: 480,
-                  settings: {
-                    centerMode: true,
-                    slidesToShow: 2
-                  }
-                }
-              ]
-            });
-        }
-
-// ------------------------ Client Feedback Slider One
-        if($(".clientSliderOne").length) {
-          $('.clientSliderOne').slick({
-              centerMode: true,
-              centerPadding: '0px',
-              slidesToShow: 1,
-              prevArrow: $('.prev_c'),
-              nextArrow: $('.next_c'),
-              autoplay: true,
-              autoplaySpeed: 6000,
-            });
-        }
-
 
 // ------------------------ Image Slick Slider 
         if($(".img-slick-slider").length) {
@@ -312,66 +225,6 @@
             });
         }
 
-
-// ------------------------ Client Feedback Slider Three
-        if($(".clientSliderThree").length) {
-          $('.clientSliderThree').slick({
-              dots: false,
-              arrows: true,
-              prevArrow: $('.prevT'),
-              nextArrow: $('.nextT'),
-              centerPadding: '0px',
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              autoplay: false,
-              autoplaySpeed: 3000,
-            });
-        }
-
-
-// ------------------------ Client Feedback Slider Four
-        if($(".clientSliderFour").length) {
-          $('.clientSliderFour').slick({
-              dots: true,
-              arrows: false,
-              centerPadding: '0px',
-              slidesToShow: 3,
-              slidesToScroll: 3,
-              autoplay: false,
-              autoplaySpeed: 3000,
-              responsive: [
-                {
-                  breakpoint: 992,
-                  settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                  }
-                },
-                {
-                  breakpoint: 768,
-                  settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                  }
-                }
-              ]
-            });
-        }
-
-// ------------------------ Client Feedback Slider Five
-        if($(".clientSliderFive").length) {
-          $('.clientSliderFive').slick({
-              centerMode: true,
-              centerPadding: '0px',
-              slidesToShow: 1,
-              prevArrow: $('.prev_f'),
-              nextArrow: $('.next_f'),
-              autoplay: true,
-              autoplaySpeed: 6000,
-            });
-        }
-
-
 // ------------------------ Client Feedback Slider Six
         if($(".clientSliderSix").length) {
           $('.clientSliderSix').slick({
@@ -403,49 +256,6 @@
         }
 
 
-// ------------------------ Client Feedback Slider Seven
-        if($(".clientSliderSeven").length) {
-          $('.clientSliderSeven').slick({
-              centerMode: true,
-              centerPadding: '0px',
-              slidesToShow: 1,
-              prevArrow: $('.prev_cs1'),
-              nextArrow: $('.next_cs1'),
-              autoplay: true,
-              fade: true,
-              autoplaySpeed: 6000,
-            });
-        }
-
-// ------------------------ Client Feedback Slider Eight
-        if($(".clientSliderEight").length) {
-          $('.clientSliderEight').slick({
-              dots: true,
-              arrows: false,
-              centerPadding: '0px',
-              slidesToShow: 3,
-              slidesToScroll: 1,
-              autoplay: true,
-              autoplaySpeed: 3000,
-              responsive: [
-                {
-                  breakpoint: 1200,
-                  settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                  }
-                },
-                {
-                  breakpoint: 768,
-                  settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                  }
-                }
-              ]
-            });
-        }
-
 
 // ------------------------ App Screen Preview 
         if($(".app-preview-slider-one").length) {
@@ -457,7 +267,7 @@
               centerMode: true,
               slidesToScroll: 1,
               autoplay: true,
-              autoplaySpeed: 3000,
+              autoplaySpeed: 2000,
               responsive: [
                 {
                   breakpoint: 992,
@@ -511,6 +321,40 @@
             });
         }
 
+// ------------------------ Team slider
+
+            $('.teamSlider').slick({
+              dots: true,
+              arrows: false,
+              centerMode: false,
+              centerPadding: '0px',
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              autoplay: true,
+              autoplaySpeed: 3000,
+              prevArrow: $('.prev'),
+              nextArrow: $('.next'),
+            });
+            $(".prev").click(function () {
+              $(".teamSlider").slick("slickPrev");
+            });
+          
+            $(".next").click(function () {
+              $(".teamSlider").slick("slickNext");
+            });
+            $(".prev").addClass("slick-disabled");
+            $(".teamSlider").on("afterChange", function () {
+              if ($(".slick-prev").hasClass("slick-disabled")) {
+                $(".prev").addClass("slick-disabled");
+              } else {
+                $(".prev").removeClass("slick-disabled");
+              }
+              if ($(".slick-next").hasClass("slick-disabled")) {
+                $(".next").addClass("slick-disabled");
+              } else {
+                $(".next").removeClass("slick-disabled");
+              }
+            }); 
 
 // ------------------------ Portfolio Slider One
         if($(".portfolio_slider_one").length) {
@@ -791,16 +635,6 @@
           });
         }
 
-// ------------------------ Credit Card Option 
-        if($("#credit-card").length) {
-          $(".payment-radio-button").on('click',function(){
-             if ($("#credit-card").is(":checked")) {
-               $(".credit-card-form").show(300);
-             } else {
-               $(".credit-card-form").hide(300);
-             }
-           });
-        }
 
 // -------------------------- JS tilt Effect
         if($(".js-tilt").length) {
@@ -815,147 +649,158 @@
           // validator files are included in the download package
           // otherwise download from http://1000hz.github.io/bootstrap-validator
 
-        if($("#contact-form").length) {
-            $('#contact-form').validator();
-            // when the form is submitted
-            $('#contact-form').on('submit', function (e) {
+    //     if($("#contact-form").length) {
+    //         $('#contact-form').validator();
+    //         // when the form is submitted
+    //         $('#contact-form').on('submit', function (e) {
 
-                // if the validator does not prevent form submit
-                if (!e.isDefaultPrevented()) {
-                    var url = "inc/contact.php";
+    //             // if the validator does not prevent form submit
+    //             if (!e.isDefaultPrevented()) {
+    //                 var url = "inc/contact.php";
 
-                    // POST values in the background the the script URL
-                    $.ajax({
-                        type: "POST",
-                        url: url,
-                        data: $(this).serialize(),
-                        success: function (data)
-                        {
-                            // data = JSON object that contact.php returns
+    //                 // POST values in the background the the script URL
+    //                 $.ajax({
+    //                     type: "POST",
+    //                     url: url,
+    //                     data: $(this).serialize(),
+    //                     success: function (data)
+    //                     {
+    //                         // data = JSON object that contact.php returns
 
-                            // we recieve the type of the message: success x danger and apply it to the
-                            var messageAlert = 'alert-' + data.type;
-                            var messageText = data.message;
+    //                         // we recieve the type of the message: success x danger and apply it to the
+    //                         var messageAlert = 'alert-' + data.type;
+    //                         var messageText = data.message;
 
-                            // let's compose Bootstrap alert box HTML
-                            var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
+    //                         // let's compose Bootstrap alert box HTML
+    //                         var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
 
-                            // If we have messageAlert and messageText
-                            if (messageAlert && messageText) {
-                                // inject the alert to .messages div in our form
-                                $('#contact-form').find('.messages').html(alertBox);
-                                // empty the form
-                                $('#contact-form')[0].reset();
-                            }
-                        }
-                    });
-                    return false;
-                }
-            });
-          }
+    //                         // If we have messageAlert and messageText
+    //                         if (messageAlert && messageText) {
+    //                             // inject the alert to .messages div in our form
+    //                             $('#contact-form').find('.messages').html(alertBox);
+    //                             // empty the form
+    //                             $('#contact-form')[0].reset();
+    //                         }
+    //                     }
+    //                 });
+    //                 return false;
+    //             }
+    //         });
+    //       }
 
     
-    $(window).on ('load', function (){ // makes sure the whole site is loaded
-
-// ------------------------------- AOS Animation
-        if ($("[data-aos]").length) { 
-            AOS.init({
-            duration: 1000,
-            mirror: true
-          });
-        }
-        
-// ------------------------------------- Fancybox
-        var fancy = $ (".fancybox");
-        if(fancy.length) {
-          fancy.fancybox({
-            arrows: true,
-            buttons: [
-              "zoom",
-              //"share",
-              "slideShow",
-              //"fullScreen",
-              //"download",
-              "thumbs",
-              "close"
-            ],
-            animationEffect: "zoom-in-out",
-            transitionEffect: "zoom-in-out",
-          });
-        }
+    // $(window).on ('load', function (){ // makes sure the whole site is loaded
 
 
-// ------------------------------- AOS Animation
-        if ($(".map-canvas").length) { 
-            var map = new google.maps.Map($(".map-canvas")[0], {
-                zoom: 14,
-                center: new google.maps.LatLng(40.72, -74),
-                mapTypeId: google.maps.MapTypeId.ROADMAP,
-                clickableIcons: false
-            });
+// Expand Image
+const images = document.querySelectorAll(".image");
+const expandImage = () => {
+  images.forEach((image) => {
+		image.addEventListener("mouseover", () => {
+			const active = document.querySelector(".active");
+			active.classList.remove("active");
 
-            var marker = new google.maps.Marker({
-                map: map,
-                draggable: true,
-                position: new google.maps.LatLng(40.72, -74),
-                visible: true
-            });
-        }
+			image.classList.add("active");
+		});
+    image.addEventListener("mouseout", () => {
+			active.classList.add("active");
 
-    });  //End On Load Function
+			image.classList.remove("active");
+		});
+	});
+};
+expandImage();
 
-    document.addEventListener('DOMContentLoaded', function () {
-      const dropdownItems = document.querySelectorAll('.dropdown-item');
-      for (let i = 0; i < dropdownItems.length; i++) {
-        dropdownItems[i].addEventListener('click', function () {
-          const navbarCollapse = document.querySelector('.navbar-collapse');
-          if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-            navbarCollapse.classList.remove('show');
-          }
-          const navbarToggler = document.querySelector('.navbar-toggler');
-          if (navbarToggler && navbarToggler.classList.contains('open')) {
-            navbarToggler.classList.remove('open');
-          }
-        });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const hashValue = window.location.hash.replace("#", "");
+
+  let activeTab;
+  if (hashValue) {
+    activeTab = document.getElementById(hashValue);
+  }
+
+  if (activeTab && activeTab.type === "radio") {
+    activeTab.checked = true;
+    // Update active tab visually
+    setActiveTab(activeTab);
+  } else {
+    // Default to the 'careers' tab if no valid hash value is found
+    activeTab = document.getElementById("careers");
+    if (activeTab && activeTab.type === "radio") {
+      activeTab.checked = true;
+      setActiveTab(activeTab);
+    }
+  }
+
+  function setActiveTab(tabElement) {
+    const tabContainer = document.querySelector(".tabs"); // Replace with your tab container selector
+    if (tabContainer) {
+      // Remove the 'active' class from all tabs
+      const allTabs = tabContainer.querySelectorAll(".tab");
+      allTabs.forEach((tab) => tab.classList.remove("active"));
+
+      // Add the 'active' class to the current tab
+      const tabToActivate = tabElement.closest(".tab"); // Assuming each radio button is inside a .tab
+      if (tabToActivate) {
+        tabToActivate.classList.add("active");
       }
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
-      // Get the hash value from the URL, without the '#'
-      const hashValue = window.location.hash.replace("#", "");
-    
-      // Check if the hashValue exists
-      if (hashValue) {
-        // Find the radio button with the matching ID
-        const radioInput = document.getElementById(hashValue);
-    
-        // If the radio input exists and is of type 'radio', check it
-        if (radioInput && radioInput.type === "radio") {
-          radioInput.checked = true;
-        }
-      }
-    });
-
-    // Mission Vision and Values
-$(".option").click(function(){
-  $(".option").removeClass("active");
-  $(this).addClass("active");
-  
+    }
+  }
 });
 
-// Load Header
-fetch('header.html')
-.then(response => response.text())
-.then(data => document.getElementById('header').innerHTML = data);
 
-// Load Footer
-fetch('footer.html')
-.then(response => response.text())
-.then(data => document.getElementById('footer').innerHTML = data);
+// ------------------------------- AOS Animation
+if ($("[data-aos]").length) {
+  AOS.init({
+    duration: 1000,
+    mirror: true,
+  });
+}
+
+// ------------------------------- Google Maps
+if ($(".map-canvas").length) {
+  var map = new google.maps.Map($(".map-canvas")[0], {
+    zoom: 14,
+    center: new google.maps.LatLng(40.72, -74),
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    clickableIcons: false,
+  });
+
+  var marker = new google.maps.Marker({
+    map: map,
+    draggable: true,
+    position: new google.maps.LatLng(40.72, -74),
+    visible: true,
+  });
+}
 
 
-    
+// Dropdown Items Behavior
+document.addEventListener("DOMContentLoaded", function () {
+  const dropdownItems = document.querySelectorAll(".dropdown-item");
+  for (let i = 0; i < dropdownItems.length; i++) {
+    dropdownItems[i].addEventListener("click", function () {
+      const navbarCollapse = document.querySelector(".navbar-collapse");
+      if (navbarCollapse && navbarCollapse.classList.contains("show")) {
+        navbarCollapse.classList.remove("show");
+      }
+      const navbarToggler = document.querySelector(".navbar-toggler");
+      if (navbarToggler && navbarToggler.classList.contains("open")) {
+        navbarToggler.classList.remove("open");
+      }
+    });
+  }
+});
+
+// Check Radio Button from URL Hash
+document.addEventListener("DOMContentLoaded", function () {
+  const hashValue = window.location.hash.replace("#", "");
+  if (hashValue) {
+    const radioInput = document.getElementById(hashValue);
+    if (radioInput && radioInput.type === "radio") {
+      radioInput.checked = true;
+    }
+  }
+});
 })(jQuery);
-
-
-
