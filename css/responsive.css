@@ -279,6 +279,7 @@
   }
   .teamSlider .item {
     padding: 20px;
+    margin-top: 7.5%;
   } 
   .name-wrapper .img img, .team-details .text-wrapper .appointment {
     margin: 20px auto;
@@ -442,7 +443,8 @@
   .title-style-six h6 {font-size: 15px; padding-bottom: 15px;}
   .title-style-six h2 {font-size: 45px;}
   .title-style-seven h2 {font-size: 38px;}
-  .title-style-seven p {font-size: 18px;}
+  .title-style-seven p {font-size: 16px; padding: 0 20px;
+    text-align: justify;}
   .title-style-six .text-xs {font-size: 18px; padding-top: 25px;}
   body .theme-btn-five {line-height: 50px; padding: 0 25px; min-width: 155px;}
   .theme-main-menu {padding: 0px 15px;}
@@ -877,7 +879,7 @@
   .team-details {padding: 80px 0 100px;}
   .team-details .main-bg .img-meta {width: 100%;}
   .team-details .main-bg .text-wrapper {width: 100%; padding: 50px 25px;}
-  .team-details .pager {position: static; width: 100%; margin-top: 50px;}
+  .team-details .pager {position: static; width: 100%; margin-top: -50px;}
   .team-details .main-bg .text-wrapper .name {font-size: 30px;}
   .terms_and_policy .nav-tabs {display: none !important;}
   .terms_and_policy .tab-content>.tab-pane {display: block; opacity: 1; margin-bottom: 60px;}
@@ -933,6 +935,7 @@
   .useable-tools-section-four .text-wrapper p {padding: 25px 0 30px;}
   .useable-tools-section-four .text-wrapper {padding: 60px 0 70px;}
   .useable-tools-section-four .logo-container .line-two {transform: none;}
+  .team-details .text-wrapper .name { text-align: center;}
   .useable-tools-section-four .logo-container .icon {height: 150px; margin: 0 0 35px;}
   .block-style-twentyNine {padding: 30px 25px 40px;}
   .block-style-twentyNine .video-icon {margin-top: 20px;}
