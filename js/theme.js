@@ -225,6 +225,7 @@
             });
         }
 
+        
 // ------------------------ Client Feedback Slider Six
         if($(".clientSliderSix").length) {
           $('.clientSliderSix').slick({
