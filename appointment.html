@@ -115,6 +115,13 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+		<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+		<script>
+			(function() {
+			  emailjs.init("R3YVJOquZLrLoOgJ3");
+			})();
+		  </script>
+		  
 		<!-- Fix Internet Explorer ______________________________________-->
 		<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -228,7 +235,7 @@
 											<h2 class="form-title">Book an appointment</h2>
 											<p class="font-rubik">It just takes a few minutes to book a visit online.</p>
 										</div>
-										<form action="#" id="contact-form" data-toggle="validator" novalidate="true">
+										<form action="#" id="appointment-form" method="post" data-toggle="validator" novalidate="true">
 											<div class="messages"></div>
 											<div class="row controls mt-50">
 												<div class="col-6">
@@ -418,19 +425,27 @@
 		<!-- Slick Slider -->
 		<script src="vendor/slick/slick.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
-		<script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init({
-        publicKey: "R3YVJOquZLrLoOgJ3",
-      });
-   })();
-</script>
 		<!-- Theme js -->
 		<script src="js/theme.js"></script>	
-
+		<script>
+			document.getElementById("appointment-form").addEventListener("submit", function(event) {
+			  event.preventDefault(); // Prevent default form submission
+			
+			  const form = this;
+			  const serviceID = "service_2s9vi4l"; // Replace with your Service ID
+			  const templateID = "template_bkli69l"; // Replace with your Template ID
+			
+			  // Send the email using EmailJS
+			  emailjs.sendForm(serviceID, templateID, form)
+				.then(() => {
+				  alert("Appointment booked successfully!");
+				  form.reset(); // Reset the form
+				}, (error) => {
+				  console.error("Failed to send message:", error);
+				  alert("Failed to send message. Please try again later.");
+				});
+			});
+			</script>
 		</div> <!-- /.main-page-wrapper -->
 	</body>
 </html>
