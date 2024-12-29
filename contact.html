@@ -115,6 +115,12 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+		<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+		<script>
+  		(function() {
+    		emailjs.init("R3YVJOquZLrLoOgJ3");
+  		})();
+		</script>
 		<!-- Fix Internet Explorer ______________________________________-->
 		<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -290,7 +296,7 @@
 										<h2>We are listening..</h2>
                                         <p>If you have any questions, you can contact us. Please fill out the form below.</p>
 									</div>
-                                    <form action="#" id="contact-form" data-toggle="validator" novalidate="true">
+                                    <form action="#" id="contact-form" method="post" data-toggle="validator" novalidate="true">
                                         <div class="messages"></div>
                                         <div class="row controls mt-50">
                                             <div class="col-lg-6 col-sm-12 col-md-6">
@@ -490,16 +496,25 @@
 		<!-- Theme js -->
 		<script src="js/theme.js"></script>
 
-		<script type="text/javascript"
-        	src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-		</script>
-	<script type="text/javascript">
-   		(function(){
-      	emailjs.init({
-        publicKey: "R3YVJOquZLrLoOgJ3",
-      });
-   		})();
-	</script>
+		<script>
+			document.getElementById("contact-form").addEventListener("submit", function(event) {
+			  event.preventDefault(); // Prevent default form submission
+			
+			  const form = this;
+			  const serviceID = "service_2s9vi4l"; // Replace with your Service ID
+			  const templateID = "template_pthudga"; // Replace with your Template ID
+			
+			  // Send the email using EmailJS
+			  emailjs.sendForm(serviceID, templateID, form)
+				.then(() => {
+				  alert("Message sent successfully!");
+				  form.reset(); // Reset the form
+				}, (error) => {
+				  console.error("Failed to send message:", error);
+				  alert("Failed to send message. Please try again later.");
+				});
+			});
+			</script>
 
 	<script type="application/ld+json">
 	{
