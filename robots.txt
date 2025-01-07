@@ -1,0 +1,11 @@
+# Allow all search engines to index the website
+User-agent: *
+Disallow:
+
+# Prevent indexing of sensitive or unnecessary files and directories
+Disallow: /header.html
+Disallow: /footer.html
+Disallow: /theme.html
+
+# Specify the location of the sitemap
+Sitemap: https://soulsavera.com/sitemap.xml
