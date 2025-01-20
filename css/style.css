@@ -10061,6 +10061,9 @@ transition: content 0.5s ease-in-out;
   position: absolute;
   left: 40px;
 }
+.border-radius-vmv {
+  border-radius: 300px 0 300px 300px !important;
+}
 /*----------------- Fancy Short Banner Eight ---------------*/
 .fancy-short-banner-eight {
   background: #FCF7EA;
@@ -15969,7 +15972,12 @@ transition: content 0.5s ease-in-out;
     transform-origin: 50% 50%;
   }
 }
-
+.fs-20 {
+  font-size: 20px !important;
+}
+.fs-26 {
+  font-size: 26px !important;
+}
 .items-container {
   display: flex;
   flex-wrap: wrap;
@@ -15979,16 +15987,15 @@ transition: content 0.5s ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 280px;
   margin: 10px;
 }
 .items-container .item-6-grid {
   width: 150px !important;
 }
 .items-container .item .item-icon {
-  width: 100px;
-  height: 100px;
-  padding: 6%;
+  width: 80px;
+  height: 80px;
+  padding: 5%;
   border-radius: 50%;
 }
 #map-icon {
