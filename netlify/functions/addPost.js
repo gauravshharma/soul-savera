@@ -1,52 +1,81 @@
 const fetch = require('node-fetch');
+const { Buffer } = require('buffer');
 
-exports.handler = async function (event, context) {
+exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
-      body: 'Method Not Allowed',
+      body: JSON.stringify({ message: 'Method Not Allowed' }),
     };
   }
 
-  const { title, content } = JSON.parse(event.body);
+  const {
+    title,
+    content,
+    author,
+    tags,
+    image,
+    category,
+    date,
+    slug,
+    description,
+    keywords,
+  } = JSON.parse(event.body);
 
-  const filename = `${title.toLowerCase().replace(/\s+/g, '-')}-${Date.now()}.md`;
-  const fileContent = `# ${title}\n\n${content}\n`;
+  const postContent = `---
+title: "${title}"
+author: "${author}"
+date: "${date}"
+category: "${category}"
+tags: [${tags.split(',').map(tag => `"${tag.trim()}"`).join(', ')}]
+keywords: [${keywords.split(',').map(word => `"${word.trim()}"`).join(', ')}]
+image: "${image}"
+slug: "${slug}"
+description: "${description}"
+---
 
-  const repoOwner = 'gauravshharma';
-  const repoName = 'soul-savera';
-  const branch = 'develop';
-  const path = `posts/${filename}`; // or "_posts" if using Jekyll
-  const githubToken = process.env.GITHUB_TOKEN; // Add via Netlify UI
+${content}
+`;
 
-  const encodedContent = Buffer.from(fileContent).toString('base64');
+  const repo = 'gauravshharma/soul-savera';
+  const [owner, repoName] = repo.split('/');
+  const githubToken = process.env.GITHUB_TOKEN;
+  const path = `posts/${slug}.md`;
 
-  const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${path}`;
+  const encodedContent = Buffer.from(postContent).toString('base64');
 
-  const response = await fetch(url, {
-    method: 'PUT',
-    headers: {
-      Authorization: `token ${githubToken}`,
-      'Content-Type': 'application/json',
-      'User-Agent': 'Blog Poster'
-    },
-    body: JSON.stringify({
-      message: `Add new post: ${title}`,
-      content: encodedContent,
-      branch: branch
-    })
-  });
+  try {
+    const res = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${githubToken}`,
+        'Content-Type': 'application/json',
+        'User-Agent': 'Netlify Blog Uploader',
+      },
+      body: JSON.stringify({
+        message: `Add new blog post: ${title}`,
+        content: encodedContent,
+      }),
+    });
 
-  if (response.ok) {
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ message: 'Post submitted and committed to GitHub!' })
-    };
-  } else {
-    const err = await response.json();
+    const result = await res.json();
+
+    if (res.ok) {
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ message: 'Blog post added successfully!' }),
+      };
+    } else {
+      return {
+        statusCode: res.status,
+        body: JSON.stringify({ error: result }),
+      };
+    }
+  } catch (err) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to commit', details: err })
+      body: JSON.stringify({ error: 'Failed to commit - Contact the genius behind this!', details: err.message }),
     };
   }
 };
+// This function handles the addition of a new blog post to a GitHub repository.
