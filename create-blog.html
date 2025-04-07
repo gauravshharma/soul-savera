@@ -1,0 +1,56 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Submit a Blog Post</title>
+</head>
+<body>
+  <h1>Add Blog Post</h1>
+  <form id="blogForm">
+    <input type="text" name="title" placeholder="Post Title" required /><br />
+    <textarea name="content" placeholder="Write your blog..." required></textarea><br />
+    <input type="text" name="author" placeholder="Author Name" required /><br />
+    <input type="text" name="tags" placeholder="Tags (comma separated)" /><br />
+    <input type="file" name="image" placeholder="Image URL" /><br />
+    <input type="text" name="category" placeholder="Category" /><br />
+    <input type="text" name="date" placeholder="Date (YYYY-MM-DD)" /><br />
+    <input type="text" name="slug" placeholder="Slug" /><br />
+    <textarea name="description" placeholder="Write your blog description..."></textarea><br />
+    <input type="text" name="keywords" placeholder="Keywords (comma separated)" /><br />
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById('blogForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const form = new FormData(this);
+
+      const postData = {
+        title: form.get('title'),
+        content: form.get('content'),
+        author: form.get('author'),
+        tags: form.get('tags'),
+        image: form.get('image'),
+        content: form.get('content'),
+        category: form.get('category'),
+        date: form.get('date'),
+        slug: form.get('slug'),
+        description: form.get('description'),
+        keywords: form.get('keywords'),
+      };
+
+      const response = await fetch('https://soulsavera.netlify.app/.netlify/functions/addPost', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+      });
+
+      const result = await response.json();
+      alert(result.message);
+    });
+  </script>
+</body>
+</html>
