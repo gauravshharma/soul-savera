@@ -14,7 +14,7 @@ exports.handler = async function (event, context) {
   const fileContent = `# ${title}\n\n${content}\n`;
 
   const repoOwner = 'gauravshharma';
-  const repoName = 'https://github.com/gauravshharma/soul-savera';
+  const repoName = 'soul-savera';
   const branch = 'develop';
   const path = `posts/${filename}`; // or "_posts" if using Jekyll
   const githubToken = process.env.GITHUB_TOKEN; // Add via Netlify UI
