@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Blogs</title>
+  <style>
+    body { font-family: sans-serif; margin: 2rem; background: #f9f9f9; }
+    header { display: flex; align-items: center; justify-content: space-between; }
+    header img { height: 50px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 2rem; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    th, td { padding: 1rem; border-bottom: 1px solid #eee; text-align: left; }
+    th { background-color: #f1f1f1; }
+    .actions { display: flex; gap: 1rem; }
+    .actions button { border: none; background: none; cursor: pointer; color: #007bff; }
+    #authSection { margin-bottom: 2rem; }
+    #authSection input { padding: 0.5rem; font-size: 1rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="../"><img src="../images/assets/logo-no-bg.png" alt="Soul Savera" style="height: 100px;" /></a>
+    <a href="addPost.html">+ Add New Post</a>
+  </header>
+
+  <div id="authSection">
+    <input type="password" id="authKey" placeholder="Enter auth key to manage posts" />
+    <button onclick="authenticate()">Login</button>
+  </div>
+
+  <table id="postsTable" style="display: none;">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Slug</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="postsBody"></tbody>
+  </table>
+
+  <script>
+    const repo = 'gauravshharma/soul-savera';
+    const folder = 'posts';
+    let authKey = 'sanjupurdhani@gmail.com';
+
+    function authenticate() {
+      authKey = document.getElementById('authKey').value;
+      if (!authKey) return alert('Please enter the auth key.');
+      document.getElementById('authSection').style.display = 'none';
+      document.getElementById('postsTable').style.display = 'table';
+      fetchPosts();
+    }
+
+    async function fetchPosts() {
+      const res = await fetch(`https://api.github.com/repos/${repo}/contents/${folder}`);
+      const files = await res.json();
+      const table = document.getElementById('postsBody');
+      table.innerHTML = '';
+
+      for (const file of files) {
+        const slug = file.name.replace('.md', '');
+        const rawRes = await fetch(file.download_url);
+        const text = await rawRes.text();
+        const titleMatch = text.match(/title:\s*(.*)/);
+        const title = titleMatch ? titleMatch[1] : slug;
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${title}</td>
+          <td>${slug}</td>
+          <td class="actions">
+            <a href="editPost.html?slug=${slug}">✏️ Edit</a>
+            <button onclick="deletePost('${slug}')">🗑️ Delete</button>
+          </td>
+        `;
+        table.appendChild(row);
+      }
+    }
+
+    async function deletePost(slug) {
+      if (!confirm(`Are you sure you want to delete "${slug}"?`)) return;
+      const res = await fetch('/.netlify/functions/deletePost', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-auth-key': authKey
+        },
+        body: JSON.stringify({ slug })
+      });
+
+      const result = await res.json();
+      if (res.ok) {
+        alert('Post deleted');
+        fetchPosts();
+      } else {
+        alert(result.error || 'Failed to delete');
+      }
+    }
+  </script>
+</body>
+</html>

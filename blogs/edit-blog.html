@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Blog Post</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #f9f9f9;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      margin-bottom: 2rem;
+    }
+
+    .logo img {
+      width: 200px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #fafafa;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #toast {
+      visibility: hidden;
+      min-width: 250px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 8px;
+      padding: 16px;
+      position: fixed;
+      z-index: 999;
+      left: 50%;
+      bottom: 30px;
+      font-size: 16px;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s ease, bottom 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="logo">
+      <img src="../images/assets/logo-no-bg.png" alt="Soul Savera" />
+    </div>
+
+    <h1>Edit Blog Post</h1>
+
+    <form id="editForm">
+      <input type="password" name="authKey" placeholder="Auth Key" required />
+      <input type="text" name="title" placeholder="Title" required />
+      <input type="text" name="slug" placeholder="Slug (must match file name)" required />
+      <input type="text" name="author" placeholder="Author" />
+      <input type="text" name="tags" placeholder="Tags (comma separated)" />
+      <input type="text" name="category" placeholder="Category" />
+      <input type="text" name="date" placeholder="Date (YYYY-MM-DD)" />
+      <input type="text" name="image" placeholder="Image URL" />
+      <textarea name="description" placeholder="Description..."></textarea>
+      <input type="text" name="keywords" placeholder="Keywords (comma separated)" />
+      <textarea name="content" placeholder="Post content..." rows="10" required></textarea>
+      <button type="submit">Update Post</button>
+    </form>
+  </div>
+
+  <div id="toast"></div>
+
+  <script src="../netlify/functions/editPost.js"></script>
+
+</body>
+</html>
