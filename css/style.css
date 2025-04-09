@@ -5603,7 +5603,7 @@ transition: content 0.5s ease-in-out;
   line-height: 1.04em;
   color: #000;
   display: block;
-  margin: 5px 0 45px;
+  margin: 5px 0 25px;
   transition: all 0.3s ease-in-out;
 }
 .blog-v4 .post-meta .post p {
@@ -5614,7 +5614,7 @@ transition: content 0.5s ease-in-out;
   font-family: 'gilroy-bold';
   font-size: 18px;
   color: #2A2A2A;
-  margin-top: 30px;
+  margin-top: 20px;
   transition: all 0.3s ease-in-out;
 }
 .blog-v4 .post-meta .post .read-more span {text-decoration: underline;}
@@ -5622,7 +5622,7 @@ transition: content 0.5s ease-in-out;
   border:2px solid #000;
   border-radius: 5px;
 }
-.blog-v4 .post-meta.text-post .post {padding: 45px 40px;}
+.blog-v4 .post-meta.text-post .post {padding: 25px 40px;}
 .blog-details-post-v1 .post-meta .mark-text {
   font-family: 'gilroy-bold';
   font-size: 23px;
