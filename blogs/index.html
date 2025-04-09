@@ -471,9 +471,10 @@
 		
 				postDiv.innerHTML = `
 				  ${frontmatter.image ? `<img src="${frontmatter.image}" alt="${frontmatter.title}" />` : ''}
-				  <h2><a href="post.html?slug=${slug}">${frontmatter.title}</a></h2>
-				  <p><strong>By:</strong> ${frontmatter.author || 'Unknown'} | <strong>Category:</strong> ${frontmatter.category || 'General'}</p>
+				  <h2><a href="post?slug=${slug}">${frontmatter.title}</a></h2>
+				  <p><strong>Author:</strong> ${frontmatter.author || 'Unknown'} | <strong>Publish Date:</strong> ${frontmatter.date}</p>
 				  <p>${frontmatter.description || ''}</p>
+				  <a href="post?slug=${slug}" class="read-more">Read More</a>
 				`;
 		
 				document.getElementById('posts').appendChild(postDiv);
