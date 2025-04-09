@@ -4,38 +4,202 @@
   <meta charset="UTF-8">
   <title>Add Blog Post</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto; }
-    input, textarea { width: 100%; padding: 10px; margin: 10px 0; }
-    button { padding: 10px 20px; cursor: pointer; }
-    #blogForm { display: none; }
-  </style>
-</head>
-<body>
-  <h1 id="pageTitle">Authentication Required</h1>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      padding: 40px 20px;
+      margin: auto;
+    }
 
-  <div id="loginBox">
+    header {
+      background: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: left;
+      justify-content: space-between;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    header a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #007bff;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      background: #fff;
+      transition: all 0.2s ease;
+    }
+  
+    h1 {
+      text-align: center;
+      font-size: 26px;
+      margin-bottom: 30px;
+      color: #222;
+    }
+  
+    #loginBox,
+    #blogForm {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 500px;
+      text-align: center;
+      margin: 0 auto;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    }
+  
+    .form-group {
+      margin-bottom: 16px;
+    }
+  
+    label {
+      text-align: left;
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #444;
+    }
+  
+    input,
+    textarea,
+    button {
+      width: 100%;
+      font-size: 15px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+  
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+  
+    input:focus,
+    textarea:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+  
+    button {
+      background-color: #007bff;
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 10px;
+    }
+  
+    button:hover {
+      background-color: #0056b3;
+    }
+  
+    #previewImage {
+      margin-top: 10px;
+      max-width: 100%;
+      border-radius: 8px;
+      display: none;
+    }
+  </style>
+  
+
+  </style>
+  </head>
+  <body>
+    <header>
+      <a href="../"><img src="../images/assets/logo-no-bg.png" alt="Soul Savera Logo" /></a>
+    </header>
+    <h1 id="pageTitle">Authentication Required</h1>
+
+<div id="loginBox">
+  <div class="form-group">
     <input type="password" id="passwordInput" placeholder="Enter Password" />
-    <button onclick="checkPassword()">Login</button>
+  </div>
+  <button onclick="checkPassword()">Login</button>
+</div>
+
+<form id="blogForm" style="display: none;">
+  <div class="form-group">
+    <label>Post Title</label>
+    <input type="text" name="title" required />
   </div>
 
-  
-  <form id="blogForm">
-    <input type="text" name="title" placeholder="Post Title" required /><br />
-    <textarea name="content" placeholder="Write your blog..." required></textarea><br />
-    <input type="text" name="author" placeholder="Author Name" required /><br />
-    <input type="text" name="tags" placeholder="Tags (comma separated)" /><br />
-    <label>Upload Image:</label>
-    <input type="file" id="imageUpload" accept="image/*" /><br />
-    <input type="text" name="image" id="imageURL" placeholder="Image URL" readonly /><br />
-    <img id="previewImage" style="max-width: 100%; display: none;" />
-    <input type="text" name="category" placeholder="Category" /><br />
-    <input type="text" name="date" placeholder="Date (DD-MM-YYYY)" /><br />
-    <input type="text" name="slug" placeholder="Slug (URL friendly name)" /><br />
-    <textarea name="description" placeholder="Short description of the blog..."></textarea><br />
-    <input type="text" name="keywords" placeholder="Keywords (comma separated)" /><br />
-    <button type="submit">Publish</button>
-  </form>
+  <div class="form-group">
+    <label>Blog Content</label>
+    <textarea name="content" required></textarea>
+  </div>
 
+  <div class="form-group">
+    <label>Author Name</label>
+    <input type="text" name="author" required />
+  </div>
+
+  <div class="form-group">
+    <label>Tags (comma separated)</label>
+    <input type="text" name="tags" />
+  </div>
+
+  <div class="form-group">
+    <label>Upload Image</label>
+    <input type="file" id="imageUpload" accept="image/*" />
+  </div>
+
+  <div class="form-group">
+    <label>Image URL</label>
+    <input type="text" name="image" id="imageURL" readonly />
+    <img id="previewImage" />
+  </div>
+
+  <div class="form-group">
+    <label>Category</label>
+    <input type="text" name="category" />
+  </div>
+
+  <div class="form-group">
+    <label>Publish Date (DD-MM-YYYY)</label>
+    <input type="text" name="date" id="date" />
+  </div>
+
+  <div class="form-group">
+    <label>Slug (URL friendly name)</label>
+    <input type="text" name="slug" placeholder="psychology-blog-title" />
+  </div>
+
+  <div class="form-group">
+    <label>Description</label>
+    <textarea name="description"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Keywords (comma separated)</label>
+    <input type="text" name="keywords" />
+  </div>
+
+  <button type="submit">Publish</button>
+</form>
+
+
+  
+  <script>
+ document.addEventListener('DOMContentLoaded', () => {
+  const dateInput = document.getElementById('date');
+  if (dateInput && !dateInput.value) {
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+    const yyyy = today.getFullYear();
+    dateInput.value = `${dd}-${mm}-${yyyy}`;
+  }
+});
+
+  </script>
   <script>
     const secretPassword = 'sanjupurdhani@gmail.com';
 
@@ -77,6 +241,17 @@
         alert('Incorrect password. Try again.');
       }
     }
+
+    const dateInput = document.getElementById('date');
+let date = dateInput.value;
+
+if (!date) {
+  const today = new Date();
+  const dd = String(today.getDate()).padStart(2, '0');
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const yyyy = today.getFullYear();
+  date = `${dd}-${mm}-${yyyy}`;
+}
 
     document.getElementById('blogForm').addEventListener('submit', async function (e) {
       e.preventDefault();

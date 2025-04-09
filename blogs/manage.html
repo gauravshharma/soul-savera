@@ -2,45 +2,168 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Manage Blogs</title>
   <style>
-    body { font-family: sans-serif; margin: 2rem; background: #f9f9f9; }
-    header { display: flex; align-items: center; justify-content: space-between; }
-    header img { height: 50px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 2rem; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-    th, td { padding: 1rem; border-bottom: 1px solid #eee; text-align: left; }
-    th { background-color: #f1f1f1; }
-    .actions { display: flex; gap: 1rem; }
-    .actions button { border: none; background: none; cursor: pointer; color: #007bff; }
-    #authSection { margin-bottom: 2rem; }
-    #authSection input { padding: 0.5rem; font-size: 1rem; }
-    .text-decoration-none { text-decoration: none;}
-    .text-primary { color: #007bff; }
-    .text-danger { color: #dc3545; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      background: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    header a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #007bff;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      background: #fff;
+      transition: all 0.2s ease;
+    }
+/* 
+    header a:hover {
+      background: #007bff;
+      color: #fff;
+    } */
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    #authSection {
+      margin-bottom: 2rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    #authSection input {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    #authSection button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      background: #007bff;
+      border: none;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f0f0f0;
+      font-weight: 600;
+    }
+
+    .actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .actions a {
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .text-primary {
+      color: #007bff;
+    }
+
+    .btn-addPost {
+      background-color: #007bff;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      margin-left: auto;
+      width: 130px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-decoration: none;
+      display: none;
+    }
+
+    .text-danger {
+      color: #dc3545;
+    }
+
+    @media (max-width: 600px) {
+      #authSection {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      #authSection input {
+        width: 100%;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+    }
   </style>
 </head>
 <body>
+
   <header>
-    <a href="../"><img src="../images/assets/logo-no-bg.png" alt="Soul Savera" style="width: 100px;" /></a>
-    <a href="create-blog.html">+ Add New Post</a>
+    <a href="../"><img src="../images/assets/logo-no-bg.png" alt="Soul Savera Logo" /></a>
   </header>
 
-  <div id="authSection">
-    <input type="password" id="authKey" placeholder="Enter auth key to manage posts" />
-    <button onclick="authenticate()">Login</button>
-  </div>
+  <main>
+    <div id="authSection">
+      <input type="password" id="authKey" placeholder="Enter authentication to manage posts" />
+      <button onclick="authenticate()">Login</button>
+    </div>
 
-  <table id="postsTable" style="display: none;">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Slug</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody id="postsBody"></tbody>
-  </table>
+    <table id="postsTable" style="display: none;">
+      <a href="create-blog" class="btn btn-addPost float-right" id="addPost">+ Add New Post</a>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Slug</th>
+          <th>Publish Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="postsBody"></tbody>
+    </table>
+  </main>
 
   <script>
     const repo = 'gauravshharma/soul-savera';
@@ -52,6 +175,7 @@
       if (!authKey) return alert('Please enter the auth key.');
       document.getElementById('authSection').style.display = 'none';
       document.getElementById('postsTable').style.display = 'table';
+      document.getElementById('addPost').style.display = 'block';
       fetchPosts();
     }
 
@@ -66,15 +190,19 @@
         const rawRes = await fetch(file.download_url);
         const text = await rawRes.text();
         const titleMatch = text.match(/title:\s*(.*)/);
-        const title = titleMatch ? titleMatch[1] : slug;
+        const title = titleMatch ? titleMatch[1].replace(/"/g, '') : slug;
+        const dateMatch = text.match(/date:\s*(.*)/);
+        const date = dateMatch ? dateMatch[1].replace(/"/g, '') : 'Unknown';
+       
 
         const row = document.createElement('tr');
         row.innerHTML = `
           <td>${title}</td>
           <td>${slug}</td>
+          <td>${date}</td>
           <td class="actions">
-            <a href="edit-blog?slug=${slug}" class="text-decoration-none text-primary">✏️ Edit</a>
-            <a onclick="deletePost('${slug}')" class="text-primary">🗑️ Delete</a>
+            <a href="edit-blog?slug=${slug}" class="text-primary">✏️ Edit</a>
+            <a onclick="deletePost('${slug}')" class="text-danger">🗑️ Delete</a>
           </td>
         `;
         table.appendChild(row);
@@ -101,5 +229,6 @@
       }
     }
   </script>
+
 </body>
 </html>

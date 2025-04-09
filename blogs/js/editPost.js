@@ -1,21 +1,32 @@
 const repo = 'gauravshharma/soul-savera';
 const folder = 'posts';
 
-function showToast(message) {
-  const toast = document.getElementById('toast');
-  toast.textContent = message;
-  toast.style.visibility = 'visible';
-  toast.style.opacity = '1';
-  toast.style.bottom = '50px';
-
-  setTimeout(() => {
-    toast.style.opacity = '0';
+function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.textContent = message;
+    toast.style.position = 'fixed';
     toast.style.bottom = '30px';
+    toast.style.right = '30px';
+    toast.style.padding = '15px 20px';
+    toast.style.backgroundColor = type === 'success' ? '#4caf50' : '#f44336';
+    toast.style.color = '#fff';
+    toast.style.borderRadius = '8px';
+    toast.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+    toast.style.zIndex = 1000;
+    toast.style.opacity = '0';
+    toast.style.transition = 'opacity 0.3s ease-in-out';
+  
+    document.body.appendChild(toast);
+  
     setTimeout(() => {
-      toast.style.visibility = 'hidden';
-    }, 300);
-  }, 2500);
-}
+      toast.style.opacity = '1';
+    }, 100);
+  
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      setTimeout(() => toast.remove(), 500);
+    }, 2500);
+  }
 
 function getSlugFromURL() {
   const params = new URLSearchParams(window.location.search);
