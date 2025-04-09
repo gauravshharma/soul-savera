@@ -26,6 +26,17 @@
       height: 40px;
     }
 
+    header .actions a, header .actions button {
+      margin-left: 1rem;
+      text-decoration: none;
+      background: #007bff;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
     header a {
       text-decoration: none;
       font-weight: 600;
@@ -178,20 +189,23 @@
 
   <header>
     <a href="../"><img src="../images/assets/logo-no-bg.png" alt="Soul Savera Logo" /></a>
+    <div class="actions">
+        <button onclick="logout()" class="logout">Logout</button>
+      </div>
   </header>
 
   <main>
-    <h1 id="pageTitle" style="text-align: center;">Authentication Required</h1>
+    <div id="loginBox">
+        <h1 id="pageTitle" style="text-align: center;">Authentication Required</h1>
+        <div class="form-group">
+          <input type="password" id="passwordInput" placeholder="Enter Password" />
+        </div>
+        <button onclick="checkPassword()">Login</button>
+      </div>
 
-<div id="loginBox">
-  <div class="form-group">
-    <input type="password" id="passwordInput" placeholder="Enter Password" />
-  </div>
-  <button onclick="checkPassword()">Login</button>
-</div>
-
-    <table id="postsTable" style="display: none;">
-      <a href="create-blog" class="btn btn-addPost float-right" id="addPost">+ Add New Post</a>
+    <table id="contentBox" style="display: none;">
+        <h1 id="blogTitle" style="text-align: center; display: none;">Blogs</h1>
+        <a href="create-blog" class="btn btn-addPost float-right" id="addPost" style="display: none;">+ Add New Post</a>
       <thead>
         <tr>
           <th>Title</th>
@@ -207,15 +221,43 @@
   <script>
     const repo = 'gauravshharma/soul-savera';
     const folder = 'posts';
-    let authKey = 'sanjupurdhani@gmail.com';
+    const correctPassword = 'sanjupurdhani@gmail.com';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedKey = sessionStorage.getItem('authKey');
+      if (savedKey === correctPassword) {
+        showContent();
+        fetchPosts();
+      } else {
+        document.getElementById('loginBox').style.display = 'block';
+        document.getElementById('contentBox').style.display = 'none';
+        document.getElementById('addPost').style.display = 'none';
+      }
+    });
 
     function checkPassword() {
-      authKey = document.getElementById('passwordInput').value;
-      if (!authKey) return alert('Please enter the auth key.');
+      const inputKey = document.getElementById('passwordInput').value;
+      if (!inputKey) return alert('Please enter the password.');
+
+      if (inputKey === correctPassword) {
+        sessionStorage.setItem('authKey', inputKey);
+        showContent();
+        fetchPosts();
+      } else {
+        alert('Invalid password.');
+      }
+    }
+
+    function showContent() {
       document.getElementById('loginBox').style.display = 'none';
-      document.getElementById('postsTable').style.display = 'table';
+      document.getElementById('contentBox').style.display = 'table';
+      document.getElementById('blogTitle').style.display = 'block';
       document.getElementById('addPost').style.display = 'block';
-      fetchPosts();
+    }
+
+    function logout() {
+      sessionStorage.removeItem('authKey');
+      location.reload();
     }
 
     async function fetchPosts() {
