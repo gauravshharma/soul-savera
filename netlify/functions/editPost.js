@@ -8,16 +8,7 @@ exports.handler = async function (event) {
       body: JSON.stringify({ error: "Method Not Allowed" })
     };
   }
-
-  const authHeader = event.headers['x-auth-key'];
-  const AUTH_KEY = process.env.AUTH_KEY;
-  if (authHeader !== AUTH_KEY) {
-    return {
-      statusCode: 401,
-      body: JSON.stringify({ error: "Unauthorized" })
-    };
-  }
-
+  
   const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
   const owner = "gauravshharma";
   const repo = "soul-savera";
