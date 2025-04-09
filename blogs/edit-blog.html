@@ -203,7 +203,7 @@
       if (!slug) return showToast('Missing slug in URL');
 
       try {
-        const res = await fetch(`https://raw.githubusercontent.com/${repo}/develop/${folder}/${slug}.md`);
+        const res = await fetch(`https://raw.githubusercontent.com/${repo}/master/${folder}/${slug}.md`);
         const markdown = await res.text();
 
         const frontmatterRegex = /^---\n([\s\S]*?)\n---/;
