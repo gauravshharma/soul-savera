@@ -24,6 +24,17 @@
       height: 40px;
     }
 
+    header .actions a, header .actions button {
+      margin-left: 1rem;
+      text-decoration: none;
+      background: #007bff;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
     header a {
       text-decoration: none;
       font-weight: 600;
@@ -48,7 +59,7 @@
       border-radius: 12px;
       max-width: 500px;
       text-align: center;
-      margin: 0 auto;
+      margin: 40px auto;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
     }
   
@@ -114,10 +125,13 @@
   <body>
     <header>
       <a href="../"><img src="../images/assets/logo-no-bg.png" alt="Soul Savera Logo" /></a>
+      <div class="actions">
+        <button onclick="logout()" class="logout">Logout</button>
+      </div>
     </header>
-    <h1 id="pageTitle">Authentication Required</h1>
 
 <div id="loginBox">
+  <h1 id="pageTitle">Authentication Required</h1>
   <div class="form-group">
     <input type="password" id="passwordInput" placeholder="Enter Password" />
   </div>
@@ -125,6 +139,7 @@
 </div>
 
 <form id="blogForm" style="display: none;">
+  <h1>Add New Blog</h1>
   <div class="form-group">
     <label>Post Title</label>
     <input type="text" name="title" required />
@@ -200,7 +215,35 @@
 
   </script>
   <script>
-    const secretPassword = 'sanjupurdhani@gmail.com';
+    const correctPassword = 'sanjupurdhani@gmail.com';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedKey = sessionStorage.getItem('authKey');
+      if (savedKey === correctPassword) {
+        showContent();
+      } else {
+        document.getElementById('blogForm').style.display = 'none';
+        document.getElementById('loginBox').style.display = 'block';
+      }
+    });
+
+    function checkPassword() {
+      const inputKey = document.getElementById('passwordInput').value;
+      if (!inputKey) return alert('Please enter the password.');
+
+      if (inputKey === correctPassword) {
+        sessionStorage.setItem('authKey', inputKey);
+        showContent();
+      } else {
+        alert('Invalid password.');
+      }
+    }
+
+    function showContent() {
+      document.getElementById('blogForm').style.display = 'block';
+        document.getElementById('loginBox').style.display = 'none';
+        document.getElementById('pageTitle').innerText = 'Create New Blog Post';
+    }
 
     function showToast(message, type = 'success') {
   const toast = document.createElement('div');
@@ -229,16 +272,9 @@
   }, 2500);
 }
 
-
-    function checkPassword() {
-      const input = document.getElementById('passwordInput').value;
-      if (input === secretPassword) {
-        document.getElementById('blogForm').style.display = 'block';
-        document.getElementById('loginBox').style.display = 'none';
-        document.getElementById('pageTitle').innerText = 'Create New Blog Post';
-      } else {
-        alert('Incorrect password. Try again.');
-      }
+function logout() {
+      sessionStorage.removeItem('authKey');
+      location.reload();
     }
 
     const dateInput = document.getElementById('date');
