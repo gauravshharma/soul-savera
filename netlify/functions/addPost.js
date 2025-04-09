@@ -1,61 +1,81 @@
-const { Octokit } = require("@octokit/rest");
-const { Buffer } = require("buffer");
+const fetch = require('node-fetch');
+const { Buffer } = require('buffer');
 
-exports.handler = async function (event) {
-  if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "Method Not Allowed" };
+exports.handler = async (event) => {
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      body: JSON.stringify({ message: 'Method Not Allowed' }),
+    };
   }
 
-  const authHeader = event.headers["authorization"];
-  const secret = process.env.BLOG_SECRET;
-  if (!authHeader || authHeader !== `Bearer ${secret}`) {
-    return { statusCode: 401, body: "Unauthorized" };
-  }
+  const {
+    title,
+    content,
+    author,
+    tags,
+    image,
+    category,
+    date,
+    slug,
+    description,
+    keywords,
+  } = JSON.parse(event.body);
 
-  const { title, content, author, tags, image, category, date, slug, description, keywords } = JSON.parse(event.body);
-
-  const metadata = `---
+  const postContent = `---
 title: "${title}"
 author: "${author}"
-tags: "${tags}"
-image: "${image}"
-category: "${category}"
 date: "${date}"
+category: "${category}"
+tags: [${tags.split(',').map(tag => `"${tag.trim()}"`).join(', ')}]
+keywords: [${keywords.split(',').map(word => `"${word.trim()}"`).join(', ')}]
+image: "${image}"
 slug: "${slug}"
 description: "${description}"
-keywords: "${keywords}"
----`;
+---
 
-  const fullContent = `${metadata}\n\n${content}`;
-  const base64Content = Buffer.from(fullContent).toString("base64");
+${content}
+`;
 
-  const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+  const repo = 'gauravshharma/soul-savera';
+  const [owner, repoName] = repo.split('/');
+  const githubToken = process.env.GITHUB_TOKEN;
+  const path = `posts/${slug}.md`;
+
+  const encodedContent = Buffer.from(postContent).toString('base64');
 
   try {
-    await octokit.repos.createOrUpdateFileContents({
-      owner: "gauravshharma",
-      repo: "soul-savera",
-      path: `posts/${slug}.md`,
-      message: `Add blog post: ${title}`,
-      content: base64Content,
-      committer: {
-        name: "Netlify Bot",
-        email: "bot@netlify.com"
+    const res = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${githubToken}`,
+        'Content-Type': 'application/json',
+        'User-Agent': 'Netlify Blog Uploader',
       },
-      author: {
-        name: "Netlify Bot",
-        email: "bot@netlify.com"
-      }
+      body: JSON.stringify({
+        message: `Add new blog post: ${title}`,
+        content: encodedContent,
+      }),
     });
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ message: "Blog post created successfully" })
-    };
-  } catch (error) {
+    const result = await res.json();
+
+    if (res.ok) {
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ message: 'Blog post added successfully!' }),
+      };
+    } else {
+      return {
+        statusCode: res.status,
+        body: JSON.stringify({ error: result }),
+      };
+    }
+  } catch (err) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: error.message })
+      body: JSON.stringify({ error: 'Failed to commit - Contact the genius behind this!', details: err.message }),
     };
   }
 };
+// This function handles the addition of a new blog post to a GitHub repository.
