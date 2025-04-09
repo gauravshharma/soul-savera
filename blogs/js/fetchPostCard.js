@@ -5,29 +5,27 @@ async function fetchBlogPosts() {
   const res = await fetch(`https://api.github.com/repos/${repo}/contents/${folder}`);
   const files = await res.json();
 
-  const posts = [];
-
   for (const file of files) {
     if (!file.name.endsWith('.md')) continue;
 
     const slug = file.name.replace('.md', '');
     const fileContentRes = await fetch(file.download_url);
     const fileContent = await fileContentRes.text();
-
     const frontmatter = extractFrontmatter(fileContent);
-    if (!frontmatter || !frontmatter.date) continue;
 
-    posts.push({
-      ...frontmatter,
-      slug,
-      date: new Date(frontmatter.date)
-    });
+    if (!frontmatter) continue;
+
+    if(frontmatter.date) {
+        posts.push({
+            ...frontmatter,
+            slug,
+            date: new Date(frontmatter.date)
+          });
+        posts.sort((a, b) => b.date - a.date);  
+    }
+
+    createPostCard(slug, frontmatter);
   }
-
-  // Sort by date (latest first)
-  posts.sort((a, b) => b.date - a.date);
-
-  renderBlogPosts(posts);
 }
 
 function extractFrontmatter(content) {
@@ -45,27 +43,29 @@ function extractFrontmatter(content) {
   return data;
 }
 
-function renderBlogPosts(posts) {
-  const container = document.getElementById('posts');
-  container.innerHTML = '';
-
-  posts.forEach(post => {
-    const postDiv = document.createElement('div');
-    postDiv.className = 'post-meta text-post';
-    postDiv.innerHTML = `
-      ${post.image ? `<img src="${post.image}" alt="${post.title}" class="image-meta">` : ''}
+function createPostCard(slug, data) {
+    const post = document.createElement('div');
+    post.className = 'post-meta text-post';
+    post.setAttribute('data-aos', 'fade-up');
+    post.setAttribute('data-aos-duration', '1200');
+  
+    post.innerHTML = `
+      ${data.image ? `<img src="${data.image}" alt="${data.title}" class="image-meta">` : ''}
       <div class="post">
-        <div class="date">${post.date.toDateString()}</div>
-        <h3><a href="post.html?slug=${post.slug}" class="title">${post.title}</a></h3>
-        <p>${post.description || ''}</p>
-        <a href="post.html?slug=${post.slug}" class="read-more">
+        <div class="date">${data.date || ''}</div>
+        <h3>
+          <a href="/blogs/post?slug=${slug}" class="title">${data.title || 'Untitled'}</a>
+        </h3>
+        <p>${data.description || ''}</p>
+        <a href="/blogs/post?slug=${slug}" class="read-more">
           <span>Continue Reading</span>
           <i class="fa fa-angle-right" aria-hidden="true"></i>
         </a>
       </div>
     `;
-    container.appendChild(postDiv);
-  });
-}
+  
+    document.getElementById('posts').appendChild(post);
+  }
+  
 
 fetchBlogPosts();

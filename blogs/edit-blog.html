@@ -5,114 +5,293 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Edit Blog Post</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 2rem;
-      background: #f9f9f9;
-    }
-
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
-
-    .logo {
-      margin-bottom: 2rem;
-    }
-
-    .logo img {
-      width: 200px;
-    }
-
-    h1 {
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
       color: #333;
+      padding: 40px 20px;
+      margin: auto;
     }
 
-    form input,
-    form textarea {
-      width: 100%;
-      margin-bottom: 1rem;
-      padding: 0.75rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
+    header {
+      background: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: left;
+      justify-content: space-between;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    header a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #007bff;
+      padding: 0.5rem 1rem;
       border-radius: 6px;
-      background: #fafafa;
+      background: #fff;
+      transition: all 0.2s ease;
     }
-
+  
+    h1 {
+      text-align: center;
+      font-size: 26px;
+      margin-bottom: 30px;
+      color: #222;
+    }
+  
+    #loginBox,
+    #blogForm {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 500px;
+      text-align: center;
+      margin: 0 auto;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    }
+  
+    .form-group {
+      margin-bottom: 16px;
+    }
+  
+    label {
+      text-align: left;
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #444;
+    }
+  
+    input,
+    textarea,
     button {
       width: 100%;
-      padding: 0.75rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 6px;
-      background-color: #007bff;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s ease;
+      font-size: 15px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
     }
-
+  
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+  
+    input:focus,
+    textarea:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+  
+    button {
+      background-color: #007bff;
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 10px;
+    }
+  
     button:hover {
       background-color: #0056b3;
     }
-
-    #toast {
-      visibility: hidden;
-      min-width: 250px;
-      background-color: #333;
-      color: #fff;
-      text-align: center;
+  
+    #previewImage {
+      margin-top: 10px;
+      max-width: 100%;
       border-radius: 8px;
-      padding: 16px;
+      display: none;
+    }
+
+    .toast {
       position: fixed;
-      z-index: 999;
+      bottom: 20px;
       left: 50%;
-      bottom: 30px;
-      font-size: 16px;
       transform: translateX(-50%);
-      opacity: 0;
-      transition: opacity 0.3s ease, bottom 0.3s ease;
+      background: #323232;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      display: none;
+      z-index: 9999;
     }
   </style>
 </head>
 <body>
+  <header>
+    <a href="../"><img src="../images/assets/logo-no-bg.png" alt="Soul Savera Logo" /></a>
+  </header>
+  <h1>Edit Blog Post</h1>
 
-  <div class="container">
-    <div class="logo">
-      <a href="../"><img src="../images/assets/logo-no-bg.png" alt="Soul Savera" style="width: 100px;" /></a>
+  <form id="blogForm">
+    <div class="form-group">
+      <label for="title">Post Title</label>
+      <input type="text" id="title" name="title" required />
     </div>
 
-    <h1>Edit Blog Post</h1>
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea id="content" name="content" required></textarea>
+    </div>
 
-    <form id="postForm">
-      <input type="password" name="authKey" placeholder="Auth Key" required />
-      <input type="text" name="title" placeholder="Title" required />
-      <input type="text" name="slug" placeholder="Slug (must match file name)" required />
-      <input type="text" name="author" placeholder="Author" />
-      <input type="text" name="tags" placeholder="Tags (comma separated)" />
-      <input type="text" name="category" placeholder="Category" />
-      <input type="text" name="date" placeholder="Date (DD-MM-YYYY)" />
-      <input type="text" name="image" placeholder="Image URL" />
-      <textarea name="description" placeholder="Description..."></textarea>
-      <input type="text" name="keywords" placeholder="Keywords (comma separated)" />
-      <textarea name="content" placeholder="Post content..." rows="10" required></textarea>
-      <button type="submit">Update Post</button>
-    </form>
-  </div>
+    <div class="form-group">
+      <label for="author">Author Name</label>
+      <input type="text" id="author" name="author" />
+    </div>
 
-  <div id="toast"></div>
+    <div class="form-group">
+      <label for="tags">Tags (comma separated)</label>
+      <input type="text" id="tags" name="tags" />
+    </div>
 
-  <script src="../netlify/functions/editPost.js"></script>
+    <div class="form-group">
+      <label for="imageUpload">Upload Image</label>
+      <input type="file" id="imageUpload" accept="image/*" />
+      <input type="text" id="imageURL" name="image" placeholder="Image URL" readonly />
+      <img id="previewImage" />
+    </div>
 
+    <div class="form-group">
+      <label for="category">Category</label>
+      <input type="text" id="category" name="category" />
+    </div>
+
+    <div class="form-group">
+      <label for="date">Publish Date (DD-MM-YYYY)</label>
+      <input type="text" id="date" name="date" />
+    </div>
+
+    <div class="form-group">
+      <label for="slug">Slug</label>
+      <input type="text" id="slug" name="slug" readonly />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Short Description</label>
+      <textarea id="description" name="description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="keywords">Keywords (comma separated)</label>
+      <input type="text" id="keywords" name="keywords" />
+    </div>
+
+    <button type="submit">Update Post</button>
+  </form>
+
+  <div id="toast" class="toast"></div>
+
+  <script>
+    const showToast = (msg) => {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.style.display = 'block';
+      setTimeout(() => toast.style.display = 'none', 3000);
+    };
+
+    const repo = 'gauravshharma/soul-savera';
+    const folder = 'posts';
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const slug = urlParams.get('slug');
+      if (!slug) return showToast('Missing slug in URL');
+
+      try {
+        const res = await fetch(`https://raw.githubusercontent.com/${repo}/develop/${folder}/${slug}.md`);
+        const markdown = await res.text();
+
+        const frontmatterRegex = /^---\n([\s\S]*?)\n---/;
+        const match = markdown.match(frontmatterRegex);
+        if (!match) return showToast('No frontmatter found');
+
+        const lines = match[1].split('\n');
+        const data = {};
+        lines.forEach(line => {
+          const [key, ...rest] = line.split(':');
+          data[key.trim()] = rest.join(':').trim().replace(/^"|"$/g, '');
+        });
+
+        document.querySelector('[name="title"]').value = data.title || '';
+        document.querySelector('[name="author"]').value = data.author || '';
+        document.querySelector('[name="tags"]').value = data.tags || '';
+        document.querySelector('[name="image"]').value = data.image || '';
+        document.querySelector('[name="category"]').value = data.category || '';
+        document.querySelector('[name="date"]').value = data.date || '';
+        document.querySelector('[name="slug"]').value = slug;
+        document.querySelector('[name="description"]').value = data.description || '';
+        document.querySelector('[name="keywords"]').value = data.keywords || '';
+        document.querySelector('[name="content"]').value = markdown.replace(frontmatterRegex, '').trim();
+
+        if (data.image) {
+          const preview = document.getElementById('previewImage');
+          preview.src = data.image;
+          preview.style.display = 'block';
+        }
+      } catch (error) {
+        console.error(error);
+        showToast('Error loading post');
+      }
+    });
+
+    document.getElementById('imageUpload').addEventListener('change', function () {
+      const file = this.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onloadend = function () {
+        document.getElementById('imageURL').value = reader.result;
+        const preview = document.getElementById('previewImage');
+        preview.src = reader.result;
+        preview.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    });
+
+    document.getElementById('blogForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const form = e.target;
+      const postData = {
+        title: form.title.value,
+        content: form.content.value,
+        author: form.author.value,
+        tags: form.tags.value,
+        image: form.image.value,
+        category: form.category.value,
+        date: form.date.value || new Date().toLocaleDateString('en-GB').replace(/\//g, '-'),
+        slug: form.slug.value,
+        description: form.description.value,
+        keywords: form.keywords.value,
+      };
+
+      try {
+        const response = await fetch('/.netlify/functions/editPost', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(postData)
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          showToast('Post updated successfully!');
+          setTimeout(() => window.location.href = 'manage.html', 1500);
+        } else {
+          showToast(result.message || 'Error updating post.');
+        }
+      } catch (error) {
+        console.error(error);
+        showToast('Network error. Try again later.');
+      }
+    });
+  </script>
 </body>
 </html>
