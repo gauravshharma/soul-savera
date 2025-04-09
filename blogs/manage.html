@@ -15,12 +15,15 @@
     .actions button { border: none; background: none; cursor: pointer; color: #007bff; }
     #authSection { margin-bottom: 2rem; }
     #authSection input { padding: 0.5rem; font-size: 1rem; }
+    .text-decoration-none { text-decoration: none;}
+    .text-primary { color: #007bff; }
+    .text-danger { color: #dc3545; }
   </style>
 </head>
 <body>
   <header>
-    <a href="../"><img src="../images/assets/logo-no-bg.png" alt="Soul Savera" style="height: 100px;" /></a>
-    <a href="addPost.html">+ Add New Post</a>
+    <a href="../"><img src="../images/assets/logo-no-bg.png" alt="Soul Savera" style="width: 100px;" /></a>
+    <a href="create-blog.html">+ Add New Post</a>
   </header>
 
   <div id="authSection">
@@ -70,8 +73,8 @@
           <td>${title}</td>
           <td>${slug}</td>
           <td class="actions">
-            <a href="editPost.html?slug=${slug}">✏️ Edit</a>
-            <button onclick="deletePost('${slug}')">🗑️ Delete</button>
+            <a href="edit-blog.html?slug=${slug}" class="text-decoration-none text-primary">✏️ Edit</a>
+            <a onclick="deletePost('${slug}')" class="text-primary">🗑️ Delete</a>
           </td>
         `;
         table.appendChild(row);
