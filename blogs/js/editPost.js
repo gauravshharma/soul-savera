@@ -22,50 +22,43 @@ function getSlugFromURL() {
   return params.get('slug');
 }
 
-async function loadBlogData(slug) {
-  try {
-    const url = `https://raw.githubusercontent.com/${repo}/main/${folder}/${slug}.md`;
-    const res = await fetch(url);
-    if (!res.ok) throw new Error('Failed to fetch blog post');
-    const content = await res.text();
-
-    const metadata = {};
-    const lines = content.split('\n');
-    let body = [];
-    let inMetadata = false;
-
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i].trim();
-
-      if (line === '---') {
-        inMetadata = !inMetadata;
-        continue;
-      }
-
-      if (inMetadata) {
+async function fetchPostDetails() {
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get("slug");
+    if (!slug) return;
+  
+    const repo = 'gauravshharma/soul-savera';
+    const folder = 'posts';
+    const response = await fetch(`https://api.github.com/repos/${repo}/contents/${folder}/${slug}.md`);
+    const file = await response.json();
+    const content = atob(file.content.replace(/\n/g, ''));
+  
+    const [rawMetadata, ...bodyParts] = content.split('---').filter(Boolean);
+    const metadata = Object.fromEntries(
+      rawMetadata.trim().split('\n').map(line => {
         const [key, ...rest] = line.split(':');
-        metadata[key.trim()] = rest.join(':').trim();
-      } else {
-        body.push(lines[i]);
-      }
-    }
-
+        return [key.trim(), rest.join(':').trim().replace(/^"|"$/g, '')];
+      })
+    );
+  
+    const body = bodyParts.join('---').trim();
+  
+    // Pre-fill form fields
     document.querySelector('input[name="title"]').value = metadata.title || '';
-    document.querySelector('input[name="slug"]').value = slug;
+    document.querySelector('textarea[name="content"]').value = body || '';
     document.querySelector('input[name="author"]').value = metadata.author || '';
     document.querySelector('input[name="tags"]').value = metadata.tags || '';
+    document.querySelector('input[name="image"]').value = metadata.image || '';
     document.querySelector('input[name="category"]').value = metadata.category || '';
     document.querySelector('input[name="date"]').value = metadata.date || '';
-    document.querySelector('input[name="image"]').value = metadata.image || '';
+    document.querySelector('input[name="slug"]').value = metadata.slug || '';
     document.querySelector('textarea[name="description"]').value = metadata.description || '';
     document.querySelector('input[name="keywords"]').value = metadata.keywords || '';
-    document.querySelector('textarea[name="content"]').value = body.join('\n').trim();
-
-  } catch (err) {
-    console.error('Error loading post:', err);
-    showToast('Could not load blog post');
   }
-}
+  
+  // Auto-load on page ready
+  document.addEventListener("DOMContentLoaded", fetchPostDetails);
+  
 
 document.getElementById('editForm').addEventListener('submit', async function (e) {
   e.preventDefault();
