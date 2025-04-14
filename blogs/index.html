@@ -491,62 +491,95 @@
   const postDiv = document.createElement('div');
   postDiv.className = 'blog-card';
 
-  if (frontmatter.image) {
-    const img = document.createElement('img');
-    img.src = frontmatter.image;
-    img.alt = frontmatter.title || 'Blog Image';
-    img.className = 'banner';
-    postDiv.appendChild(img);
-  }
 
-  const badgeRow = document.createElement('div');
-  badgeRow.className = 'badge-row';
+  // image and category row
+  const imageRow = document.createElement('div');
+  imageRow.className = 'blog-card-banner';
 
-  const category = document.createElement('span');
+  const category = document.createElement('p');
   category.className = 'category';
-  category.textContent = frontmatter.category || 'General';
-  badgeRow.appendChild(category);
+  category.textContent = frontmatter.category || 'Psychology';
+  imageRow.appendChild(category);
 
-  const date = document.createElement('span');
-  date.className = 'date-badge';
-  date.textContent = frontmatter.date || '';
-  badgeRow.appendChild(date);
+  // Image with fallback
+  const img = document.createElement('img');
+  img.src = frontmatter.image || 'images/blog_image.png'; // fallback image
+  img.alt = frontmatter.title || 'Blog Image';
+  img.className = 'banner';
+  img.onerror = function () {
+    this.src = ''; // fallback image on error
+  };
+  imageRow.appendChild(img);
+  postDiv.appendChild(imageRow);
 
-  postDiv.appendChild(badgeRow);
-
-  const title = document.createElement('h3');
+  // Content row
+  const contentRow = document.createElement('div');
+  contentRow.className = 'blog-card-content-row';
+  // Title
+  const title = document.createElement('h1');
   title.className = 'title';
   title.textContent = frontmatter.title || 'Untitled';
-  postDiv.appendChild(title);
+  contentRow.appendChild(title);
 
-  const description = document.createElement('p');
-  description.className = 'description';
-  description.textContent = frontmatter.description || '';
-  postDiv.appendChild(description);
+  // Truncated description
+//   const description = document.createElement('p');
+//   description.className = 'description';
+//   const fullText = frontmatter.description || '';
+//   const maxLength = 150;
+//   description.textContent = fullText.length > maxLength
+//     ? fullText.substring(0, maxLength) + '...'
+//     : fullText;
+//   contentRow.appendChild(description);
 
-  const meta = document.createElement('div');
-  meta.className = 'meta';
-  meta.innerHTML = `
-    <div class="author">${frontmatter.author || ''}</div>
-  `;
-  postDiv.appendChild(meta);
-
+  // Optional: Read More link
 //   const readMoreLink = document.createElement('a');
 //   readMoreLink.href = `blogs/post?slug=${slug}`;
 //   readMoreLink.className = 'read-more';
 //   readMoreLink.textContent = 'Read more';
-//   postDiv.appendChild(readMoreLink);
+//   contentRow.appendChild(readMoreLink);
+  postDiv.appendChild(contentRow);
+  
+  // Badge row
+  const rawDate = frontmatter.date || '';
+  let formattedDate = rawDate;
 
-  // Wrap each card in a column container for grid
+	// Try to format date if it’s a valid date string
+	if (rawDate && /^\d{2}-\d{2}-\d{4}$/.test(rawDate)) {
+	const [day, month, year] = rawDate.split('-');
+	const parsedDate = new Date(`${year}-${month}-${day}`);
+		if (!isNaN(parsedDate)) {
+			formattedDate = parsedDate.toLocaleDateString('en-US', {
+			month: 'short',
+			day: 'numeric',
+			}); // e.g., Dec 25
+		}
+	}
+
+	// author + Date badge row
+	const badgeRow = document.createElement('div');
+  	badgeRow.className = 'd-flex justify-content-between align-items-center blog-card-badge-row';
+
+	const meta = document.createElement('div');
+  meta.className = 'meta';
+  meta.innerHTML = `<div class="author"><span class="text-muted ms-1">By </span>${frontmatter.author || ''}</div>`;
+  const date = document.createElement('div');
+  date.className = 'text-muted small';
+  date.textContent = formattedDate;
+  badgeRow.appendChild(meta);
+  badgeRow.appendChild(date);
+
+  postDiv.appendChild(badgeRow);
+
+  // Column wrapper for grid
   const columnWrapper = document.createElement('div');
-  columnWrapper.className = 'col-6 col-md-6'; // 3-column layout
+  columnWrapper.className = 'col-12 col-sm-12 col-md-6 col-lg-6 mb-4';
   columnWrapper.appendChild(postDiv);
 
   document.getElementById('postsContainer').appendChild(columnWrapper);
 }
 
-
-    fetchPosts();
+	
+	fetchPosts();
 		  </script>
     	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
     	<!-- jQuery -->
