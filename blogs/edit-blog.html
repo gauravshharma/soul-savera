@@ -324,7 +324,10 @@ function logout() {
         document.querySelector('[name="slug"]').value = slug;
         document.querySelector('[name="description"]').value = data.description || '';
         document.querySelector('[name="keywords"]').value = data.keywords || '';
-        document.querySelector('[name="content"]').value = markdown.replace(frontmatterRegex, '').trim();
+        const contentHtml = markdown.replace(frontmatterRegex, '').trim();
+        quill.root.innerHTML = contentHtml;
+        document.querySelector('[name="content"]').value = contentHtml;
+
 
         if (data.image) {
           const preview = document.getElementById('previewImage');
@@ -355,6 +358,7 @@ function logout() {
       e.preventDefault();
 
       const form = e.target;
+      form.content.value = quill.root.innerHTML;
       const postData = {
         title: form.title.value,
         content: form.content.value,
