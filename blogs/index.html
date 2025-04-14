@@ -119,6 +119,7 @@
 		<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-QFP1YDPWRS"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-QFP1YDPWRS'); </script>	
 		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/gray-matter@4.0.3/index.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 
 	<body>
@@ -245,14 +246,13 @@
 				Feature Blog Three
 			=====================================================
 			-->
-			<div class="blog-page-white-bg blog-v4">
+			<div class="blog-page-white-bg blog-v4 feature-blog-one">
 				<div class="container">
 					<div class="wrapper">
-						<div id="posts" class="posts-container">
-						</div>
-					</div> <!-- /.wrapper -->
+							<div class="blog-grid-custom row" id="postsContainer"></div>
+					</div>
 				</div>
-			</div> <!-- /.blog-page-white-bg -->
+			</div>
 
 			<!-- CTA -->
 			<div class="fancy-short-banner-twelve">
@@ -452,51 +452,101 @@
 			const repo = 'gauravshharma/soul-savera';
 			const folder = 'posts';
 		
-			async function fetchBlogPosts() {
-			  const res = await fetch(`https://api.github.com/repos/${repo}/contents/${folder}`);
-			  const files = await res.json();
-		
-			  for (const file of files) {
-				if (!file.name.endsWith('.md')) continue;
-		
-				const slug = file.name.replace('.md', '');
-				const fileContentRes = await fetch(file.download_url);
-				const fileContent = await fileContentRes.text();
-		
-				const frontmatter = extractFrontmatter(fileContent);
-				if (!frontmatter) continue;
-		
-				const postDiv = document.createElement('div');
-				postDiv.className = 'post';
-		
-				postDiv.innerHTML = `
-				  ${frontmatter.image ? `<img src="${frontmatter.image}" alt="${frontmatter.title}" />` : ''}
-				  <h2><a href="post?slug=${slug}">${frontmatter.title}</a></h2>
-				  <p><strong>Author:</strong> ${frontmatter.author || 'Unknown'} | <strong>Publish Date:</strong> ${frontmatter.date}</p>
-				  <p>${frontmatter.description || ''}</p>
-				  <a href="post?slug=${slug}" class="read-more">Read More</a>
-				`;
-		
-				document.getElementById('posts').appendChild(postDiv);
-			  }
-			}
-		
-			function extractFrontmatter(content) {
-			  const frontmatterRegex = /^---\n([\s\S]*?)\n---/;
-			  const match = content.match(frontmatterRegex);
-			  if (!match) return null;
-		
-			  const lines = match[1].split('\n');
-			  const data = {};
-			  for (let line of lines) {
-				const [key, ...rest] = line.split(':');
-				if (!key || !rest.length) continue;
-				data[key.trim()] = rest.join(':').trim().replace(/^"|"$/g, '');
-			  }
-			  return data;
-			}
-		
-			fetchBlogPosts();
+			async function fetchPosts() {
+      const res = await fetch(`https://api.github.com/repos/${repo}/contents/${folder}`);
+      const files = await res.json();
+
+      // Sort by date DESC
+      const posts = await Promise.all(files.map(async file => {
+        const slug = file.name.replace('.md', '');
+        const content = await fetch(file.download_url).then(res => res.text());
+        const frontmatter = extractFrontmatter(content);
+        return { slug, frontmatter };
+      }));
+
+      posts.sort((a, b) => {
+        const dateA = new Date(a.frontmatter.date || '');
+        const dateB = new Date(b.frontmatter.date || '');
+        return dateB - dateA;
+      });
+
+      posts.forEach(({ slug, frontmatter }) => createPostCard(slug, frontmatter));
+    }
+
+    function extractFrontmatter(markdown) {
+      const fm = {};
+      const matches = markdown.match(/---([\s\S]*?)---/);
+      if (!matches) return fm;
+
+      matches[1].split('\n').forEach(line => {
+        const [key, ...value] = line.split(':');
+        if (key && value) {
+          fm[key.trim()] = value.join(':').trim().replace(/^"|"$/g, '');
+        }
+      });
+      return fm;
+    }
+
+	function createPostCard(slug, frontmatter) {
+  const postDiv = document.createElement('div');
+  postDiv.className = 'blog-card';
+
+  if (frontmatter.image) {
+    const img = document.createElement('img');
+    img.src = frontmatter.image;
+    img.alt = frontmatter.title || 'Blog Image';
+    img.className = 'banner';
+    postDiv.appendChild(img);
+  }
+
+  const badgeRow = document.createElement('div');
+  badgeRow.className = 'badge-row';
+
+  const category = document.createElement('span');
+  category.className = 'category';
+  category.textContent = frontmatter.category || 'General';
+  badgeRow.appendChild(category);
+
+  const date = document.createElement('span');
+  date.className = 'date-badge';
+  date.textContent = frontmatter.date || '';
+  badgeRow.appendChild(date);
+
+  postDiv.appendChild(badgeRow);
+
+  const title = document.createElement('h3');
+  title.className = 'title';
+  title.textContent = frontmatter.title || 'Untitled';
+  postDiv.appendChild(title);
+
+  const description = document.createElement('p');
+  description.className = 'description';
+  description.textContent = frontmatter.description || '';
+  postDiv.appendChild(description);
+
+  const meta = document.createElement('div');
+  meta.className = 'meta';
+  meta.innerHTML = `
+    <div class="author">${frontmatter.author || ''}</div>
+  `;
+  postDiv.appendChild(meta);
+
+//   const readMoreLink = document.createElement('a');
+//   readMoreLink.href = `blogs/post?slug=${slug}`;
+//   readMoreLink.className = 'read-more';
+//   readMoreLink.textContent = 'Read more';
+//   postDiv.appendChild(readMoreLink);
+
+  // Wrap each card in a column container for grid
+  const columnWrapper = document.createElement('div');
+  columnWrapper.className = 'col-6 col-md-6'; // 3-column layout
+  columnWrapper.appendChild(postDiv);
+
+  document.getElementById('postsContainer').appendChild(columnWrapper);
+}
+
+
+    fetchPosts();
 		  </script>
     	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
     	<!-- jQuery -->

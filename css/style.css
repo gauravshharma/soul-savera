@@ -2843,12 +2843,17 @@ body .shop-btn-two:hover {background: var(--purple-blue);}
 .feature-blog-one .post-meta .image-meta {width: 100%;border-radius: 5px;}
 .feature-blog-one .post-meta .tag {
   font-family: 'Rubik', sans-serif;
-  font-size: 16px;
-  color: rgba(10,10,10,0.24);
-  padding: 25px 0 3px;
+    background-color: var(--blue-dark);
+    margin-top: 10px;
+    color: #fff;
+    border-radius: 50px;
+    font-size: 10px;
+    padding: 2px 10px;
+    width: fit-content;
+    text-transform: uppercase;
 }
 .feature-blog-one .post-meta .title {
-  font-family: 'gilroy-bold';
+  font-family: 'playfair display';
   font-size: 30px;
   line-height: 1.2em;
   color: #000;
@@ -5440,7 +5445,7 @@ transition: content 0.5s ease-in-out;
   position: relative;
   z-index: 5;
 }
-.blog-page-white-bg {padding: 140px 0 0;}
+.blog-page-white-bg {padding: 100px 0 100px;}
 .blog-page-bg .shape-one {
   width: 30px;
   height: 30px;
@@ -16411,6 +16416,90 @@ transition: content 0.5s ease-in-out;
 }
 
 .read-more::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  border-radius: 40px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.blog-grid-custom .blog-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.blog-grid-custom .blog-card:hover {
+  transform: translateY(-4px);
+}
+
+.blog-grid-custom .banner {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-grid-custom .category {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--blue-dark);
+  margin: 1rem;
+  color: #fff;
+  border-radius: 50px;
+  padding: 2px 10px;
+  width: fit-content;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  align-self: flex-start;
+}
+
+.blog-grid-custom .title {
+  margin: 0 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-family: "Playfair Display", sans-serif;
+  color: var(--blue-dark);
+}
+
+.blog-grid-custom .description {
+  font-size: 1rem;
+  margin: 0.5rem 1rem 1rem;
+  color: #555;
+  font-family: "Roboto", sans-serif;
+}
+
+.blog-grid-custom .meta {
+  display: block;
+  justify-content: space-between;
+  padding: 0 1rem;
+  font-size: 0.85rem;
+  color: #888;
+}
+.blog-grid-custom .meta .author {
+  font-family: "Roboto", sans-serif;
+  text-transform: capitalize;
+}
+
+.blog-grid-custom .read-more {
+  color: var(--heading);
+    position: relative;
+    display: flex;
+    margin: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blog-grid-custom .read-more::before {
   content: "";
   position: absolute;
   top: 0;
