@@ -57,7 +57,7 @@
       background: #fff;
       padding: 25px;
       border-radius: 12px;
-      max-width: 500px;
+      max-width: 600px;
       text-align: center;
       margin: 40px auto;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
@@ -117,10 +117,35 @@
       border-radius: 8px;
       display: none;
     }
-  </style>
-  
+    #editor {
+      height: 300px;
+      background: #fff;
+      border: 1px solid #ccc;
+    }
+    .ql-font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
 
+  .ql-font-roboto {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .ql-font-sans-serif {
+    font-family: sans-serif;
+  }
+
+  .ql-font-serif {
+    font-family: serif;
+  }
+
+  .ql-font-monospace {
+    font-family: monospace;
+  }
   </style>
+  <!-- Quill Styles -->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
+
   </head>
   <body>
     <header>
@@ -147,7 +172,8 @@
 
   <div class="form-group">
     <label>Blog Content</label>
-    <textarea name="content" required></textarea>
+    <div id="editor"></div>
+    <input type="hidden" name="content" id="hiddenContent" />
   </div>
 
   <div class="form-group">
@@ -199,6 +225,34 @@
   <button type="submit">Publish</button>
 </form>
 
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script>
+  const Font = Quill.import('formats/font');
+Font.whitelist = ['playfair', 'roboto', 'sans-serif', 'serif', 'monospace'];
+Quill.register(Font, true);
+
+const toolbarOptions = [
+  [{ font: ['playfair', 'roboto', 'sans-serif', 'serif', 'monospace'] }],
+  [{ size: ['small', false, 'large', 'huge'] }],
+  ['bold', 'italic'],
+  ['blockquote', 'code-block'],
+  [{ list: 'ordered' }, { list: 'bullet' }],
+  ['link', 'image'],
+  ['clean']
+];
+
+  const quill = new Quill('#editor', {
+    theme: 'snow',
+    modules: {
+      toolbar: toolbarOptions
+    }
+  });
+
+  // Store content in hidden input on submit
+  document.getElementById('blogForm').addEventListener('submit', function (e) {
+    document.getElementById('hiddenContent').value = quill.root.innerHTML;
+  });
+</script>
 
   
   <script>
