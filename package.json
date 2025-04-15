@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "@octokit/rest": "^20.0.0",
+    "js-base64": "^3.7.2",
+    "node-fetch": "^2.6.7",
+    "buffer": "^6.0.3"
+  },
+  "name": "soul-savera",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gauravshharma/soul-savera.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gauravshharma/soul-savera/issues"
+  },
+  "homepage": "https://github.com/gauravshharma/soul-savera#readme",
+  "description": "hello"
+}
