@@ -54,10 +54,10 @@ function createPostCard(slug, data) {
       <div class="post">
         <div class="date">${data.date || ''}</div>
         <h3>
-          <a href="/blogs/post?slug=${slug}" class="title">${data.title || 'Untitled'}</a>
+          <a href="/blog/post?slug=${slug}" class="title">${data.title || 'Untitled'}</a>
         </h3>
         <p>${data.description || ''}</p>
-        <a href="/blogs/post?slug=${slug}" class="read-more">
+        <a href="/blog/post?slug=${slug}" class="read-more">
           <span>Continue Reading</span>
           <i class="fa fa-angle-right" aria-hidden="true"></i>
         </a>

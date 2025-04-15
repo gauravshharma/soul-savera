@@ -125,15 +125,6 @@
 	<body>
 		
 		<div class="main-page-wrapper p0 onovo-page">
-			<!-- ===================================================
-				Loading Transition
-			==================================================== -->
-			<!-- <div class="loading-screen">
-				<div class="sun-container">
-					<img src="../images/assets/sun.svg" alt="Sun" id="sun" class="sun-loader"/>
-				</div>
-			</div>	 -->
-
 			<!-- 
 			=============================================
 				Theme Main Menu
@@ -249,6 +240,11 @@
 			<div class="blog-page-white-bg blog-v4 feature-blog-one">
 				<div class="container">
 					<div class="wrapper">
+							<div id="loader">
+								<div class="sun-container">
+									<img src="../images/assets/sun.svg" alt="Sun" id="sun" class="sun-loader visually-hidden"/>
+								</div>
+							</div>
 							<div class="blog-grid-custom row" id="postsContainer"></div>
 					</div>
 				</div>
@@ -449,138 +445,137 @@
 
 		<!-- Content JavaScript _____________________________  -->
 		<script>
-			const repo = 'gauravshharma/soul-savera';
-			const folder = 'posts';
-		
-			async function fetchPosts() {
-      const res = await fetch(`https://api.github.com/repos/${repo}/contents/${folder}`);
-      const files = await res.json();
+		// Function to fetch and display blog posts
+	const repo = 'gauravshharma/soul-savera';
+	const folder = 'posts';
 
-      // Sort by date DESC
-      const posts = await Promise.all(files.map(async file => {
-        const slug = file.name.replace('.md', '');
-        const content = await fetch(file.download_url).then(res => res.text());
-        const frontmatter = extractFrontmatter(content);
-        return { slug, frontmatter };
-      }));
+	// Show loader before starting
+	document.getElementById('loader').style.display = 'block';
+	document.getElementById('postsContainer').style.display = 'none';
 
-      posts.sort((a, b) => {
-        const dateA = new Date(a.frontmatter.date || '');
-        const dateB = new Date(b.frontmatter.date || '');
-        return dateB - dateA;
-      });
+	async function fetchPosts() {
+		try {
+			const res = await fetch(`https://api.github.com/repos/${repo}/contents/${folder}`);
+			const files = await res.json();
 
-      posts.forEach(({ slug, frontmatter }) => createPostCard(slug, frontmatter));
-    }
+			// Sort by date DESC
+			const posts = await Promise.all(
+				files.map(async file => {
+					const slug = file.name.replace('.md', '');
+					const content = await fetch(file.download_url).then(res => res.text());
+					const frontmatter = extractFrontmatter(content);
+					return { slug, frontmatter };
+				})
+			);
 
-    function extractFrontmatter(markdown) {
-      const fm = {};
-      const matches = markdown.match(/---([\s\S]*?)---/);
-      if (!matches) return fm;
+			posts.sort((a, b) => {
+				const dateA = new Date(a.frontmatter.date || '');
+				const dateB = new Date(b.frontmatter.date || '');
+				return dateB - dateA;
+			});
 
-      matches[1].split('\n').forEach(line => {
-        const [key, ...value] = line.split(':');
-        if (key && value) {
-          fm[key.trim()] = value.join(':').trim().replace(/^"|"$/g, '');
-        }
-      });
-      return fm;
-    }
+			posts.forEach(({ slug, frontmatter }) => createPostCard(slug, frontmatter));
 
-	function createPostCard(slug, frontmatter) {
-  const postDiv = document.createElement('div');
-  postDiv.className = 'blog-card';
-
-
-  // image and category row
-  const imageRow = document.createElement('div');
-  imageRow.className = 'blog-card-banner';
-
-  const category = document.createElement('p');
-  category.className = 'category';
-  category.textContent = frontmatter.category || 'Psychology';
-  imageRow.appendChild(category);
-
-  // Image with fallback
-  const img = document.createElement('img');
-  img.src = frontmatter.image || 'images/blog_image.png'; // fallback image
-  img.alt = frontmatter.title || 'Blog Image';
-  img.className = 'banner';
-  img.onerror = function () {
-    this.src = ''; // fallback image on error
-  };
-  imageRow.appendChild(img);
-  postDiv.appendChild(imageRow);
-
-  // Content row
-  const contentRow = document.createElement('div');
-  contentRow.className = 'blog-card-content-row';
-  // Title
-  const title = document.createElement('h1');
-  title.className = 'title';
-  title.textContent = frontmatter.title || 'Untitled';
-  contentRow.appendChild(title);
-
-  // Truncated description
-//   const description = document.createElement('p');
-//   description.className = 'description';
-//   const fullText = frontmatter.description || '';
-//   const maxLength = 150;
-//   description.textContent = fullText.length > maxLength
-//     ? fullText.substring(0, maxLength) + '...'
-//     : fullText;
-//   contentRow.appendChild(description);
-
-  // Optional: Read More link
-//   const readMoreLink = document.createElement('a');
-//   readMoreLink.href = `blogs/post?slug=${slug}`;
-//   readMoreLink.className = 'read-more';
-//   readMoreLink.textContent = 'Read more';
-//   contentRow.appendChild(readMoreLink);
-  postDiv.appendChild(contentRow);
-  
-  // Badge row
-  const rawDate = frontmatter.date || '';
-  let formattedDate = rawDate;
-
-	// Try to format date if it’s a valid date string
-	if (rawDate && /^\d{2}-\d{2}-\d{4}$/.test(rawDate)) {
-	const [day, month, year] = rawDate.split('-');
-	const parsedDate = new Date(`${year}-${month}-${day}`);
-		if (!isNaN(parsedDate)) {
-			formattedDate = parsedDate.toLocaleDateString('en-US', {
-			month: 'short',
-			day: 'numeric',
-			}); // e.g., Dec 25
+		} catch (error) {
+			console.error("Error fetching posts:", error);
+		} finally {
+			// Hide loader and show content after posts are rendered
+			document.getElementById('loader').style.display = 'none';
+			document.getElementById('postsContainer').style.display = 'flex'; // or 'block' based on layout
 		}
 	}
 
-	// author + Date badge row
-	const badgeRow = document.createElement('div');
-  	badgeRow.className = 'd-flex justify-content-between align-items-center blog-card-badge-row';
+	function extractFrontmatter(markdown) {
+		const fm = {};
+		const matches = markdown.match(/---([\s\S]*?)---/);
+		if (!matches) return fm;
 
-	const meta = document.createElement('div');
-  meta.className = 'meta';
-  meta.innerHTML = `<div class="author"><span class="text-muted ms-1">By </span>${frontmatter.author || ''}</div>`;
-  const date = document.createElement('div');
-  date.className = 'text-muted small';
-  date.textContent = formattedDate;
-  badgeRow.appendChild(meta);
-  badgeRow.appendChild(date);
+		matches[1].split('\n').forEach(line => {
+			const [key, ...value] = line.split(':');
+			if (key && value) {
+				fm[key.trim()] = value.join(':').trim().replace(/^"|"$/g, '');
+			}
+		});
+		return fm;
+	}
 
-  postDiv.appendChild(badgeRow);
+	function createPostCard(slug, frontmatter) {
+		const postLink = document.createElement('a');
+		postLink.href = `blog/post?slug=${slug}`;
+		postLink.className = 'text-decoration-none text-dark blog-card-link';
+		postLink.style.display = 'block';
 
-  // Column wrapper for grid
-  const columnWrapper = document.createElement('div');
-  columnWrapper.className = 'col-12 col-sm-12 col-md-6 col-lg-6 mb-4';
-  columnWrapper.appendChild(postDiv);
+		const postDiv = document.createElement('div');
+		postDiv.className = 'blog-card';
 
-  document.getElementById('postsContainer').appendChild(columnWrapper);
-}
+		const imageRow = document.createElement('div');
+		imageRow.className = 'blog-card-banner';
 
-	
+		const category = document.createElement('p');
+		category.className = 'category';
+		category.textContent = frontmatter.category || 'Psychology';
+		imageRow.appendChild(category);
+
+		const img = document.createElement('img');
+		img.src = frontmatter.image || 'images/blog_image.png';
+		img.alt = frontmatter.title || 'Blog Image';
+		img.className = 'banner';
+		img.onerror = function () {
+			this.src = ''; // fallback image
+		};
+		imageRow.appendChild(img);
+		postDiv.appendChild(imageRow);
+
+		const contentRow = document.createElement('div');
+		contentRow.className = 'blog-card-content-row';
+
+		const title = document.createElement('h1');
+		title.className = 'title';
+		title.textContent = frontmatter.title || 'Untitled';
+		contentRow.appendChild(title);
+
+		postDiv.appendChild(contentRow);
+
+		const rawDate = frontmatter.date || '';
+		let formattedDate = rawDate;
+
+		if (rawDate && /^\d{2}-\d{2}-\d{4}$/.test(rawDate)) {
+			const [day, month, year] = rawDate.split('-');
+			const parsedDate = new Date(`${year}-${month}-${day}`);
+			if (!isNaN(parsedDate)) {
+				formattedDate = parsedDate.toLocaleDateString('en-US', {
+					month: 'short',
+					day: 'numeric',
+				});
+			}
+		}
+
+		const badgeRow = document.createElement('div');
+		badgeRow.className = 'd-flex justify-content-between align-items-center blog-card-badge-row';
+
+		const meta = document.createElement('div');
+		meta.className = 'meta';
+		meta.innerHTML = `<div class="author"><span class="text-muted ms-1">By </span>${frontmatter.author || ''}</div>`;
+		const date = document.createElement('div');
+		date.className = 'text-muted small';
+		date.textContent = formattedDate;
+
+		badgeRow.appendChild(meta);
+		badgeRow.appendChild(date);
+		postDiv.appendChild(badgeRow);
+
+		postLink.appendChild(postDiv);
+
+		const columnWrapper = document.createElement('div');
+		columnWrapper.className = 'col-12 col-sm-12 col-md-6 col-lg-6 mb-4';
+		columnWrapper.appendChild(postLink);
+
+		document.getElementById('postsContainer').appendChild(columnWrapper);
+	}
+
+	// Call the main fetch function
 	fetchPosts();
-		  </script>
+</script>
     	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
     	<!-- jQuery -->
 		<script src="../vendor/jquery.min.js"></script>
