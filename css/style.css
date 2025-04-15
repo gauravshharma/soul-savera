@@ -15557,12 +15557,11 @@ transition: content 0.5s ease-in-out;
 .sun-container {
   position: relative;
   animation: rise 3s ease-in-out forwards;
-  left: 45%;
 }
 
 .sun-loader {
-  width: 100px;
-  height: 100px;
+  width: 100vw;
+  height: 100vh;
 }
 
 @keyframes rise {
