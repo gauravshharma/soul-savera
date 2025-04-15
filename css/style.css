@@ -8347,6 +8347,7 @@ transition: content 0.5s ease-in-out;
   /* IE6-9 */
   -webkit-filter: grayscale(99%);
   /* Chrome 19+ & Safari 6+ */
+  backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   /* Fix for transition flickering */
 }
@@ -8356,9 +8357,6 @@ transition: content 0.5s ease-in-out;
  .modal-dialog {
   max-width: 1000px;
   padding: 0 15px;
-}
- {
-  /* margin: 120px 40px; */
 }
  .main-body {
   background: #fff;
@@ -10013,9 +10011,6 @@ transition: content 0.5s ease-in-out;
   font-size: 18px;
   color: #000;
 }
-.clientSliderSix .feedback-wrapper .name::before {
-
-} 
 .clientSliderSix .slick-center .feedback-wrapper .name {
   font-weight: 500;
   font-size: 18px;
@@ -10139,6 +10134,7 @@ transition: content 0.5s ease-in-out;
   color: var(--blue-dark);
   text-decoration: none;
   font-size: 18px;
+  backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   top: 50%;
   position: relative;
@@ -15850,7 +15846,6 @@ transition: content 0.5s ease-in-out;
   height: 100px;
   background: rgba(0, 0, 0, 0.3);
   opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   border-radius: 100%;
   right: -25px;
   bottom: -25px;

@@ -1,4 +1,7 @@
 # Local Netlify folder
 .netlify
 node_modules/
+node_modules/.package-lock.json
+.DS_Store
+blog/.DS_Store
 .gitignore
