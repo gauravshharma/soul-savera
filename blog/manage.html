@@ -204,7 +204,7 @@
       </div>
 
     <table id="contentBox" style="display: none;">
-        <h1 id="blogTitle" style="text-align: center; display: none;">Blogs</h1>
+        <a href="/blog" id="blogTitle" style="text-align: center; display: none;text-decoration: none; color:#191f3f;"><h1 style="text-decoration: none;">Blogs</h1></a>
         <a href="create-blog" class="btn btn-addPost float-right" id="addPost" style="display: none;">+ Add New Post</a>
       <thead>
         <tr>
@@ -279,7 +279,7 @@
         const row = document.createElement('tr');
         row.innerHTML = `
           <td>${title}</td>
-          <td>${slug}</td>
+          <td>/${slug}</td>
           <td>${date}</td>
           <td class="actions">
             <a href="edit-blog?slug=${slug}" class="text-primary">✏️ Edit</a>
@@ -292,7 +292,7 @@
 
     async function deletePost(slug) {
       if (!confirm(`Are you sure you want to delete "${slug}"?`)) return;
-      const res = await fetch('/.netlify/functions/deletePost', {
+      const res = await fetch('https://soulsavera.netlify.app/.netlify/functions/deletePost', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

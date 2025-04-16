@@ -66,8 +66,13 @@ async function fetchPost() {
 
   const banner = document.getElementById('post-banner');
   if (metadata.image) {
-  banner.src = metadata.image;
+  banner.src = metadata.image || '../images/blog-banner.png';
+  banner.alt = metadata.title || 'Blog Banner';
   banner.style.display = 'block';
+  } else {
+    banner.src = '../images/blog-banner.png';
+    banner.alt = metadata.title || 'Blog Banner';
+    banner.style.display = 'block';
   }
 
   // Format date to "MMM DD"
@@ -87,7 +92,25 @@ async function fetchPost() {
   document.getElementById('post-description').textContent = metadata.description || '';
   document.getElementById('banner-meta').textContent = `By ${metadata.author || 'Unknown'} | \nPublished on ${displayDate}`;
   document.getElementById('banner-category').textContent = metadata.category || '';
-  document.getElementById('post-content').innerHTML = marked.parse(body);
+  
+  const postContentEl = document.getElementById('post-content');
+  postContentEl.innerHTML = body;
+
+// Enhance <img> tags inside blog content
+const images = postContentEl.querySelectorAll('img');
+images.forEach(img => {
+  // Add default alt if missing
+  if (!img.alt || img.alt.trim() === '') {
+    img.alt = metadata.title || 'Blog Image';
+  }
+
+  // Optional: Make images responsive
+  img.style.maxWidth = '100%';
+  img.style.height = 'auto';
+
+  // Optional: Lazy loading
+  img.loading = 'lazy';
+});
 
   renderTags(metadata.tags, 'post-tags');
   renderTags(metadata.keywords, 'post-keywords');
@@ -97,13 +120,11 @@ async function fetchPost() {
   document.getElementById('share-twitter').href = `https://twitter.com/intent/tweet?url=${encodedURL}&text=${encodedTitle}`;
   document.getElementById('share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodedURL}`;
   document.getElementById('share-linkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedURL}`;
-} catch (err) {
-  console.error('Error loading post:', err);
-} finally {
-  // Hide loader and show content
-  document.getElementById('loader').style.display = 'none';
-  document.getElementById('post-detail-container').style.display = 'block';
+  } catch (err) {
+    console.error('Error loading post:', err);
+  } finally {
+    document.getElementById('loader').style.display = 'none';
+    document.getElementById('post-detail-container').style.display = 'block';
+  }
 }
-}
-
 fetchPost();

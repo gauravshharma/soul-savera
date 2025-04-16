@@ -163,7 +163,7 @@
 								            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Resources</a>
 								            <ul class="dropdown-menu">
 									            <li>
-									            	<a href="/" class="dropdown-item">Blogs</a>
+									            	<a href="/blog" class="dropdown-item">Blogs</a>
 									            </li>
 									            <li>
 									            	<a href="https://www.youtube.com/@SoulSavera" target="_blank" class="dropdown-item">Podcast and Videos</a>
@@ -501,7 +501,7 @@
 
 	function createPostCard(slug, frontmatter) {
 		const postLink = document.createElement('a');
-		postLink.href = `blog/post?slug=${slug}`;
+		postLink.href = `/blog/post?slug=${slug}`;
 		postLink.className = 'text-decoration-none text-dark blog-card-link';
 		postLink.style.display = 'block';
 
