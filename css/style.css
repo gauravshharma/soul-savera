@@ -269,6 +269,7 @@
 #sun-glow-rotate {
   transform-box: fill-box; 
   transform-origin: 50% 50% !important; 
+  animation: spin 4s linear infinite;
 }
 .scroll-top:after {
   position: absolute;
@@ -15552,12 +15553,12 @@ transition: content 0.5s ease-in-out;
 
 .sun-container {
   position: relative;
-  animation: spin 2s ease-in-out forwards;
 }
 
 .sun-loader {
   width: 100px;
   height: 100px;
+  animation: rise 4s ease-in-out forwards;
 }
 
 @keyframes rise {
