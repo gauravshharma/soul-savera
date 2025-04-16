@@ -15552,6 +15552,7 @@ transition: content 0.5s ease-in-out;
 
 .sun-container {
   position: relative;
+  animation: spin 2s ease-in-out forwards;
 }
 
 .sun-loader {
@@ -16539,7 +16540,7 @@ transition: content 0.5s ease-in-out;
 }
 
 #loader {
-  display: block;
+  display: flex;
 }
 
 #postsContainer {

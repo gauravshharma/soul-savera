@@ -292,6 +292,9 @@
 
     async function deletePost(slug) {
       if (!confirm(`Are you sure you want to delete "${slug}"?`)) return;
+
+      try {
+      const authKey = sessionStorage.getItem('authKey');
       const res = await fetch('https://soulsavera.netlify.app/.netlify/functions/deletePost', {
         method: 'POST',
         headers: {
@@ -302,13 +305,17 @@
       });
 
       const result = await res.json();
-      if (res.ok) {
-        alert('Post deleted');
-        fetchPosts();
-      } else {
-        alert(result.error || 'Failed to delete');
-      }
+        if (res.ok) {
+          alert('Post deleted');
+          fetchPosts();
+        } else {
+          alert(result.error || 'Failed to delete');
+        }
+      } catch (err) {
+      console.error('Error deleting post:', err);
+      alert('Something went wrong while deleting.');
     }
+  }
   </script>
 
 </body>
