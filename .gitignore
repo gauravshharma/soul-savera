@@ -5,3 +5,6 @@ node_modules/.package-lock.json
 .DS_Store
 blog/.DS_Store
 .gitignore
+.*/  # Ignore all dot directories
+!.gitignore
+!.gitmodules
