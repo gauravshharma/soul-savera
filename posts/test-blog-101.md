@@ -1,13 +1,12 @@
 ---
-title: "test"
-author: "test author"
-date: "16-04-2025"
-category: "testing"
+title: test
+author: test author
 tags: ["test"]
+image: https://raw.githubusercontent.com/gauravshharma/soul-savera/master/images/1744805548055-compassionate-environment.png
+category: testing
+date: 16-04-2030
+description: test descrioption
 keywords: ["test"]
-image: "https://raw.githubusercontent.com/gauravshharma/soul-savera/master/images/1744805548055-compassionate-environment.png"
-slug: "test-blog-101"
-description: "test descrioption"
 ---
 
 <p>test blog</p>
