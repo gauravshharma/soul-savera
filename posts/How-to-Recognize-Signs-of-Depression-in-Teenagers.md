@@ -5,7 +5,7 @@ date: "19-03-2025"
 category: "Mental Health Awareness"
 tags: ["Teen Depression", "Depression Symptoms", "Mental Health in Teens", "Teenage Therapy", "CBT for Teens", "Emotional Health", "Depression Help Delhi", "Soul Savera Therapy", "Hormonal Mental Health", "Adolescent Psychology"]
 keywords: ["Depression in teenagers", "Signs of teen depression", "Teenage depression symptoms", "Teen mental health", "Therapy for depression in teenagers"]
-image: "https://raw.githubusercontent.com/gauravshharma/soul-savera/master/images/1744061949156-Linkedin_Banner_7.png"
+image: ""
 slug: "How-to-Recognize-Signs-of-Depression-in-Teenagers?"
 description: "Learn how to recognize the early signs of depression in teenagers, from emotional changes to behavioral red flags. This blog explores common causes, symptoms, and risk factors, while also guiding you toward effective treatment options. Get expert help from Soul Savera – the leading depression therapy clinic in Delhi."
 ---
