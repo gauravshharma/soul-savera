@@ -1,8 +1,26 @@
 const { Octokit } = require("@octokit/rest");
 
 exports.handler = async function (event) {
+  const allowedOrigin = "https://soulsavera.com";
+
+  // Handle CORS preflight request
+  if (event.httpMethod === "OPTIONS") {
+    return {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": allowedOrigin,
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, x-auth-key",
+      },
+      body: "OK",
+    };
+  }
   if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "Method Not Allowed" };
+    return { statusCode: 405, 
+      headers: {
+        "Access-Control-Allow-Origin": allowedOrigin,
+      },
+      body: "Method Not Allowed" };
   }
 
   const authHeader = event.headers['x-auth-key'];
