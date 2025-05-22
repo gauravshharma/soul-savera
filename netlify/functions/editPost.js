@@ -16,14 +16,17 @@ exports.handler = async function (event) {
       body: "OK",
     };
   }
+
   if (event.httpMethod !== "POST") {
-    return { statusCode: 405, 
+    return {
+      statusCode: 405,
       headers: {
         "Access-Control-Allow-Origin": allowedOrigin,
       },
-      body: "Method Not Allowed" };
+      body: "Method Not Allowed",
+    };
   }
-  
+
   const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
   const owner = "gauravshharma";
   const repo = "soul-savera";
@@ -49,11 +52,10 @@ keywords: ${keywords}
 
 ${content}`;
 
-    // Get existing SHA to update the file
     const { data: fileData } = await octokit.repos.getContent({
       owner,
       repo,
-      path
+      path,
     });
 
     await octokit.repos.createOrUpdateFileContents({
@@ -65,23 +67,32 @@ ${content}`;
       sha: fileData.sha,
       committer: {
         name: "Blog Bot",
-        email: "blog@bot.com"
+        email: "blog@bot.com",
       },
       author: {
         name: "Blog Bot",
-        email: "blog@bot.com"
-      }
+        email: "blog@bot.com",
+      },
     });
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: "Blog post updated successfully" })
+      headers: {
+        "Access-Control-Allow-Origin": allowedOrigin,
+      },
+      body: JSON.stringify({ message: "Blog post updated successfully" }),
     };
   } catch (err) {
     console.error("Edit error:", err);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Failed to update blog post", details: err.message })
+      headers: {
+        "Access-Control-Allow-Origin": allowedOrigin,
+      },
+      body: JSON.stringify({
+        error: "Failed to update blog post",
+        details: err.message,
+      }),
     };
   }
 };
