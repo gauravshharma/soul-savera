@@ -16,6 +16,7 @@ exports.handler = async (event) => {
       body: "OK",
     };
   }
+  
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, 
       headers: {
