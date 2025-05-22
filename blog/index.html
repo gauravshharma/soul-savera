@@ -120,6 +120,114 @@
 		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/gray-matter@4.0.3/index.min.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<style>
+			
+.blog-grid-custom .blog-card-link {
+  background: #fff;
+  width: 100%;
+  transition: transform 0.2s ease;
+}
+
+.blog-grid-custom .blog-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  border-radius: 50px;
+  border: 1px solid #eee;
+  padding: 20px;
+  z-index: 2;
+  transition: transform 0.2s ease;
+}
+
+.blog-grid-custom .blog-card:hover {
+  transform: translateY(-4px);
+}
+
+.blog-grid-custom .banner {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 40px;
+}
+
+.blog-grid-custom .title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--heading);
+  text-transform: capitalize;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 0.5rem;
+  height: 60px;
+}
+
+.blog-grid-custom .description {
+  font-size: 0.9rem;
+  color: #808080;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 1rem;
+}
+
+.blog-grid-custom .blog-card-badge-row {
+  padding: 1rem 1rem 0;
+}
+
+.blog-grid-custom .blog-card-content-row {
+  padding: 1rem;
+}
+
+
+.blog-grid-custom .blog-card-banner .category {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #fff;
+  background: var(--yellow-deep);
+  padding: 0.5rem 1.3rem 0.5rem 1rem;
+  text-transform: uppercase;
+  position: absolute;
+  z-index: 1;
+  top: 5rem;
+  border-radius: 0 2rem 2rem 0;
+}
+
+.blog-grid-custom .meta {
+  font-size: 0.85rem;
+  color: #888;
+  font-family: 'Roboto', sans-serif;
+  text-transform: capitalize;
+}
+
+.blog-grid-custom .meta .author {
+  color: var(--heading);
+}
+
+.blog-grid-custom .read-more {
+  color: var(--heading);
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blog-grid-custom.read-more::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  border-radius: 40px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out;
+}
+		</style>
 	</head>
 
 	<body>
