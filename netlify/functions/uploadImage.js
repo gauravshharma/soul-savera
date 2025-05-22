@@ -2,26 +2,11 @@
 const fetch = require('node-fetch');
 
 exports.handler = async (event) => {
-  const allowedOrigin = "https://soulsavera.com";
-
-  // Handle CORS preflight request
-  if (event.httpMethod === "OPTIONS") {
+  if (event.httpMethod !== 'POST') {
     return {
-      statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, x-auth-key",
-      },
-      body: "OK",
+      statusCode: 405,
+      body: JSON.stringify({ message: 'Method Not Allowed' })
     };
-  }
-  if (event.httpMethod !== "POST") {
-    return { statusCode: 405, 
-      headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
-      },
-      body: "Method Not Allowed" };
   }
 
   const { fileName, fileData, mimeType } = JSON.parse(event.body);
