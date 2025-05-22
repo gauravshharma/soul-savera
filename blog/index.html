@@ -107,16 +107,19 @@
 		<!-- iOS Safari -->
 		<meta name="apple-mobile-web-app-status-bar-style" content="#655C97">
 		<!-- Favicon -->
-		<link rel="icon" type="image/png" sizes="48x48" href="images/assets/favicon-48x48.png">
-		<link rel="manifest" href="manifest.json">
+		<link rel="icon" type="image/png" sizes="48x48" href="../images/assets/favicon-48x48.png">
+		<link rel="manifest" href="../manifest.json">
 		<!-- Main style sheet -->
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
 		<!-- responsive style sheet -->
-		<link rel="stylesheet" type="text/css" href="css/responsive.css">
+		<link rel="stylesheet" type="text/css" href="../css/responsive.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 		<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-QFP1YDPWRS"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-QFP1YDPWRS'); </script>	
+		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/gray-matter@4.0.3/index.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 
 	<body>
@@ -152,15 +155,10 @@
 					  </svg>
 				</div>
 			</div>
-
-			<!-- 
-			=============================================
-				Theme Main Menu
-			============================================== 
-			-->
+		
 			<div class="theme-main-menu sticky-menu theme-menu-four bg-none">
 				<div class="d-flex align-items-center justify-content-between">
-					<div class="logo"><a href="/"><img src="./images/assets/logo-no-bg.png" alt="Soul Savera"/></a></div>
+					<div class="logo"><a href="/"><img src="../images/assets/logo-no-bg.png" alt="Soul Savera"/></a></div>
 					<nav id="mega-menu-holder" class="navbar navbar-expand-lg">
 						<div  class="nav-container">
 							<button class="navbar-toggler">
@@ -173,24 +171,24 @@
 								            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">About Us</a>
 								            <ul class="dropdown-menu">
 												<li>
-									            	<a href="about-us" class="dropdown-item">About Soul Savera</a>
+									            	<a href="../about-us" class="dropdown-item">About Soul Savera</a>
 									            </li>
 									            <li>
-									            	<a href="about-us#vmv" class="dropdown-item">Mission &middot; Vision &middot; Values</a>
+									            	<a href="../about-us#vmv" class="dropdown-item">Mission &middot; Vision &middot; Values</a>
 									            </li>
 									            <li>
-									            	<a href="about-us#founder" class="dropdown-item">Our Founder and Team</a>
+									            	<a href="../about-us#founder" class="dropdown-item">Our Founder and Team</a>
 									            </li>
 								            </ul> <!-- /.dropdown-menu -->
 								        </li>
 										<li class="nav-item position-static">
-								            <a class="nav-link" href="services" >Services</a>
+								            <a class="nav-link" href="../services" >Services</a>
 								        </li>
 										<li class="nav-item dropdown">
 								            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Resources</a>
 								            <ul class="dropdown-menu">
 									            <li>
-									            	<a href="blog" class="dropdown-item">Blogs</a>
+									            	<a href="/blog" class="dropdown-item">Blogs</a>
 									            </li>
 									            <li>
 									            	<a href="https://www.youtube.com/@SoulSavera" target="_blank" class="dropdown-item">Podcast and Videos</a>
@@ -202,30 +200,30 @@
 								            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Work with Us</a>
 								            <ul class="dropdown-menu">
 												<li>
-									            	<a href="work#careers" class="dropdown-item">Careers</a>
+									            	<a href="../work#careers" class="dropdown-item">Careers</a>
 									            </li>
 									            <li>
-									            	<a href="work#volunteers" class="dropdown-item">Volunteers</a>
+									            	<a href="../work#volunteers" class="dropdown-item">Volunteers</a>
 									            </li>
 									            <li>
-									            	<a href="work#internship" class="dropdown-item">Internships</a>
+									            	<a href="../work#internship" class="dropdown-item">Internships</a>
 									            </li>
 												<li>
-									            	<a href="work#collaboration" class="dropdown-item">Collaborations</a>
+									            	<a href="../work#collaboration" class="dropdown-item">Collaborations</a>
 									            </li>
 									        	</li>
 								            </ul> <!-- /.dropdown-menu -->
 								        </li>
 										<li class="nav-item position-static">
-								            <a class="nav-link" style="text-decoration: underline;" href="contact" >Contact Us</a>
+								            <a class="nav-link" style="text-decoration: underline;" href="../contact" >Contact Us</a>
 								        </li>
 									</ul>
 									<ul class="right-button-group d-flex align-items-center justify-content-center">
 										<!-- <li>
-											<a href="contact" class="signIn-action">Contact Us</a>
+											<a href="../contact" class="signIn-action">Contact Us</a>
 										</li> -->
 								   		<li>
-											<a href="appointment" class="theme-btn-nine"><span>Get Started</span> <img src="images/icon/53.svg" alt="Soul Savera - arrow-right" class="ml-2"></a>
+											<a href="../appointment" class="theme-btn-nine"><span>Get Started</span> <img src="../images/icon/53.svg" alt="Soul Savera - arrow-right" class="ml-2"></a>
 										</li>
 									</ul>
 						   		</div>
@@ -234,259 +232,171 @@
 					</nav>
 				</div>
 			</div> <!-- /.theme-main-menu -->
-
-
-
-			<div class="faq-classic with-bg mt-100">
-				<img src="images/shape/86.svg" alt="FAQs - Soul Savera" class="shapes shape-one">
-				<img src="images/shape/87.svg" alt="FAQs - Soul Savera" class="shapes shape-two">
-				<img src="images/shape/88.svg" alt="FAQs - Soul Savera" class="shapes shape-three">
-				<img src="images/shape/89.svg" alt="FAQs - Soul Savera" class="shapes shape-four">
-				<img src="images/shape/90.svg" alt="FAQs - Soul Savera" class="shapes shape-five">
-				<img src="images/shape/91.svg" alt="FAQs - Soul Savera" class="shapes shape-six">
-				<div class="container">
-					<div class="title-style-four text-center mb-100 md-mb-70">
-						<div class="row">
-							<div class="col-lg-7 m-auto">
-								<h6 class="font-rubik">FAQs</h6>
-								<h2>
-									<span>Questions & Answers<img src="images/shape/line-shape-2.svg" alt="FAQs - Soul Savera"></span>
-								</h2>
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-lg-6">
-							<!-- ================== FAQ Panel ================ -->
-				       		<div id="accordion">
-							    <div class="card">
-							      <div class="card-header" id="headingOne">
-							        <h5 class="mb-0">
-							          <button class="btn btn-link">
-							            What types of therapy do you offer?
-							          </button>
-							        </h5>
-							      </div>
-							      <div id="collapseOne" class="collapse">
-							        <div class="card-body">
-							        	<p>We offer a range of therapies, including Cognitive Behavioral Therapy (CBT), trauma-informed therapy, play therapy, expressive art therapy, and holistic interventions. These therapies are tailored to each client’s unique needs and goals, whether for children, adolescents, or adults.</p>
-							        </div>
-							      </div>
-							    </div>
-							    <div class="card">
-							      <div class="card-header" id="headingThree">
-							        <h5 class="mb-0">
-							          <button class="btn btn-link">
-							            Is my information kept confidential?
-							          </button>
-							        </h5>
-							      </div>
-							      <div id="collapseThree" class="collapse">
-							        <div class="card-body">
-							        	<p>Yes, confidentiality is our priority. All information shared during sessions is protected and will not be disclosed without your consent unless required by law or if there’s a risk of harm to yourself or others. For minors, parents may seek information as needed.
-										</p>
-							        </div>
-							      </div>
-							    </div>
-							    <div class="card">
-							      <div class="card-header" id="headingFour">
-							        <h5 class="mb-0">
-							          <button class="btn btn-link">
-										Can I get a free initial consultation?
-							          </button>
-							        </h5>
-							      </div>
-							      <div id="collapseFour" class="collapse">
-							        <div class="card-body">
-							        	<p>We offer a brief initial consultation to understand your needs and to discuss the best approach. While it’s not a full therapy session, it allows us to determine the right direction for your treatment.
-										</p>
-							        </div>
-							      </div>
-							    </div>
-							    <div class="card">
-							      <div class="card-header" id="headingFive">
-							        <h5 class="mb-0">
-							          <button class="btn btn-link">
-							            How long does each session last, and how many sessions will I need?
-							          </button>
-							        </h5>
-							      </div>
-							      <div id="collapseFive" class="collapse">
-							        <div class="card-body">
-							        	<p>Each session typically lasts 45-60 minutes. The number of sessions needed depends on individual goals and the complexity of issues. We can discuss an approximate timeline in your initial sessions.
-										</p>
-							        </div>
-							      </div>
-							    </div>
-								<div class="card">
-									<div class="card-header" id="headingSix">
-									  <h5 class="mb-0">
-										<button class="btn btn-link">
-											What therapies do you provide?
-										</button>
-									  </h5>
-									</div>
-									<div id="collapseSix" class="collapse show">
-									  <div class="card-body list">
-										  	<ul>
-												<li>Cognitive Behavioral Therapy
-												</li>
-												<li>Person-Centered Therapy
-												</li>
-												<li>Behavioral Therapy
-												</li>
-												<li>Play Therapy 
-												</li>
-												<li>Art Therapy 
-												</li>
-											</ul>
-									  </div>
-									</div>
-								  </div>
-							</div>
-						</div>
-
-						<div class="col-lg-6">
-							<!-- ================== FAQ Panel ================ -->
-				       		<div id="accordiontwo">
-							    <div class="card">
-							      <div class="card-header" id="headingOne2">
-							        <h5 class="mb-0">
-							          <button class="btn btn-link">
-							            Do you offer online sessions?
-
-							          </button>
-							        </h5>
-							      </div>
-							      <div id="collapseOne2" class="collapse">
-							        <div class="card-body">
-							        	<p>Yes, we provide both in-person and online sessions to make therapy accessible for everyone. Online sessions offer the flexibility to receive support from the comfort of your own space.
-										</p>
-							        </div>
-							      </div>
-							    </div>
-							    <div class="card">
-							      <div class="card-header" id="headingTwo2">
-							        <h5 class="mb-0">
-							          <button class="btn btn-link">
-										What if I need to cancel or reschedule an appointment?
-							          </button>
-							        </h5>
-							      </div>
-							      <div id="collapseTwo2" class="collapse">
-							        <div class="card-body">
-							        	<p>Please inform us at least 24 hours in advance if you need to cancel or reschedule. Cancellations made with less than 24 hours’ notice may incur a full charge for the session.
-										</p>
-							        </div>
-							      </div>
-							    </div>
-							    <div class="card">
-							      <div class="card-header" id="headingThree2">
-							        <h5 class="mb-0">
-							          <button class="btn btn-link">
-							            Are your services suitable for children with neurodevelopmental disorders?
-
-							          </button>
-							        </h5>
-							      </div>
-							      <div id="collapseThree2" class="collapse">
-							        <div class="card-body">
-							        	<p>Absolutely. Our team specializes in working with children with neurodevelopmental needs, and we offer therapies tailored to support their unique developmental, emotional, and social challenges.
-										</p>
-							        </div>
-							      </div>
-							    </div>
-							    <div class="card">
-							      <div class="card-header" id="headingFour2">
-							        <h5 class="mb-0">
-							          <button class="btn btn-link">
-										How do I know if therapy is working for me or my child?
-							          </button>
-							        </h5>
-							      </div>
-							      <div id="collapseFour2" class="collapse">
-							        <div class="card-body">
-							        	<p>Progress in therapy varies, but we’ll regularly check in on your goals and experiences. Positive changes may be seen through improved mood, communication, or coping strategies. We’ll work together to assess your journey and adjust as needed.
-										</p>
-							        </div>
-							      </div>
-							    </div>
-								<div class="card">
-									<div class="card-header" id="headingFive2">
-									  <h5 class="mb-0">
-										<button class="btn btn-link">
-											What are psychological tests and what kind of assessment is needed?
-										</button>
-									  </h5>
-									</div>
-									<div id="collapseFive2" class="collapse">
-									  <div class="card-body">
-										  <p>Psychological tests are scientific tools that aid a clinician in not only diagnosing mental illnesses, if any but also help in attaining an objective understanding and insight into the nature of the presenting problem. This further aids in planning therapy sessions which in turn helps an individual reach faster towards their psychological well-being.
-											  <br/>
-											  The assessments required are based on the nature of the problem and may or may not be recommended depending on the same.
-										  </p>
-									  </div>
-									</div>
-								  </div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div> <!-- /.faq-classic -->
-
 			
-			<div class="fancy-short-banner-four bg-light-blue pb-50">
-				<div class="container">
-					<div class="bg-wrapper  bg-blue">
-						<div class="row align-items-center">
-							<div class="col-lg-8">
-								<div class="title">
-									<!-- <h6>Subscribe Now</h6> -->
-									<h2 class="text-white">Couldn't find your answer?</h2>
-								</div> <!-- /.title-style-one -->
-							</div>
-							<div class="col-lg-4">
-								<div class="form-wrapper md-mt-30">
-									<a href="tel:+7614123224" class="btn-theme-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Call Us<i class="fa fa-phone ml-2"></i></a>
-								</div> <!-- /.form-wrapper -->
+						<!-- 
+			=============================================
+				Fancy Hero Five
+			============================================== 
+			-->
+			<div class="fancy-hero-five">
+				<img src="../images/shape/95.svg" alt="" class="shapes shape-one">
+				<img src="../images/shape/96.svg" alt="" class="shapes shape-two">
+				<div class="bg-wrapper">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-7 m-auto text-center">
+								<!-- <h6 class="page-title">Our News</h6> -->
+								<h1 class="heading">
+									<span>Blogs<img src="../images/shape/line-shape-11.svg" alt=""></span>
+								</h1>
 							</div>
 						</div>
-					</div> <!-- /.bg-wrapper -->
-				</div> <!-- /.container -->
-			</div>
+					</div>
+				</div> <!-- /.bg-wrapper -->
+			</div> <!-- /.fancy-hero-five -->
+			
+
+
 			<!--
 			=====================================================
-				Footer Style Four
+				Feature Blog Three
 			=====================================================
 			-->
-			<footer class="theme-footer-seven pt-100 md-pt-100">
+			<div class="blog-page-white-bg blog-v4 feature-blog-one">
+				<div class="container">
+					<div class="wrapper">
+							<div class="blog-grid-custom row" id="postsContainer"></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- CTA -->
+			<div class="fancy-short-banner-twelve">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-10 col-lg-11 m-auto aos-init aos-animate" data-aos="fade-up" data-aos-duration="1200">
+							<div class="title-style-ten text-center">
+								<h2>Ready to Begin? <br/>Book Your Session Today!</h2>
+							</div>
+						</div>
+					</div>
+					<div data-aos="fade-up" data-aos-duration="1200" data-aos-delay="150" class="aos-init aos-animate">
+						<div class="text-center mx-auto mt-30">
+							<a href="../appointment" class="theme-btn-nine aos-init aos-animate" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="500"><span>Book Appointment</span> <img src="../images/icon/53.svg" alt="arrow-right" class="ml-2"></a>
+						</div>
+					</div>
+				</div> <!-- /.container -->
+				<img src="../images/shape/220.svg" alt="" class="shapes shape-one" alt="Soul Savera - Your Session Today">
+				<img src="../images/shape/221.svg" alt="" class="shapes shape-two" alt="Soul Savera - Your Session Today">
+			</div>
+			
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog  modal-dialog-centered modal-lg" role="document">
+				  <div class="modal-content br-40">
+						<div class="fancy-feature-thirty p-0 bg-light-blue br-40">
+								<div class="container container-custom">
+										<section class="modal-contact-popup-one">
+											<main class="row main-body modal-content clearfix bg-light-blue">
+												<div class="col-lg-12 left-side">
+													<h2 class="form-title">Book an appointment</h2>
+													<p class="font-rubik">It just takes a few minutes to book a visit online.</p>
+													<form action="#" id="contact-form" data-toggle="validator" novalidate="true">
+														<div class="messages"></div>
+														<div class="row controls mt-50">
+															<div class="col-12">
+																<div class="input-group-meta form-group mb-20">
+																	<label>Name</label>
+																	<input type="text" placeholder="Your Name" name="Fname" required="required" data-error="Name is required." style="text-transform: capitalize;">
+																	<div class="help-block with-errors"></div>
+																</div>
+															</div>
+															<div class="col-6">
+																<div class="input-group-meta form-group mb-20">
+																	<label>Phone</label>
+																	<input type="phone" placeholder="Your Phone" name="phone" required="required" data-error="Valid phone number is required.">
+																	<div class="help-block with-errors"></div>
+																</div>
+															</div>
+															<div class="col-6">
+																<div class="input-group-meta form-group mb-20">
+																	<label>Email</label>
+																	<input type="email" placeholder="Your Email" name="email" required="required">
+																	<div class="help-block with-errors"></div>
+																</div>
+															</div>
+															<div class="col-12">
+																<div class="input-group-meta form-group mb-20">
+																<label for="service">Service</label>
+														<select class="form-control" id="service" required>
+														  <option value="">Choose a Service</option>
+														  <option value="consultation">Consultation</option>
+														  <option value="therapy">Therapy</option>
+														  <option value="workshop">Workshop</option>
+														</select>
+													</div>
+															</div>
+															<div class="col-6">
+																<div class="input-group-meta form-group mb-20">
+																<label for="date">Date</label>
+																<input type="date" class="form-control" id="date" required>
+																</div>
+															  </div>
+															  <div class="col-6">
+																<div class="input-group-meta form-group mb-20">
+																<label for="time">Time</label>
+																<input type="time" class="form-control" id="time" required>
+																</div>
+															  </div>
+															
+															<div class="col-12 mt-20">
+																<button type="submit" class="theme-btn-nine"><span>Book Online</span> <img src="../images/icon/53.svg" alt="Soul Savera - Book counselling online" class="ml-2"></button>
+																
+															</div>
+															<!-- <div class="col-12">
+																<div class="input-group-meta form-group mb-25">
+																	<textarea placeholder="Your message" name="message" required="required" data-error="Please,leave us a message."></textarea>
+																	<div class="help-block with-errors"></div>
+																</div>
+															</div> -->
+														</div>
+													</form>
+												</div>
+											</main>
+										</section>
+									</div>
+						</div>
+				  </div>
+				</div>
+			  </div>
+
+
+			  <footer class="theme-footer-seven pt-100 md-pt-100">
 				<div class="lg-container">
 					<div class="container">
 						<div class="row">
 							<div class="col-xl-3 col-lg-3 col-md-6 aos-init aos-animate order-lg-3  order-sm-2 d-none d-md-block d-lg-block d-xl-block" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
 								<h4 class="title d-none d-lg-block d-xl-block ">LEGAL</h4>
 								<ul class="footer-list footer-links d-flex justify-content-space-between d-lg-block d-md-block">
-									<li><a href="disclaimer">Disclaimer</a></li>
-									<li><a href="privacy#cancellation-policy">Cancellation and <br/>Refund Policy</a></li>
-									<li><a href="privacy">Privacy Policy</a></li>
-									<li><a href="terms-and-conditions">Terms and Conditions</a></li>
+									<li><a href="../disclaimer">Disclaimer</a></li>
+									<li><a href="../privacy#cancellation-policy">Cancellation and <br/>Refund Policy</a></li>
+									<li><a href="../privacy">Privacy Policy</a></li>
+									<li><a href="../terms-and-conditions">Terms and Conditions</a></li>
 								</ul>
 							</div>
 							
 							<div class="col-xl-3 col-lg-3 col-md-6 col-xs-12 aos-init aos-animate order-lg-2 order-2" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
 								<h4 class="title d-none d-lg-block d-xl-block ">Quick Links</h4>
 								<ul class="footer-list footer-links d-flex d-md-block d-lg-block d-xl-block justify-content-space-between">
-									<li><a href="about-us">About Us</a></li>
-									<li><a href="services">Services</a></li>
-									<li><a href="faqs">FAQs</a></li>
-									<li><a href="blog">Blogs</a></li>
-									<li><a href="contact">Contact Us</a></li>
+									<li><a href="../about-us">About Us</a></li>
+									<li><a href="../services">Services</a></li>
+									<li><a href="../faqs">FAQs</a></li>
+									<li><a href="/">Blogs</a></li>
+									<li><a href="../contact">Contact Us</a></li>
 								</ul>
 							</div>
 							<div class="col-xl-6 col-lg-6 col-xs-12 aos-init aos-animate order-lg-1 order-sm-1" data-aos="fade-up" data-aos-duration="1200">
 								<!-- <h4 class="title">Working Hours</h4> -->
-								<div class="logo"><a href="/"><img src="images/assets/logo-no-bg.png" width="150" alt="Soul Savera - Trusted Mental Health Clinic & Developmental Center in Delhi"></a></div>
+								<div class="logo"><a href="../"><img src="../images/assets/logo-no-bg.png" width="150" alt="Soul Savera - Trusted Mental Health Clinic & Developmental Center in Delhi"></a></div>
 								<ul class="footer-list font-rubik footer-contact mt-20 mb-20 mb-lg-10">
 									<li><p>Monday to Saturday 11 AM - 6 PM </p></li>
 									<li><a href="tel:+917011506427"><i class="fa fa-mobile fs-26 mr-2 text-yellow"></i> +91 701 150 6427</a></li>
@@ -500,10 +410,10 @@
 									</li>
 								</ul>
 								<ul class="legal-list d-lg-none d-xl-none d-md-none">
-									<li><a href="disclaimer">Disclaimer</a></li>
-									<li><a href="privacy#cancellation-policy">Cancellation and Refund Policy</a></li>
-									<li><a href="privacy">Privacy Policy</a></li>
-									<li><a href="terms-and-conditions">Terms and Conditions</a></li>
+									<li><a href="../disclaimer">Disclaimer</a></li>
+									<li><a href="../privacy#cancellation-policy">Cancellation and Refund Policy</a></li>
+									<li><a href="../privacy">Privacy Policy</a></li>
+									<li><a href="../terms-and-conditions">Terms and Conditions</a></li>
 								</ul>
 							</div>
 						</div>
@@ -521,6 +431,8 @@
 				</div> <!-- /.lg-container -->
 				
 			</footer>
+
+			
 			
 			<!-- Scroll Top Button -->
 			<button class="scroll-top">
@@ -551,32 +463,155 @@
 			</button>
 
 
-		<!-- Optional JavaScript _____________________________  -->
+		<!-- Content JavaScript _____________________________  -->
+		<script>
+		// Function to fetch and display blog posts
+	const repo = 'gauravshharma/soul-savera';
+	const folder = 'posts';
 
+	async function fetchPosts() {
+		try {
+			const res = await fetch(`https://api.github.com/repos/${repo}/contents/${folder}`);
+			const files = await res.json();
+
+			// Sort by date DESC
+			const posts = await Promise.all(
+				files.map(async file => {
+					const slug = file.name.replace('.md', '');
+					const content = await fetch(file.download_url).then(res => res.text());
+					const frontmatter = extractFrontmatter(content);
+					return { slug, frontmatter };
+				})
+			);
+
+			posts.sort((a, b) => {
+				const dateA = new Date(a.frontmatter.date || '');
+				const dateB = new Date(b.frontmatter.date || '');
+				return dateB - dateA;
+			});
+
+			posts.forEach(({ slug, frontmatter }) => createPostCard(slug, frontmatter));
+
+		} catch (error) {
+			console.error("Error fetching posts:", error);
+		} finally {
+			// Hide loader and show content after posts are rendered
+			document.getElementById('loader').style.display = 'none';
+			document.getElementById('postsContainer').style.display = 'flex'; // or 'block' based on layout
+		}
+	}
+
+	function extractFrontmatter(markdown) {
+		const fm = {};
+		const matches = markdown.match(/---([\s\S]*?)---/);
+		if (!matches) return fm;
+
+		matches[1].split('\n').forEach(line => {
+			const [key, ...value] = line.split(':');
+			if (key && value) {
+				fm[key.trim()] = value.join(':').trim().replace(/^"|"$/g, '');
+			}
+		});
+		return fm;
+	}
+
+	function createPostCard(slug, frontmatter) {
+		const postLink = document.createElement('a');
+		postLink.href = `/blog/post?slug=${slug}`;
+		postLink.className = 'text-decoration-none text-dark blog-card-link';
+		postLink.style.display = 'block';
+
+		const postDiv = document.createElement('div');
+		postDiv.className = 'blog-card';
+
+		const imageRow = document.createElement('div');
+		imageRow.className = 'blog-card-banner';
+
+		const category = document.createElement('p');
+		category.className = 'category';
+		category.textContent = frontmatter.category || 'Psychology';
+		imageRow.appendChild(category);
+
+		const img = document.createElement('img');
+		img.src = frontmatter.image || 'images/blog_image.png';
+		img.alt = frontmatter.title || 'Blog Image';
+		img.className = 'banner';
+		img.onerror = function () {
+			this.src = ''; // fallback image
+		};
+		imageRow.appendChild(img);
+		postDiv.appendChild(imageRow);
+
+		const contentRow = document.createElement('div');
+		contentRow.className = 'blog-card-content-row';
+
+		const title = document.createElement('h1');
+		title.className = 'title';
+		title.textContent = frontmatter.title || 'Untitled';
+		contentRow.appendChild(title);
+
+		postDiv.appendChild(contentRow);
+
+		const rawDate = frontmatter.date || '';
+		let formattedDate = rawDate;
+
+		if (rawDate && /^\d{2}-\d{2}-\d{4}$/.test(rawDate)) {
+			const [day, month, year] = rawDate.split('-');
+			const parsedDate = new Date(`${year}-${month}-${day}`);
+			if (!isNaN(parsedDate)) {
+				formattedDate = parsedDate.toLocaleDateString('en-US', {
+					month: 'short',
+					day: 'numeric',
+				});
+			}
+		}
+
+		const badgeRow = document.createElement('div');
+		badgeRow.className = 'd-flex justify-content-between align-items-center blog-card-badge-row';
+
+		const meta = document.createElement('div');
+		meta.className = 'meta';
+		meta.innerHTML = `<div class="author"><span class="text-muted ms-1">By </span>${frontmatter.author || ''}</div>`;
+		const date = document.createElement('div');
+		date.className = 'text-muted small';
+		date.textContent = formattedDate;
+
+		badgeRow.appendChild(meta);
+		badgeRow.appendChild(date);
+		postDiv.appendChild(badgeRow);
+
+		postLink.appendChild(postDiv);
+
+		const columnWrapper = document.createElement('div');
+		columnWrapper.className = 'col-12 col-sm-12 col-md-6 col-lg-6 mb-4';
+		columnWrapper.appendChild(postLink);
+
+		document.getElementById('postsContainer').appendChild(columnWrapper);
+	}
+
+	// Call the main fetch function
+	fetchPosts();
+</script>
     	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
     	<!-- jQuery -->
-		<script src="vendor/jquery.min.js"></script>
+		<script src="../vendor/jquery.min.js"></script>
 		<!-- Popper js -->
-		<script src="vendor/popper.js/popper.min.js"></script>
+		<script src="../vendor/popper.js/popper.min.js"></script>
 		<!-- Bootstrap JS -->
-		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+		<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 	    <!-- menu  -->
-		<script src="vendor/mega-menu/assets/js/custom.js"></script>
+		<script src="../vendor/mega-menu/assets/js/custom.js"></script>
 		<!-- AOS js -->
-		<script src="vendor/aos-next/dist/aos.js"></script>
+		<script src="../vendor/aos-next/dist/aos.js"></script>
 		<!-- js count to -->
-		<script src="vendor/jquery.appear.js"></script>
-		<script src="vendor/jquery.countTo.js"></script>
+		<script src="../vendor/jquery.appear.js"></script>
+		<script src="../vendor/jquery.countTo.js"></script>
 		<!-- Slick Slider -->
-		<script src="vendor/slick/slick.min.js"></script>
+		<script src="../vendor/slick/slick.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
-		
 		<!-- Theme js -->
-		<script src="js/theme.js"></script>
-
+		<script src="../js/theme.js"></script>  
 
 		</div> <!-- /.main-page-wrapper -->
 	</body>
 </html>
-
-

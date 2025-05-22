@@ -804,4 +804,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+// Show loader on page load
+document.getElementById('loader').style.display = 'flex';
+
+// Wait for the full page and content to load
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  if (loader) loader.style.display = 'none';
+});
+
 })(jQuery);

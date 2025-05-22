@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Blog Post</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      margin: auto;
+    }
+
+    header {
+      background: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: left;
+      justify-content: space-between;
+    }
+
+    header .actions a, header .actions button {
+      margin-left: 1rem;
+      text-decoration: none;
+      background: #454fad;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    header a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #454fad;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      background: #fff;
+      transition: all 0.2s ease;
+    }
+  
+    h1 {
+      text-align: center;
+      font-size: 26px;
+      margin-bottom: 30px;
+      color: #222;
+    }
+  
+    #loginBox,
+    #blogForm {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 600px;
+      text-align: left;
+      margin: 40px auto;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    }
+
+    #editor {
+      height: 200px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .ql-toolbar {
+      border-radius: 8px 8px 0 0;
+    }
+
+    .ql-container {
+      border-radius: 0 0 8px 8px;
+    }
+  
+    .form-group {
+      margin-bottom: 16px;
+    }
+  
+    label {
+      text-align: left;
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #444;
+    }
+  
+    input,
+    textarea,
+    button {
+      width: 100%;
+      font-size: 15px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+  
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+  
+    input:focus,
+    textarea:focus {
+      border-color: #454fad;
+      outline: none;
+    }
+  
+    button {
+      background-color: #454fad;
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 10px;
+    }
+  
+    button:hover {
+      background-color: #0056b3;
+    }
+  
+    #previewImage {
+      margin-top: 10px;
+      max-width: 100%;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #323232;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      display: none;
+      z-index: 9999;
+    }
+    .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="playfair"]::before,
+    .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="playfair"]::before {
+      content: 'Playfair';
+      font-family: 'Playfair Display', serif;
+    }
+
+    .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="roboto"]::before,
+    .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="roboto"]::before {
+      content: 'Roboto';
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="sans-serif"]::before,
+    .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="sans-serif"]::before {
+      content: 'Sans Serif';
+      font-family: sans-serif;
+    }
+
+    .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="serif"]::before,
+    .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="serif"]::before {
+      content: 'Serif';
+      font-family: serif;
+    }
+
+    .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="monospace"]::before,
+    .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="monospace"]::before {
+      content: 'Monospace';
+      font-family: monospace;
+    }
+    .ql-toolbar.ql-snow .ql-formats {
+        margin-right: 10px !important;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="../"><img src="../images/assets/logo-no-bg.png" alt="Soul Savera Logo" /></a>
+    <div class="actions">
+      <button onclick="logout()" class="logout">Logout</button>
+    </div>
+  </header>
+
+  <div id="loginBox">
+    <h1 id="pageTitle">Authentication Required</h1>
+    <div class="form-group">
+      <input type="password" id="passwordInput" placeholder="Enter Password" />
+    </div>
+    <button onclick="checkPassword()">Login</button>
+  </div>
+
+  <form id="blogForm">
+    <h1>Edit Blog Post</h1>
+    <div class="form-group">
+      <label for="title">Post Title</label>
+      <input type="text" id="title" name="title" required />
+    </div>
+
+    <div class="form-group">
+      <label for="content">Blog Content</label>
+      <div id="editor"></div>
+      <textarea id="content" name="content" style="display:none"></textarea>
+    </div>
+    
+
+    <div class="form-group">
+      <label for="author">Author Name</label>
+      <input type="text" id="author" name="author" />
+    </div>
+
+    <div class="form-group">
+      <label for="imageUpload">Upload Image</label>
+      <input type="file" id="imageUpload" accept="image/*" />
+      <input type="text" id="imageURL" name="image" placeholder="Image URL" readonly />
+      <img id="previewImage" />
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      <input type="text" id="category" name="category" />
+    </div>
+
+    <div class="form-group">
+      <label for="date">Publish Date (DD-MM-YYYY)</label>
+      <input type="text" id="date" name="date" />
+    </div>
+
+    <div class="form-group">
+      <label for="slug">Slug (URL friendly name)</label>
+      <input type="text" id="slug" name="slug" readonly />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Short Description</label>
+      <textarea id="description" name="description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="tags">Tags (comma separated)</label>
+      <input type="text" id="tags" name="tags" />
+    </div>
+
+    <div class="form-group">
+      <label for="keywords">Keywords (comma separated)</label>
+      <input type="text" id="keywords" name="keywords" />
+    </div>
+
+    <button type="submit">Update Post</button>
+  </form>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+  <script>
+    const Font = Quill.import('formats/font');
+    Font.whitelist = ['roboto','playfair', 'sans-serif', 'serif', 'monospace'];
+    Quill.register(Font, true);
+  
+    const toolbarOptions = [
+      [{ 'font': Font.whitelist }],
+      [{ 'size': ['small', false, 'large', 'huge'] }],
+      ['bold', 'italic'],
+      [{ 'align': [] }],
+      ['blockquote'],
+      [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+      ['link'],
+      [{ 'color': [] }, { 'background': [] }],
+      ['clean']
+    ];
+  
+    const quill = new Quill('#editor', {
+      theme: 'snow',
+      modules: {
+        toolbar: toolbarOptions
+      }
+    });
+  
+    // Store content in hidden input on submit
+    document.getElementById('blogForm').addEventListener('submit', function (e) {
+      document.getElementById('hiddenContent').value = quill.root.innerHTML;
+    });
+  </script>
+
+  <script>
+
+const correctPassword = 'sanjupurdhani@gmail.com';
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedKey = sessionStorage.getItem('authKey');
+  if (savedKey === correctPassword) {
+    showContent();
+  } else {
+    document.getElementById('blogForm').style.display = 'none';
+    document.getElementById('loginBox').style.display = 'block';
+  }
+});
+
+function checkPassword() {
+  const inputKey = document.getElementById('passwordInput').value;
+  if (!inputKey) return alert('Please enter the password.');
+
+  if (inputKey === correctPassword) {
+    sessionStorage.setItem('authKey', inputKey);
+    showContent();
+  } else {
+    alert('Invalid password.');
+  }
+}
+
+function showToast(message, type = 'success') {
+  const toast = document.createElement('div');
+  toast.textContent = message;
+  toast.style.position = 'fixed';
+  toast.style.bottom = '30px';
+  toast.style.right = '30px';
+  toast.style.padding = '15px 20px';
+  toast.style.backgroundColor = type === 'success' ? '#4caf50' : '#f44336';
+  toast.style.color = '#fff';
+  toast.style.borderRadius = '8px';
+  toast.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+  toast.style.zIndex = 1000;
+  toast.style.opacity = '0';
+  toast.style.transition = 'opacity 0.3s ease-in-out';
+
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.style.opacity = '1';
+  }, 100);
+
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    setTimeout(() => toast.remove(), 500);
+  }, 2500);
+}
+
+function showContent() {
+  document.getElementById('blogForm').style.display = 'block';
+    document.getElementById('loginBox').style.display = 'none';
+}
+
+function logout() {
+      sessionStorage.removeItem('authKey');
+      location.reload();
+    }
+
+    const repo = 'gauravshharma/soul-savera';
+    const folder = 'posts';
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const slug = urlParams.get('slug');
+      if (!slug) return showToast('Missing slug in URL');
+
+      try {
+        const res = await fetch(`https://raw.githubusercontent.com/${repo}/master/${folder}/${slug}.md`);
+        const markdown = await res.text();
+
+        const frontmatterRegex = /^---\n([\s\S]*?)\n---/;
+        const match = markdown.match(frontmatterRegex);
+        if (!match) return showToast('No frontmatter found');
+
+        const lines = match[1].split('\n');
+        const data = {};
+        lines.forEach(line => {
+          const [key, ...rest] = line.split(':');
+          data[key.trim()] = rest.join(':').trim().replace(/^"|"$/g, '');
+        });
+
+        document.querySelector('[name="title"]').value = data.title || '';
+        document.querySelector('[name="author"]').value = data.author || '';
+        document.querySelector('[name="tags"]').value = data.tags || '';
+        document.querySelector('[name="image"]').value = data.image || '';
+        document.querySelector('[name="category"]').value = data.category || '';
+        document.querySelector('[name="date"]').value = data.date || '';
+        document.querySelector('[name="slug"]').value = slug;
+        document.querySelector('[name="description"]').value = data.description || '';
+        document.querySelector('[name="keywords"]').value = data.keywords || '';
+        const contentHtml = markdown.replace(frontmatterRegex, '').trim();
+        quill.root.innerHTML = contentHtml;
+        document.querySelector('[name="content"]').value = contentHtml;
+
+
+        if (data.image) {
+          const preview = document.getElementById('previewImage');
+          preview.src = data.image;
+          preview.style.display = 'block';
+        }
+      } catch (error) {
+        console.error(error);
+        showToast('Error loading post');
+      }
+    });
+
+    document.getElementById('imageUpload').addEventListener('change', function () {
+      const file = this.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onloadend = function () {
+        document.getElementById('imageURL').value = reader.result;
+        const preview = document.getElementById('previewImage');
+        preview.src = reader.result;
+        preview.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    });
+
+    document.getElementById('blogForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const form = e.target;
+      form.content.value = quill.root.innerHTML;
+      const postData = {
+        title: form.title.value,
+        content: form.content.value,
+        author: form.author.value,
+        tags: form.tags.value,
+        image: form.image.value,
+        category: form.category.value,
+        date: form.date.value || new Date().toLocaleDateString('en-GB').replace(/\//g, '-'),
+        slug: form.slug.value,
+        description: form.description.value,
+        keywords: form.keywords.value,
+      };
+
+      try {
+        const response = await fetch('/.netlify/functions/editPost', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(postData)
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          showToast('Post updated successfully!');
+          setTimeout(() => window.location.href = 'manage', 1500);
+        } else {
+          showToast(result.message || 'Error updating post.');
+        }
+      } catch (error) {
+        console.error(error);
+        showToast('Network error. Try again later.');
+      }
+    });
+  </script>
+</body>
+</html>

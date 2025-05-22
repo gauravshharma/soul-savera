@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manage Blogs</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      background: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    header .actions a, header .actions button {
+      margin-left: 1rem;
+      text-decoration: none;
+      background: #007bff;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    header a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #007bff;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      background: #fff;
+      transition: all 0.2s ease;
+    }
+/* 
+    header a:hover {
+      background: #007bff;
+      color: #fff;
+    } */
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+
+    #loginBox,
+    #blogForm {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 500px;
+      text-align: center;
+      margin: 0 auto;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    }
+  
+    .form-group {
+      margin-bottom: 16px;
+    }
+  
+    label {
+      text-align: left;
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #444;
+    }
+  
+    input,
+    textarea,
+    button {
+      width: 100%;
+      font-size: 15px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+  
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+  
+    input:focus,
+    textarea:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+  
+    button {
+      background-color: #007bff;
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 10px;
+    }
+  
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f0f0f0;
+      font-weight: 600;
+    }
+
+    .actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .actions a {
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .text-primary {
+      color: #007bff;
+    }
+
+    .btn-addPost {
+      background-color: #007bff;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      margin-left: auto;
+      width: 130px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-decoration: none;
+      display: none;
+    }
+
+    .text-danger {
+      color: #dc3545;
+    }
+
+    @media (max-width: 600px) {
+      #authSection {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      #authSection input {
+        width: 100%;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="../"><img src="../images/assets/logo-no-bg.png" alt="Soul Savera Logo" /></a>
+    <div class="actions">
+        <button onclick="logout()" class="logout">Logout</button>
+      </div>
+  </header>
+
+  <main>
+    <div id="loginBox">
+        <h1 id="pageTitle" style="text-align: center;">Authentication Required</h1>
+        <div class="form-group">
+          <input type="password" id="passwordInput" placeholder="Enter Password" />
+        </div>
+        <button onclick="checkPassword()">Login</button>
+      </div>
+
+    <table id="contentBox" style="display: none;">
+        <a href="/blog" id="blogTitle" style="text-align: center; display: none;text-decoration: none; color:#191f3f;"><h1 style="text-decoration: none;">Blogs</h1></a>
+        <a href="create-blog" class="btn btn-addPost float-right" id="addPost" style="display: none;">+ Add New Post</a>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>URL Slug</th>
+          <th>Publish Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="postsBody"></tbody>
+    </table>
+  </main>
+
+  <script>
+    const repo = 'gauravshharma/soul-savera';
+    const folder = 'posts';
+    const correctPassword = 'sanjupurdhani@gmail.com';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedKey = sessionStorage.getItem('authKey');
+      if (savedKey === correctPassword) {
+        showContent();
+        fetchPosts();
+      } else {
+        document.getElementById('loginBox').style.display = 'block';
+        document.getElementById('contentBox').style.display = 'none';
+        document.getElementById('addPost').style.display = 'none';
+      }
+    });
+
+    function checkPassword() {
+      const inputKey = document.getElementById('passwordInput').value;
+      if (!inputKey) return alert('Please enter the password.');
+
+      if (inputKey === correctPassword) {
+        sessionStorage.setItem('authKey', inputKey);
+        showContent();
+        fetchPosts();
+      } else {
+        alert('Invalid password.');
+      }
+    }
+
+    function showContent() {
+      document.getElementById('loginBox').style.display = 'none';
+      document.getElementById('contentBox').style.display = 'table';
+      document.getElementById('blogTitle').style.display = 'block';
+      document.getElementById('addPost').style.display = 'block';
+    }
+
+    function logout() {
+      sessionStorage.removeItem('authKey');
+      location.reload();
+    }
+
+    async function fetchPosts() {
+      const res = await fetch(`https://api.github.com/repos/${repo}/contents/${folder}`);
+      const files = await res.json();
+      const table = document.getElementById('postsBody');
+      table.innerHTML = '';
+
+      for (const file of files) {
+        const slug = file.name.replace('.md', '');
+        const rawRes = await fetch(file.download_url);
+        const text = await rawRes.text();
+        const titleMatch = text.match(/title:\s*(.*)/);
+        const title = titleMatch ? titleMatch[1].replace(/"/g, '') : slug;
+        const dateMatch = text.match(/date:\s*(.*)/);
+        const date = dateMatch ? dateMatch[1].replace(/"/g, '') : 'Unknown';
+       
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${title}</td>
+          <td>/${slug}</td>
+          <td>${date}</td>
+          <td class="actions">
+            <a href="edit-blog?slug=${slug}" class="text-primary">✏️ Edit</a>
+            <a onclick="deletePost('${slug}')" class="text-danger">🗑️ Delete</a>
+          </td>
+        `;
+        table.appendChild(row);
+      }
+    }
+
+    async function deletePost(slug) {
+      if (!confirm(`Are you sure you want to delete "${slug}"?`)) return;
+
+      try {
+      const authKey = sessionStorage.getItem('authKey');
+      const res = await fetch('https://soulsavera.netlify.app/.netlify/functions/deletePost', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-auth-key': authKey
+        },
+        body: JSON.stringify({ slug })
+      });
+
+      const result = await res.json();
+        if (res.ok) {
+          alert('Post deleted');
+          fetchPosts();
+        } else {
+          alert(result.error || 'Failed to delete');
+        }
+      } catch (err) {
+      console.error('Error deleting post:', err);
+      alert('Something went wrong while deleting.');
+    }
+  }
+  </script>
+
+</body>
+</html>
