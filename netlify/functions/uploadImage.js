@@ -1,7 +1,7 @@
 // netlify/functions/uploadImage.js
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
-exports.handler = async (event) => {
+export async function handler(event) {
   const allowedOrigin = "https://soulsavera.com";
 
   // Handle CORS preflight request
@@ -60,4 +60,4 @@ exports.handler = async (event) => {
     statusCode: res.status,
     body: JSON.stringify({ error: result })
   };
-};
+}
