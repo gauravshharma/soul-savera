@@ -1,6 +1,6 @@
-const { Octokit } = require("@octokit/rest");
+import { Octokit } from "@octokit/rest";
 
-exports.handler = async function (event) {
+export async function handler (event) {
   const allowedOrigin = "https://soulsavera.com";
 
   // Handle CORS preflight request
@@ -103,4 +103,4 @@ exports.handler = async function (event) {
       body: JSON.stringify({ error: message, details: error.message }),
     };
   }
-};
+}
