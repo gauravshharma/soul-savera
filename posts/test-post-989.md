@@ -1,13 +1,12 @@
 ---
-title: "Test post"
-author: "You"
-date: "2025-05-25"
-category: "category"
-tags: ["tag1", "tag2"]
-keywords: ["test", "post"]
-image: "image.jpg"
-slug: "test-post-989"
-description: "A test post"
+title: "Updated Post Title"
+author: "Updated Author"
+tags: ["updated", "tag", "list"]
+image: "updated-image.jpg"
+category: "Updated Category"
+date: "2025-05-26"
+description: "Updated description"
+keywords: ["updated", "keywords", "list"]
 ---
 
-Hello world
+Updated content goes here.
