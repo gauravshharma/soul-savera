@@ -295,7 +295,7 @@
 
       try {
       const authKey = sessionStorage.getItem('authKey');
-      const res = await fetch('https://soulsavera.com/.netlify/functions/deletePost', {
+      const res = await fetch('/.netlify/functions/deletePost', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
