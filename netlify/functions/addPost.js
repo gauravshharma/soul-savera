@@ -35,6 +35,8 @@ exports.handler = async (event) => {
     };
   }
 
+  const authKey = event.headers["x-auth-key"] || "";
+
   // Parse data
   const {
     title,
@@ -77,6 +79,7 @@ ${content}
         Authorization: `Bearer ${githubToken}`,
         'Content-Type': 'application/json',
         'User-Agent': 'Netlify Blog Uploader',
+        'x-auth-key': authKey,
       },
       body: JSON.stringify({
         message: `Add new blog post: ${title}`,

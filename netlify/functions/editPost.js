@@ -35,7 +35,17 @@ exports.handler = async function (event) {
     };
   }
 
-  const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+  const authKey = event.headers["x-auth-key"] || "";
+
+  const octokit = new Octokit({
+    auth: process.env.GITHUB_TOKEN,
+    request: {
+      headers: {
+        'x-auth-key': authKey,
+      },
+    },
+  });
+
   const owner = "gauravshharma";
   const repo = "soul-savera";
 
@@ -103,4 +113,4 @@ ${content}`;
       }),
     };
   }
-}
+};
