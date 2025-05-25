@@ -11,13 +11,18 @@
       color: #333;
       margin: auto;
     }
+    .ql-font-roboto {
+  font-family: 'Roboto', sans-serif;
+}
+.ql-font-playfair {
+  font-family: 'Playfair Display', serif;
+}
 
     header {
       background: #fff;
       padding: 1rem 2rem;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
       display: flex;
-      align-items: left;
       justify-content: space-between;
     }
 
@@ -164,7 +169,7 @@
     <header>
       <a href="../"><img src="../images/assets/logo-no-bg.png" alt="Soul Savera Logo" /></a>
       <div class="actions">
-        <button onclick="logout()" class="logout">Logout</button>
+        <button type="button" onclick="logout()" class="logout">Logout</button>
       </div>
     </header>
 
@@ -173,7 +178,7 @@
   <div class="form-group">
     <input type="password" id="passwordInput" placeholder="Enter Password" />
   </div>
-  <button onclick="checkPassword()">Login</button>
+  <button type="button" onclick="checkPassword()">Login</button>
 </div>
 
 <form id="blogForm" style="display: none;">
@@ -196,9 +201,9 @@
 
   <div class="form-group">
     <label>Upload Banner Image</label>
-    <input type="file" id="imageUpload" accept="image/*" />
+    <input type="file" id="imageUpload" accept="image/*" name="imageFile"/>
     <input type="text" name="image" id="imageURL" readonly />
-    <img id="previewImage" />
+    <img id="previewImage"  alt="Banner Preview"/>
   </div>
 
   <div class="form-group">
@@ -343,17 +348,6 @@ function logout() {
       location.reload();
     }
 
-    const dateInput = document.getElementById('date');
-let date = dateInput.value;
-
-if (!date) {
-  const today = new Date();
-  const dd = String(today.getDate()).padStart(2, '0');
-  const mm = String(today.getMonth() + 1).padStart(2, '0');
-  const yyyy = today.getFullYear();
-  date = `${dd}-${mm}-${yyyy}`;
-}
-
     document.getElementById('blogForm').addEventListener('submit', async function (e) {
       e.preventDefault();
       const form = new FormData(this);
@@ -375,13 +369,17 @@ if (!date) {
   const response = await fetch('/.netlify/functions/addPost', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'x-auth-key': correctPassword,
     },
     body: JSON.stringify(postData)
   });
 
   const result = await response.json();
-
+  console.log(result);
+  if (!response.ok) {
+    throw new Error(result.message || 'Failed to publish blog post');
+  }
   showToast(result.message || 'Blog published successfully!', 'success');
 
   // Redirect after short delay

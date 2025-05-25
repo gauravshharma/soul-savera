@@ -1,11 +1,12 @@
-import { Octokit } from "@octokit/rest";
-import { encode } from "js-base64";
+const { Octokit } = require("@octokit/rest");
+const { encode } = require("js-base64");
 
 exports.handler = async function (event) {
   // Allow dev, preview, and prod
   const allowedOrigins = [
     "https://soulsavera.com",
     "https://soulsavera.netlify.app",
+    "http://localhost:8888/",
   ];
   const origin = event.headers.origin;
   const isAllowedOrigin = allowedOrigins.includes(origin);
@@ -34,20 +35,17 @@ exports.handler = async function (event) {
     };
   }
 
-  // Auth check
-  const authHeader = event.headers["x-auth-key"];
-  const AUTH_KEY = process.env.AUTH_KEY;
-  if (AUTH_KEY && authHeader !== AUTH_KEY) {
-    return {
-      statusCode: 401,
-      headers: {
-        "Access-Control-Allow-Origin": accessControlOrigin,
-      },
-      body: JSON.stringify({ error: "Unauthorized" }),
-    };
-  }
+  const authKey = event.headers["x-auth-key"] || "";
 
-  const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+  const octokit = new Octokit({
+    auth: process.env.GITHUB_TOKEN,
+    request: {
+      headers: {
+        'x-auth-key': authKey,
+      },
+    },
+  });
+
   const owner = "gauravshharma";
   const repo = "soul-savera";
 
@@ -115,4 +113,4 @@ ${content}`;
       }),
     };
   }
-}
+};

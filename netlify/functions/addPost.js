@@ -1,10 +1,11 @@
-import fetch from 'node-fetch';
-import { Buffer } from 'buffer';
+const fetch = require('node-fetch');
+const { Buffer } = require('buffer');
 
 exports.handler = async (event) => {
   const allowedOrigins = [
     "https://soulsavera.com",
     "https://soulsavera.netlify.app",
+    "http://localhost:8888",
   ];
 
   const origin = event.headers.origin;
@@ -35,10 +36,9 @@ exports.handler = async (event) => {
     };
   }
 
-  // Auth Header Check (Optional if you are protecting your API)
-  const authHeader = event.headers["x-auth-key"];
-  const AUTH_KEY = process.env.AUTH_KEY;
-  if (AUTH_KEY && authHeader !== AUTH_KEY) {
+  const authKey = event.headers["x-auth-key"] || "";
+
+  if (authKey !== process.env.AUTH_KEY) {
     return {
       statusCode: 401,
       headers: {
@@ -107,16 +107,25 @@ ${content}
 
     const result = await res.json();
 
+    if (!res.ok) {
+      return {
+        statusCode: res.status,
+        headers: {
+          "Access-Control-Allow-Origin": accessControlOrigin,
+        },
+        body: JSON.stringify({
+          error: result.message || "GitHub API error",
+          details: result,
+        }),
+      };
+    }
+    
     return {
-      statusCode: res.status,
+      statusCode: 200,
       headers: {
         "Access-Control-Allow-Origin": accessControlOrigin,
       },
-      body: JSON.stringify(
-        res.ok
-          ? { message: 'Blog post added successfully!' }
-          : { error: result }
-      ),
+      body: JSON.stringify({ message: 'Blog post added successfully!' }),
     };
   } catch (err) {
     return {
