@@ -437,17 +437,19 @@ function logout() {
         const response = await fetch('/.netlify/functions/editPost', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'x-auth-key': sessionStorage.getItem('authKey') || correctPassword || '',
           },
           body: JSON.stringify(postData)
         });
 
         const result = await response.json();
+        if (!response.ok) {
+          throw new Error(result.message || 'Failed to update post');
+        }
         if (response.ok) {
           showToast('Post updated successfully!');
           setTimeout(() => window.location.href = 'manage', 1500);
-        } else {
-          showToast(result.message || 'Error updating post.');
         }
       } catch (error) {
         console.error(error);

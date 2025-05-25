@@ -5,6 +5,7 @@ exports.handler = async (event) => {
   const allowedOrigins = [
     "https://soulsavera.com",
     "https://soulsavera.netlify.app",
+    "http://localhost:8888",
   ];
 
   const origin = event.headers.origin;
@@ -36,6 +37,16 @@ exports.handler = async (event) => {
   }
 
   const authKey = event.headers["x-auth-key"] || "";
+
+  if (authKey !== process.env.AUTH_KEY) {
+    return {
+      statusCode: 401,
+      headers: {
+        "Access-Control-Allow-Origin": accessControlOrigin,
+      },
+      body: JSON.stringify({ error: "Unauthorized" }),
+    };
+  }
 
   // Parse data
   const {
@@ -79,7 +90,6 @@ ${content}
         Authorization: `Bearer ${githubToken}`,
         'Content-Type': 'application/json',
         'User-Agent': 'Netlify Blog Uploader',
-        'x-auth-key': authKey,
       },
       body: JSON.stringify({
         message: `Add new blog post: ${title}`,
@@ -97,16 +107,25 @@ ${content}
 
     const result = await res.json();
 
+    if (!res.ok) {
+      return {
+        statusCode: res.status,
+        headers: {
+          "Access-Control-Allow-Origin": accessControlOrigin,
+        },
+        body: JSON.stringify({
+          error: result.message || "GitHub API error",
+          details: result,
+        }),
+      };
+    }
+    
     return {
-      statusCode: res.status,
+      statusCode: 200,
       headers: {
         "Access-Control-Allow-Origin": accessControlOrigin,
       },
-      body: JSON.stringify(
-        res.ok
-          ? { message: 'Blog post added successfully!' }
-          : { error: result }
-      ),
+      body: JSON.stringify({ message: 'Blog post added successfully!' }),
     };
   } catch (err) {
     return {
