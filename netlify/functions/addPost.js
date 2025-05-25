@@ -35,19 +35,6 @@ exports.handler = async (event) => {
     };
   }
 
-  // Auth Header Check (Optional if you are protecting your API)
-  const authHeader = event.headers["x-auth-key"];
-  const AUTH_KEY = process.env.AUTH_KEY;
-  if (AUTH_KEY && authHeader !== AUTH_KEY) {
-    return {
-      statusCode: 401,
-      headers: {
-        "Access-Control-Allow-Origin": accessControlOrigin,
-      },
-      body: JSON.stringify({ error: "Unauthorized" }),
-    };
-  }
-
   // Parse data
   const {
     title,
