@@ -33,6 +33,8 @@ exports.handler = async (event) => {
     };
   }
 
+  const authKey = event.headers["x-auth-key"] || "";
+
   try {
     const { fileName, fileData, mimeType } = JSON.parse(event.body);
 
@@ -47,6 +49,7 @@ exports.handler = async (event) => {
         Authorization: `Bearer ${githubToken}`,
         'Content-Type': 'application/json',
         'User-Agent': 'GitHub Image Uploader',
+        'x-auth-key': authKey,
       },
       body: JSON.stringify({
         message: `Upload image ${fileName}`,
