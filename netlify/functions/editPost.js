@@ -1,11 +1,12 @@
-import { Octokit } from "@octokit/rest";
-import { encode } from "js-base64";
+const { Octokit } = require("@octokit/rest");
+const { encode } = require("js-base64");
 
 exports.handler = async function (event) {
   // Allow dev, preview, and prod
   const allowedOrigins = [
     "https://soulsavera.com",
     "https://soulsavera.netlify.app",
+    "http://localhost:8888/",
   ];
   const origin = event.headers.origin;
   const isAllowedOrigin = allowedOrigins.includes(origin);
