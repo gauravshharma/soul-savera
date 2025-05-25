@@ -139,6 +139,8 @@
     .actions {
       display: flex;
       gap: 1rem;
+      align-items: center;
+      height: 15vh;
     }
 
     .actions a {
@@ -149,6 +151,10 @@
 
     .text-primary {
       color: #007bff;
+    }
+
+    .text-secondary {
+      color: #e59a24;
     }
 
     .btn-addPost {
@@ -184,6 +190,7 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -282,7 +289,8 @@
           <td>/${slug}</td>
           <td>${date}</td>
           <td class="actions">
-            <a href="edit-blog?slug=${slug}" class="text-primary">✏️ Edit</a>
+             <a href="post?slug=${slug}" class="text-primary"><i class="fas fa-eye"></i> View</a>
+            <a href="edit-blog?slug=${slug}" class="text-secondary">✏️ Edit</a>
             <a onclick="deletePost('${slug}')" class="text-danger">🗑️ Delete</a>
           </td>
         `;
@@ -299,7 +307,7 @@
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-auth-key': authKey
+          'x-auth-key': authKey || correctPassword || "",
         },
         body: JSON.stringify({ slug })
       });
