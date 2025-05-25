@@ -1,15 +1,22 @@
 import fetch from 'node-fetch';
 import { Buffer } from 'buffer';
 
-export async function handler(event) {
-  const allowedOrigin = "https://soulsavera.com";
+exports.handler = async (event) => {
+  const allowedOrigins = [
+    "https://soulsavera.com",
+    "https://soulsavera.netlify.app",
+  ];
+
+  const origin = event.headers.origin;
+  const isAllowedOrigin = allowedOrigins.includes(origin);
+  const accessControlOrigin = isAllowedOrigin ? origin : "https://soulsavera.com";
 
   // CORS Preflight
   if (event.httpMethod === "OPTIONS") {
     return {
       statusCode: 200,
       headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
+        "Access-Control-Allow-Origin": accessControlOrigin,
         "Access-Control-Allow-Methods": "POST, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type, x-auth-key",
       },
@@ -22,7 +29,7 @@ export async function handler(event) {
     return {
       statusCode: 405,
       headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
+        "Access-Control-Allow-Origin": accessControlOrigin,
       },
       body: "Method Not Allowed",
     };
@@ -35,7 +42,7 @@ export async function handler(event) {
     return {
       statusCode: 401,
       headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
+        "Access-Control-Allow-Origin": accessControlOrigin,
       },
       body: JSON.stringify({ error: "Unauthorized" }),
     };
@@ -103,7 +110,7 @@ ${content}
     return {
       statusCode: res.status,
       headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
+        "Access-Control-Allow-Origin": accessControlOrigin,
       },
       body: JSON.stringify(
         res.ok
@@ -115,7 +122,7 @@ ${content}
     return {
       statusCode: 500,
       headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
+        "Access-Control-Allow-Origin": accessControlOrigin,
       },
       body: JSON.stringify({
         error: 'Failed to commit - Contact the genius behind this!',

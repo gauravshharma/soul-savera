@@ -1,14 +1,22 @@
 import { Octokit } from "@octokit/rest";
 
-export async function handler (event) {
-  const allowedOrigin = "https://soulsavera.com";
+exports.handler = async function (event) {
+  // Define allowed origins for dev, preview, and production
+  const allowedOrigins = [
+    "https://soulsavera.com",
+    "https://soulsavera.netlify.app",
+  ];
+
+  const origin = event.headers.origin;
+  const isAllowedOrigin = allowedOrigins.includes(origin);
+  const accessControlOrigin = isAllowedOrigin ? origin : "https://soulsavera.com";
 
   // Handle CORS preflight request
   if (event.httpMethod === "OPTIONS") {
     return {
       statusCode: 200,
       headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
+        "Access-Control-Allow-Origin": accessControlOrigin,
         "Access-Control-Allow-Methods": "POST, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type, x-auth-key",
       },
@@ -20,7 +28,7 @@ export async function handler (event) {
     return {
       statusCode: 405,
       headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
+        "Access-Control-Allow-Origin": accessControlOrigin,
       },
       body: "Method Not Allowed",
     };
@@ -33,7 +41,7 @@ export async function handler (event) {
     return {
       statusCode: 401,
       headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
+        "Access-Control-Allow-Origin": accessControlOrigin,
       },
       body: JSON.stringify({ error: "Unauthorized" }),
     };
@@ -48,7 +56,7 @@ export async function handler (event) {
     return {
       statusCode: 400,
       headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
+        "Access-Control-Allow-Origin": accessControlOrigin,
       },
       body: JSON.stringify({ error: "Invalid request body", details: err.message }),
     };
@@ -85,7 +93,7 @@ export async function handler (event) {
     return {
       statusCode: 200,
       headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
+        "Access-Control-Allow-Origin": accessControlOrigin,
       },
       body: JSON.stringify({ message: "Post deleted successfully." }),
     };
@@ -98,7 +106,7 @@ export async function handler (event) {
     return {
       statusCode,
       headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
+        "Access-Control-Allow-Origin": accessControlOrigin,
       },
       body: JSON.stringify({ error: message, details: error.message }),
     };

@@ -1,15 +1,22 @@
 import { Octokit } from "@octokit/rest";
 import { encode } from "js-base64";
 
-export async function handler (event) {
-  const allowedOrigin = "https://soulsavera.com";
+exports.handler = async function (event) {
+  // Allow dev, preview, and prod
+  const allowedOrigins = [
+    "https://soulsavera.com",
+    "https://soulsavera.netlify.app",
+  ];
+  const origin = event.headers.origin;
+  const isAllowedOrigin = allowedOrigins.includes(origin);
+  const accessControlOrigin = isAllowedOrigin ? origin : "https://soulsavera.com";
 
   // Handle CORS preflight request
   if (event.httpMethod === "OPTIONS") {
     return {
       statusCode: 200,
       headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
+        "Access-Control-Allow-Origin": accessControlOrigin,
         "Access-Control-Allow-Methods": "POST, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type, x-auth-key",
       },
@@ -21,9 +28,22 @@ export async function handler (event) {
     return {
       statusCode: 405,
       headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
+        "Access-Control-Allow-Origin": accessControlOrigin,
       },
       body: "Method Not Allowed",
+    };
+  }
+
+  // Auth check
+  const authHeader = event.headers["x-auth-key"];
+  const AUTH_KEY = process.env.AUTH_KEY;
+  if (AUTH_KEY && authHeader !== AUTH_KEY) {
+    return {
+      statusCode: 401,
+      headers: {
+        "Access-Control-Allow-Origin": accessControlOrigin,
+      },
+      body: JSON.stringify({ error: "Unauthorized" }),
     };
   }
 
@@ -40,14 +60,14 @@ export async function handler (event) {
 
     const path = `posts/${slug}.md`;
     const newContent = `---
-title: ${title}
-author: ${author}
-tags: ${tags}
-image: ${image}
-category: ${category}
-date: ${date}
-description: ${description}
-keywords: ${keywords}
+title: "${title}"
+author: "${author}"
+tags: [${tags.split(',').map(tag => `"${tag.trim()}"`).join(', ')}]
+image: "${image}"
+category: "${category}"
+date: "${date}"
+description: "${description}"
+keywords: [${keywords.split(',').map(word => `"${word.trim()}"`).join(', ')}]
 ---
 
 ${content}`;
@@ -78,7 +98,7 @@ ${content}`;
     return {
       statusCode: 200,
       headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
+        "Access-Control-Allow-Origin": accessControlOrigin,
       },
       body: JSON.stringify({ message: "Blog post updated successfully" }),
     };
@@ -87,7 +107,7 @@ ${content}`;
     return {
       statusCode: 500,
       headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
+        "Access-Control-Allow-Origin": accessControlOrigin,
       },
       body: JSON.stringify({
         error: "Failed to update blog post",
