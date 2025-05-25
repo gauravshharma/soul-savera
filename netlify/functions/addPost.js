@@ -1,5 +1,5 @@
-const fetch = require('node-fetch');
-const { Buffer } = require('buffer');
+import fetch from 'node-fetch';
+import { Buffer } from 'buffer';
 
 exports.handler = async (event) => {
   const allowedOrigins = [
@@ -130,4 +130,4 @@ ${content}
       }),
     };
   }
-};
+}

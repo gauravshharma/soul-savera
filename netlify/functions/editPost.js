@@ -1,5 +1,5 @@
-const { Octokit } = require("@octokit/rest");
-const base64 = require("js-base64");
+import { Octokit } from "@octokit/rest";
+import { encode } from "js-base64";
 
 exports.handler = async function (event) {
   // Allow dev, preview, and prod
@@ -83,7 +83,7 @@ ${content}`;
       repo,
       path,
       message: `Updated post: ${title}`,
-      content: base64.encode(newContent),
+      content: encode(newContent),
       sha: fileData.sha,
       committer: {
         name: "Blog Bot",
@@ -115,4 +115,4 @@ ${content}`;
       }),
     };
   }
-};
+}

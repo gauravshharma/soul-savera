@@ -1,4 +1,4 @@
-const { Octokit } = require("@octokit/rest");
+import { Octokit } from "@octokit/rest";
 
 exports.handler = async function (event) {
   // Define allowed origins for dev, preview, and production
@@ -111,4 +111,4 @@ exports.handler = async function (event) {
       body: JSON.stringify({ error: message, details: error.message }),
     };
   }
-};
+}

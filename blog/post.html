@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title id="seo-title">Blog</title>
+  <title id="seo-title">Blog | Soul Savera</title>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
   <!-- SEO Meta Tags -->
@@ -33,7 +33,147 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
   <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-QFP1YDPWRS"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-QFP1YDPWRS'); </script>	
+  <style>
+	
+#loader {
+  display: flex;
+}
 
+#postsContainer {
+  display: none;
+}
+/* Post detail page  */
+#post-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 24px 0;
+  text-align: center;	
+  color: var(--heading);
+}
+
+  .banner {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: cover;
+    margin: 0 auto;
+    border-radius: 12px;
+  }
+
+.banner-container {
+    position: relative;
+    margin: 24px 0;
+  }
+
+  .banner-container .banner {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .banner-container .banner-meta {
+    position: absolute;
+    bottom: 12px;
+    left: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .banner-container .banner-category {
+    position: absolute;
+    bottom: 12px;
+    right: 16px;
+    background-color: var(--yellow-deep);
+    color: var(--heading);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+  text-transform: capitalize;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .tag-container span::before {
+    content: '#';
+    margin-right: 4px;
+    color: #888;
+  }
+
+  .meta {
+    color: #777;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .description {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 24px;
+    visibility: hidden;
+  }
+
+  .keywords {
+   visibility: hidden;
+  }
+
+  .content {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    padding: 0 8rem;
+  }
+
+  .content p {
+    color: #000;
+  }
+
+  .content p a {
+    color: var(--blue-dark);
+  }
+
+  .tag-container {
+    margin-top: 36px;
+    text-align: center;
+  }
+
+  .tag-container span {
+    display: inline-block;
+    background-color: #f1f1f1;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin: 4px 8px 4px 0;
+    font-size: 0.85rem;
+    color: #444;
+  }
+
+  .share {
+    margin-top: 40px;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .share strong {
+    margin-right: 12px;
+    text-decoration: none;
+    color: var(--heading);
+    font-weight: 500;
+    font-size: 1rem;
+  }
+
+  .share a i {
+    margin-right: 12px;
+    text-decoration: none;
+    color: var(--blue-dark);
+    font-weight: 500;
+    font-size: 1.25rem;
+    cursor: pointer;
+  }
+  </style>
 </head>
 <body>
 	<div class="main-page-wrapper p0 onovo-page">
