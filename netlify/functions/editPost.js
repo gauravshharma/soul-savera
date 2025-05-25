@@ -34,19 +34,6 @@ exports.handler = async function (event) {
     };
   }
 
-  // Auth check
-  const authHeader = event.headers["x-auth-key"];
-  const AUTH_KEY = process.env.AUTH_KEY;
-  if (AUTH_KEY && authHeader !== AUTH_KEY) {
-    return {
-      statusCode: 401,
-      headers: {
-        "Access-Control-Allow-Origin": accessControlOrigin,
-      },
-      body: JSON.stringify({ error: "Unauthorized" }),
-    };
-  }
-
   const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
   const owner = "gauravshharma";
   const repo = "soul-savera";
