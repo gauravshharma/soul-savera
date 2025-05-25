@@ -1,4 +1,4 @@
-import { Octokit } from "@octokit/rest";
+const { Octokit } = require("@octokit/rest");
 
 exports.handler = async function (event) {
   // Define allowed origins for dev, preview, and production
