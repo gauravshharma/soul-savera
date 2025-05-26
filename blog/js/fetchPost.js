@@ -37,21 +37,34 @@ async function fetchPost() {
     const repo = 'gauravshharma/soul-savera';
     const folder = 'posts';
     const response = await fetch(`https://api.github.com/repos/${repo}/contents/${folder}/${slug}.md`);
+    if (!response.ok) throw new Error(`Failed to fetch post: ${response.status}`);
+    
     const file = await response.json();
     const content = atob(file.content.replace(/\n/g, ''));
-    const [rawMetadata, ...bodyParts] = content.split('---').filter(Boolean);
+
+    // Parse metadata and body
+    const parts = content.split('---').filter(Boolean);
+    if (parts.length < 2) throw new Error('Invalid post format. Missing frontmatter or body.');
+
+    const [rawMetadata, ...bodyParts] = parts;
 
     const metadata = Object.fromEntries(
-      rawMetadata.trim().split('\n').map(line => {
-        const [key, ...rest] = line.split(':');
-        return [key.trim(), rest.join(':').trim().replace(/"/g, '')];
-      })
+      rawMetadata
+        .trim()
+        .split('\n')
+        .map(line => {
+          const [key, ...rest] = line.split(':');
+          if (!key || rest.length === 0) return null; // skip malformed lines
+          return [key.trim(), rest.join(':').trim().replace(/"/g, '')];
+        })
+        .filter(entry => entry !== null)
     );
 
     const body = bodyParts.join('---').trim();
 
-    document.title = metadata.title;
-    document.getElementById('seo-title').textContent = metadata.title;
+    // Populate meta tags
+    document.title = metadata.title || 'Untitled Post';
+    document.getElementById('seo-title').textContent = metadata.title || '';
     document.getElementById('meta-description').setAttribute('content', metadata.description || '');
     document.getElementById('og-title').setAttribute('content', metadata.title || '');
     document.getElementById('og-description').setAttribute('content', metadata.description || '');
@@ -61,12 +74,13 @@ async function fetchPost() {
     document.getElementById('twitter-description').setAttribute('content', metadata.description || '');
     document.getElementById('twitter-image').setAttribute('content', metadata.image || '');
 
+    // Display banner image
     const banner = document.getElementById('post-banner');
     banner.src = metadata.image || '../images/blog-banner.png';
     banner.alt = metadata.title || 'Blog Banner';
     banner.style.display = 'block';
 
-    // Format date to "MMM DD"
+    // Format date if possible
     let displayDate = metadata.date || '';
     if (/^\d{2}-\d{2}-\d{4}$/.test(displayDate)) {
       const [day, month, year] = displayDate.split('-');
@@ -79,36 +93,41 @@ async function fetchPost() {
       }
     }
 
+    // Fill in post details
     document.getElementById('post-title').textContent = metadata.title || '';
     document.getElementById('post-description').textContent = metadata.description || '';
     document.getElementById('banner-meta').textContent = `By ${metadata.author || 'Unknown'} | \nPublished on ${displayDate}`;
     document.getElementById('banner-category').textContent = metadata.category || '';
 
+    // Insert content
     const postContentEl = document.getElementById('post-content');
     postContentEl.innerHTML = body;
 
-    // Enhance <img> tags inside blog content
+    // Enhance images inside content
     const images = postContentEl.querySelectorAll('img');
     images.forEach(img => {
-      if (!img.alt || img.alt.trim() === '') {
-        img.alt = metadata.title || 'Blog Image';
-      }
+      img.alt = img.alt?.trim() || metadata.title || 'Blog Image';
       img.style.maxWidth = '100%';
       img.style.height = 'auto';
       img.loading = 'lazy';
     });
 
+    // Render tags and keywords
     renderTags(metadata.tags, 'post-tags');
     renderTags(metadata.keywords, 'post-keywords');
 
+    // Share links
     const encodedURL = encodeURIComponent(window.location.href);
     const encodedTitle = encodeURIComponent(metadata.title || 'Check this out!');
     document.getElementById('share-twitter').href = `https://twitter.com/intent/tweet?url=${encodedURL}&text=${encodedTitle}`;
     document.getElementById('share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodedURL}`;
     document.getElementById('share-linkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedURL}`;
+
   } catch (err) {
     console.error('Error loading post:', err);
+    document.getElementById('post-title').textContent = "Error loading post.";
   }
 }
+
 
 fetchPost();

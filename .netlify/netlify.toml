@@ -1,0 +1,29 @@
+functionsDirectory = "/Users/profile/Documents/work/soul-savera/netlify/functions"
+functionsDirectoryOrigin = "config-v1"
+plugins = []
+headers = []
+redirects = []
+
+[build]
+publish = "/Users/profile/Documents/work/soul-savera/dist"
+publishOrigin = "config"
+functions = "/Users/profile/Documents/work/soul-savera/netlify/functions"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
+
+[functions]
+
+[functions."*"]
+node_bundler = "esbuild"
