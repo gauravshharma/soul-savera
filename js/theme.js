@@ -2,6 +2,15 @@
 
 (function($) {
     "use strict";
+
+// ----------------------------- Page Loader
+window.addEventListener('load', hideLoader);
+setTimeout(hideLoader, 5000); // fallback in 5 seconds
+
+function hideLoader() {
+  const loader = document.getElementById('loader');
+  if (loader) loader.style.display = 'none';
+}
     
 // ----------------------------- Counter Function
         var timer = $('.timer');
@@ -805,13 +814,5 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Show loader on page load
-document.getElementById('loader').style.display = 'flex';
 
-// Wait for the full page and content to load
-window.addEventListener('load', () => {
-  const loader = document.getElementById('loader');
-  if (loader) loader.style.display = 'none';
-});
-
-})(jQuery);
+})(jQuery); 
